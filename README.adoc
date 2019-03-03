@@ -16,11 +16,10 @@ endif::[]
 * The application is a useful tool to manage the contacts of organising committee members and participating freshmen. 
 * Features included:
 ** An easy to use GUI with a list panel displaying contacts.
-** Viewing organisers and freshmen separately.
 ** Viewing condensed reports of the current camp size.
 ** Random shuffling of freshman grouping.
 ** Sorting participants according to their groups and houses.
-** More features underway, stay tuned! 
+** More features on the way, stay tuned! 
 
 == Site Map
 
