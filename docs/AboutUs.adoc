@@ -4,7 +4,7 @@
 :imagesDir: images
 :stylesDir: stylesheets
 
-AddressBook - Level 4 was developed by the https://se-edu.github.io/docs/Team.html[se-edu] team. +
+AddressBook - Level 4 was developed by the https://cs2113-ay1819s2-t08-4.github.io/main/AboutUs.html[T08-4] team. +
 _{The dummy content given below serves as a placeholder to be used by future forks of the project.}_ +
 {empty} +
 We are a team based in the http://www.comp.nus.edu.sg[School of Computing, National University of Singapore].
@@ -19,38 +19,38 @@ Role: Project Advisor
 
 '''
 
-=== John Roe
-image::lejolly.jpg[width="150", align="left"]
-{empty}[http://github.com/lejolly[github]] [<<johndoe#, portfolio>>]
+=== Chan Wei Zhang
+image::weizhang05.png[width="150", align="left"]
+{empty}[http://github.com/weizhang05[github]] [<<weizhang05#, portfolio>>]
 
-Role: Team Lead +
-Responsibilities: UI
-
-'''
-
-=== Johnny Doe
-image::yijinl.jpg[width="150", align="left"]
-{empty}[http://github.com/yijinl[github]] [<<johndoe#, portfolio>>]
-
-Role: Developer +
-Responsibilities: Data
+Role: Team Lead + Developer
+Responsibilities: Integration
 
 '''
 
-=== Johnny Roe
-image::m133225.jpg[width="150", align="left"]
-{empty}[http://github.com/m133225[github]] [<<johndoe#, portfolio>>]
-
-Role: Developer +
-Responsibilities: Dev Ops + Threading
-
-'''
-
-=== Benson Meier
-image::yl_coder.jpg[width="150", align="left"]
-{empty}[http://github.com/yl-coder[github]] [<<johndoe#, portfolio>>]
+=== Phan Duy Nhat Tan
+image::tantantan277.png[width="150", align="left"]
+{empty}[http://github.com/tantantan277[github]] [<<tantantan277#, portfolio>>]
 
 Role: Developer +
 Responsibilities: UI
+
+'''
+
+=== Shanon Seet Shwen Ling
+image::shanseet.png[width="150", align="left"]
+{empty}[http://github.com/shanseet[github]] [<<shanseet#, portfolio>>]
+
+Role: Developer +
+Responsibilities: +
+
+'''
+
+=== Sonia Sunil
+image::ssunil3232.png[width="150", align="left"]
+{empty}[http://github.com/ssunil3232[github]] [<<ssunil3232#, portfolio>>]
+
+Role: Developer +
+Responsibilities: +
 
 '''

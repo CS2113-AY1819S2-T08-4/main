@@ -1,0 +1,31 @@
+package seedu.address.model.role;
+
+import java.util.Set;
+
+import seedu.address.model.person.Address;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Phone;
+import seedu.address.model.privilege.Privilege;
+import seedu.address.model.tag.Tag;
+
+/**
+ * HouseHead for FOP.
+ */
+public class HouseHead extends Participant {
+
+
+    /**
+     * Every field must be present and not null.
+     *
+     * @param name
+     * @param phone
+     * @param email
+     * @param address
+     * @param tags
+     */
+    public HouseHead(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+        super(name, phone, email, address, tags);
+        super.setPrivilege(Privilege.HOUSE_HEAD);
+    }
+}
