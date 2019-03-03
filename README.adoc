@@ -1,7 +1,7 @@
 = Address Book (Level 4)
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
-https://travis-ci.org/se-edu/addressbook-level4[image:https://travis-ci.org/cs2113-ay1819s2-t08-4/main.svg?branch=master[Build Status]]
+https://travis-ci.org/cs2113-ay1819s2-t08-4/main[image:https://travis-ci.org/cs2113-ay1819s2-t08-4/main.svg?branch=master[Build Status]]
 
 ifdef::env-github[]
 image::docs/images/Ui.png[width="600"]
@@ -13,7 +13,8 @@ endif::[]
 
 * This is a desktop Address Book application. It has a GUI but most of the user interactions happen using a CLI (Command Line Interface).
 * It is a Java application targeted at *Project Directors* of *School of Computing Orientation Camps*.
-* The application is a useful tool to manage the contacts of organising committee members and participating freshmen. Its features include:
+* The application is a useful tool to manage the contacts of organising committee members and participating freshmen. 
+* Features included:
 ** An easy to use GUI with a list panel displaying contacts.
 ** Viewing organisers and freshmen separately.
 ** Viewing condensed reports of the current camp size.
