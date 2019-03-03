@@ -15,18 +15,19 @@ image::images/Ui.png[width="600"]
 endif::[]
 
 * This is a desktop Address Book application. It has a GUI but most of the user interactions happen using a CLI (Command Line Interface).
-* It is a Java sample application intended for students learning Software Engineering while using Java as the main programming language.
-* It is *written in OOP fashion*. It provides a *reasonably well-written* code example that is *significantly bigger* (around 6 KLoC)than what students usually write in beginner-level SE modules.
-* What's different from https://github.com/se-edu/addressbook-level3[level 3]:
-** A more sophisticated GUI that includes a list  panel and an in-built Browser.
-** More test cases, including automated GUI testing.
-** Support for _Build Automation_ using Gradle and for _Continuous Integration_ using Travis CI.
+* It is a Java application targeted at *Project Directors* of *School of Computing Orientation Camps*.
+* The application is a useful tool to manage the contacts of organising committee members and participating freshmen. Its features include:
+** An easy to use GUI with a list panel displaying contacts.
+** Viewing organisers and freshmen separately.
+** Viewing condensed reports of the current camp size.
+** Random shuffling of freshman grouping.
+** Sorting participants according to their groups and houses.
+** More features underway, stay tuned! 
 
 == Site Map
 
 * <<UserGuide#, User Guide>>
 * <<DeveloperGuide#, Developer Guide>>
-* <<LearningOutcomes#, Learning Outcomes>>
 * <<AboutUs#, About Us>>
 * <<ContactUs#, Contact Us>>
 
