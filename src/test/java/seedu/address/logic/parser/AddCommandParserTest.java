@@ -118,7 +118,7 @@ public class AddCommandParserTest {
 
         // all prefixes missing
         assertParseFailure(parser, VALID_NAME_BOB + VALID_PHONE_BOB + VALID_EMAIL_BOB + VALID_ADDRESS_BOB
-                + VALID_GROUP_BOB, expectedMessage);
+                + VALID_GROUP_AMY, expectedMessage);
     }
 
     @Test
