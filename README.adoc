@@ -13,13 +13,13 @@ endif::[]
 
 * This is a desktop Address Book application. It has a GUI but most of the user interactions happen using a CLI (Command Line Interface).
 * It is a Java application targeted at *Project Directors* of *School of Computing Orientation Camps*.
-* The application is a useful tool to manage the contacts of organising committee members and participating freshmen. 
+* The application is a useful tool to manage the contacts of organising committee members and participating freshmen.
 * Features included:
 ** An easy to use GUI with a list panel displaying contacts.
 ** Viewing condensed reports of the current camp size.
 ** Random shuffling of freshman grouping.
 ** Sorting participants according to their groups and houses.
-** More features on the way, stay tuned! 
+** More features on the way, stay tuned!
 
 == Site Map
 
