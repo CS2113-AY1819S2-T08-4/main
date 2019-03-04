@@ -809,7 +809,7 @@ See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-
 [appendix]
 == Product Scope
 
-*Target user profile*:
+*Target user profile*: School of Computing Freshman Orientation Camp Project Directors
 
 * has a need to manage a significant number of contacts
 * prefer desktop apps over other types
@@ -817,7 +817,7 @@ See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-
 * prefers typing over mouse input
 * is reasonably comfortable using CLI apps
 
-*Value proposition*: manage contacts faster than a typical mouse/GUI driven app
+*Value proposition*: manage a large number of camp participants faster than a GUI driven app
 
 [appendix]
 == User Stories
@@ -829,15 +829,29 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 |Priority |As a ... |I want to ... |So that I can...
 |`* * *` |new user |see usage instructions |refer to instructions when I forget how to use the App
 
-|`* * *` |user |add a new person |
+|`* * *` |user |add a participants |
 
-|`* * *` |user |delete a person |remove entries that I no longer need
+|`* * *` |user |see the number of participants |know how many people are involved in the camp
+
+|`* * *` |user |delete participants wrongly added |have error-free data
 
 |`* * *` |user |find a person by name |locate details of persons without having to go through the entire list
 
+|`* * *` |user |create Houses and Groups |allocate students to their groupings
+
+|`* * *` |user |delete Houses or Groups |keep my data compact if the group is not needed anymore
+
+|`* *` |user |save my data to cloud storage between logins |access address book data from elsewhere
+
+|`* *` |user |randomly divide freshmen into different houses and groups |do not have to manually assign them
+
 |`* *` |user |hide <<private-contact-detail,private contact details>> by default |minimize chance of someone else seeing them by accident
 
-|`*` |user with many persons in the address book |sort persons by name |locate a person easily
+|`* *` |user |color code participants based on their house colors |easily identify which house they belong to
+
+|`*` |user |keep track of the prices of items I have bought for the camp |know if I am within budget
+
+|`*` |user |input a color-coded schedule |plan what is happening on each day of the camp
 |=======================================================================
 
 _{More to be added}_
@@ -873,6 +887,16 @@ Use case ends.
 +
 Use case resumes at step 2.
 
+=== Use case: Add person into group
+
+*MSS*
+
+1. User requests to add house
+2. User requests to add group to house
+3. User requests to add person and specifies group that exists in house
+
+Use case ends.
+
 _{More to be added}_
 
 [appendix]
@@ -896,19 +920,19 @@ A contact detail that is not meant to be shared with others
 [appendix]
 == Product Survey
 
-*Product Name*
+*FOP Manager*
 
-Author: ...
+Authors: Chan Wei Zhang, Shanon Seet, Sonia Sunil, Tan Phan
 
 Pros:
 
-* ...
-* ...
+* Fast at managing large numbers of contacts
+* User-friendly UI
 
 Cons:
 
-* ...
-* ...
+* Single-user login
+* Requires fast typing speed to be beneficial
 
 [appendix]
 == Instructions for Manual Testing
