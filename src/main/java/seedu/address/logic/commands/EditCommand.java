@@ -154,6 +154,7 @@ public class EditCommand extends Command {
             return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
         }
 
+
         public void setName(Name name) {
             this.name = name;
         }
