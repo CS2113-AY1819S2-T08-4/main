@@ -4,6 +4,7 @@ import java.util.Set;
 
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Group;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.privilege.Privilege;
@@ -21,10 +22,11 @@ public class Ogl extends Participant {
      * @param phone
      * @param email
      * @param address
+     * @param group
      * @param tags
      */
-    public Ogl(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        super(name, phone, email, address, tags);
+    public Ogl(Name name, Phone phone, Email email, Address address, Group group, Set<Tag> tags) {
+        super(name, phone, email, address, group, tags);
         super.setPrivilege(Privilege.OGL);
     }
 }
