@@ -16,4 +16,9 @@ public class RandomizeCommand extends Command {
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         return null;
     }
+
+    // This is a test function
+    public void testFunction() {
+        // test
+    }
 }
