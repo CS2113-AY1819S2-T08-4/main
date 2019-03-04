@@ -19,7 +19,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
-import seedu.address.model.person.Group;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -43,7 +42,7 @@ public class PersonListPanelTest extends GuiUnitTest {
             PersonCardHandle actualCard = personListPanelHandle.getPersonCardHandle(i);
 
             assertCardDisplaysPerson(expectedPerson, actualCard);
-            assertEquals((i + 1) + ". ", actualCard.getId());
+            assertEquals(Integer.toString(i + 1) + ". ", actualCard.getId());
         }
     }
 
@@ -84,8 +83,7 @@ public class PersonListPanelTest extends GuiUnitTest {
             Phone phone = new Phone("000");
             Email email = new Email("a@aa");
             Address address = new Address("a");
-            Group group = new Group("2");
-            Person person = new Person(name, phone, email, address, group, Collections.emptySet());
+            Person person = new Person(name, phone, email, address, Collections.emptySet());
             backingList.add(person);
         }
         return backingList;
