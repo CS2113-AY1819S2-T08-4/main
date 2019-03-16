@@ -16,14 +16,20 @@ import seedu.address.model.person.Person;
 public class PersonCardHandle extends NodeHandle<Node> {
     private static final String ID_FIELD_ID = "#id";
     private static final String NAME_FIELD_ID = "#name";
-    private static final String ADDRESS_FIELD_ID = "#address";
+    private static final String SEX_FIELD_ID = "#sex";
+    private static final String BIRTHDAY_FIELD_ID = "#birthday";
+    private static final String GROUP_FIELD_ID = "#group";
+    private static final String MAJOR_FIELD_ID = "#major";
     private static final String PHONE_FIELD_ID = "#phone";
     private static final String EMAIL_FIELD_ID = "#email";
     private static final String TAGS_FIELD_ID = "#tags";
 
     private final Label idLabel;
     private final Label nameLabel;
-    private final Label addressLabel;
+    private final Label sexLabel;
+    private final Label birthdayLabel;
+    private final Label groupLabel;
+    private final Label majorLabel;
     private final Label phoneLabel;
     private final Label emailLabel;
     private final List<Label> tagLabels;
@@ -33,7 +39,10 @@ public class PersonCardHandle extends NodeHandle<Node> {
 
         idLabel = getChildNode(ID_FIELD_ID);
         nameLabel = getChildNode(NAME_FIELD_ID);
-        addressLabel = getChildNode(ADDRESS_FIELD_ID);
+        sexLabel = getChildNode(SEX_FIELD_ID);
+        birthdayLabel = getChildNode(BIRTHDAY_FIELD_ID);
+        groupLabel = getChildNode(GROUP_FIELD_ID);
+        majorLabel = getChildNode(MAJOR_FIELD_ID);
         phoneLabel = getChildNode(PHONE_FIELD_ID);
         emailLabel = getChildNode(EMAIL_FIELD_ID);
 
@@ -53,8 +62,20 @@ public class PersonCardHandle extends NodeHandle<Node> {
         return nameLabel.getText();
     }
 
-    public String getAddress() {
-        return addressLabel.getText();
+    public String getSex() {
+        return sexLabel.getText();
+    }
+
+    public String getBirthday() {
+        return birthdayLabel.getText();
+    }
+
+    public String getGroup() {
+        return groupLabel.getText();
+    }
+
+    public String getMajor() {
+        return majorLabel.getText();
     }
 
     public String getPhone() {
@@ -77,9 +98,12 @@ public class PersonCardHandle extends NodeHandle<Node> {
      */
     public boolean equals(Person person) {
         return getName().equals(person.getName().fullName)
-                && getAddress().equals(person.getAddress().value)
+                && getMajor().equals(person.getMajor().value)
+                && getSex().equals(person.getSex().value)
+                && getBirthday().equals(person.getBirthday().value)
                 && getPhone().equals(person.getPhone().value)
                 && getEmail().equals(person.getEmail().value)
+                && getGroup().equals(person.getGroup().getGroupName())
                 && ImmutableMultiset.copyOf(getTags()).equals(ImmutableMultiset.copyOf(person.getTags().stream()
                         .map(tag -> tag.tagName)
                         .collect(Collectors.toList())));

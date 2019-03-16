@@ -10,11 +10,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Address;
+
+import seedu.address.model.grouping.Group;
+import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Sex;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -25,22 +29,29 @@ class JsonAdaptedPerson {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Person's %s field is missing!";
 
     private final String name;
+    private final String sex;
+    private final String birthday;
     private final String phone;
     private final String email;
-    private final String address;
+    private final String major;
+    private final String group;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("sex") String sex,
+                             @JsonProperty("birthday") String birthday, @JsonProperty("phone") String phone,
+                             @JsonProperty("email") String email, @JsonProperty("major") String major,
+                             @JsonProperty("group") String group, @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
+        this.sex = sex;
+        this.birthday = birthday;
         this.phone = phone;
         this.email = email;
-        this.address = address;
+        this.major = major;
+        this.group = group;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -51,9 +62,12 @@ class JsonAdaptedPerson {
      */
     public JsonAdaptedPerson(Person source) {
         name = source.getName().fullName;
+        sex = source.getSex().value;
+        birthday = source.getBirthday().value;
         phone = source.getPhone().value;
         email = source.getEmail().value;
-        address = source.getAddress().value;
+        major = source.getMajor().value;
+        group = source.getGroup().getGroupName();
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -78,6 +92,23 @@ class JsonAdaptedPerson {
         }
         final Name modelName = new Name(name);
 
+        if (sex == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Sex.class.getSimpleName()));
+        }
+        if (!Sex.isValidSex(sex)) {
+            throw new IllegalValueException(Sex.MESSAGE_CONSTRAINTS);
+        }
+        final Sex modelSex = new Sex(sex);
+
+        if (birthday == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Birthday.class.getSimpleName()));
+        }
+        if (!Birthday.isValidBirthday(birthday)) {
+            throw new IllegalValueException(Birthday.MESSAGE_CONSTRAINTS);
+        }
+        final Birthday modelBirthday = new Birthday(birthday);
+
         if (phone == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName()));
         }
@@ -94,16 +125,25 @@ class JsonAdaptedPerson {
         }
         final Email modelEmail = new Email(email);
 
-        if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
+        if (major == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Major.class.getSimpleName()));
         }
-        if (!Address.isValidAddress(address)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
+        if (!Major.isValidMajor(major)) {
+            throw new IllegalValueException(Major.MESSAGE_CONSTRAINTS);
         }
-        final Address modelAddress = new Address(address);
+        final Major modelMajor = new Major(major);
+
+        if (group == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Group.class.getSimpleName()));
+        }
+        if (!Group.isValidGroup(group)) {
+            throw new IllegalValueException(Group.MESSAGE_CONSTRAINTS);
+        }
+        final Group modelGroup = new Group(group);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+        return new Person(modelName, modelSex, modelBirthday, modelPhone, modelEmail,
+                modelMajor, modelGroup, modelTags);
     }
 
 }

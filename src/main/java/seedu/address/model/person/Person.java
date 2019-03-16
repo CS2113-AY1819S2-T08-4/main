@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.address.model.grouping.Group;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -17,27 +18,42 @@ public class Person {
 
     // Identity fields
     private final Name name;
+    private final Sex sex;
+    private final Birthday birthday;
     private final Phone phone;
     private final Email email;
 
     // Data fields
-    private final Address address;
+    private final Major major;
+    private final Group group;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Sex sex, Birthday birthday, Phone phone, Email email,
+                  Major major, Group group, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, major, tags);
         this.name = name;
+        this.sex = sex;
+        this.birthday = birthday;
         this.phone = phone;
         this.email = email;
-        this.address = address;
+        this.major = major;
+        this.group = group;
         this.tags.addAll(tags);
     }
 
     public Name getName() {
         return name;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public Birthday getBirthday() {
+        return birthday;
     }
 
     public Phone getPhone() {
@@ -48,8 +64,12 @@ public class Person {
         return email;
     }
 
-    public Address getAddress() {
-        return address;
+    public Major getMajor() {
+        return major;
+    }
+
+    public Group getGroup() {
+        return group;
     }
 
     /**
@@ -71,7 +91,9 @@ public class Person {
 
         return otherPerson != null
                 && otherPerson.getName().equals(getName())
-                && (otherPerson.getPhone().equals(getPhone()) || otherPerson.getEmail().equals(getEmail()));
+                && (otherPerson.getPhone().equals(getPhone())
+                || otherPerson.getEmail().equals(getEmail())
+                || otherPerson.getBirthday().equals(getBirthday()));
     }
 
     /**
@@ -90,28 +112,37 @@ public class Person {
 
         Person otherPerson = (Person) other;
         return otherPerson.getName().equals(getName())
+                && otherPerson.getSex().equals(getSex())
+                && otherPerson.getBirthday().equals((getBirthday()))
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
-                && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getMajor().equals(getMajor())
+                && otherPerson.getGroup().equals(getGroup())
                 && otherPerson.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, sex, birthday, phone, email, major, tags);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
+                .append(" Sex: ")
+                .append(getSex())
+                .append(" Birthday: ")
+                .append(getBirthday())
                 .append(" Phone: ")
                 .append(getPhone())
                 .append(" Email: ")
                 .append(getEmail())
-                .append(" Address: ")
-                .append(getAddress())
+                .append(" Major: ")
+                .append(getMajor())
+                .append(" Group: ")
+                .append(getGroup())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
