@@ -48,7 +48,8 @@ public class MainApp extends Application {
 
     @Override
     public void init() throws Exception {
-        logger.info("=============================[ Initializing ParticipantAddressBook ]===========================");
+        logger.info("=============================" +
+                "[ Initializing ParticipantAddressBook ]===========================");
         super.init();
 
         AppParameters appParameters = AppParameters.parse(getParameters());
@@ -153,7 +154,8 @@ public class MainApp extends Application {
                     + "Using default user prefs");
             initializedPrefs = new UserPrefs();
         } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with an empty ParticipantAddressBook");
+            logger.warning(
+                    "Problem while reading from the file. Will be starting with an empty ParticipantAddressBook");
             initializedPrefs = new UserPrefs();
         }
 
