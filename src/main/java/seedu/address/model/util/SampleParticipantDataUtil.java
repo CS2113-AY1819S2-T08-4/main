@@ -20,7 +20,7 @@ import seedu.address.model.tag.Tag;
 /**
  * Contains utility methods for populating {@code AddressBook} with sample data.
  */
-public class SampleDataUtil {
+public class SampleParticipantDataUtil {
     public static Person[] getSamplePersons() {
         return new Person[] {
             new Person(new Name("Alex Yeoh"), new Sex("M"), new Birthday("01021996"),
