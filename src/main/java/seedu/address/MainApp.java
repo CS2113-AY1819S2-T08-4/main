@@ -15,9 +15,9 @@ import seedu.address.commons.util.ConfigUtil;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
-import seedu.address.model.ParticipantAddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
+import seedu.address.model.ParticipantAddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
@@ -83,10 +83,12 @@ public class MainApp extends Application {
             }
             initialData = addressBookOptional.orElseGet(SampleParticipantDataUtil::getSampleAddressBook);
         } catch (DataConversionException e) {
-            logger.warning("Data file not in the correct format. Will be starting with an empty ParticipantAddressBook");
+            logger.warning(
+                    "Data file not in the correct format. Will be starting with an empty ParticipantAddressBook");
             initialData = new ParticipantAddressBook();
         } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with an empty ParticipantAddressBook");
+            logger.warning(
+                    "Problem while reading from the file. Will be starting with an empty ParticipantAddressBook");
             initialData = new ParticipantAddressBook();
         }
 

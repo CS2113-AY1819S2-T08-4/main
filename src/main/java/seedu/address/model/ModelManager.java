@@ -86,7 +86,8 @@ public class ModelManager implements Model {
         userPrefs.setAddressBookFilePath(addressBookFilePath);
     }
 
-    //=========== ParticipantAddressBook ================================================================================
+    //=========== ParticipantAddressBook =======================
+    // =========================================================
 
     @Override
     public void setAddressBook(ReadOnlyAddressBook addressBook) {
