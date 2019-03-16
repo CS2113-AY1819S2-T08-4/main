@@ -54,7 +54,8 @@ public class StorageManagerTest {
         /*
          * Note: This is an integration test that verifies the StorageManager is properly wired to the
          * {@link JsonAddressBookStorage} class.
-         * More extensive testing of UserPref saving/reading is done in {@link JsonParticipantAddressBookStorageTest} class.
+         * More extensive testing of UserPref saving/reading is done
+         * in {@link JsonParticipantAddressBookStorageTest} class.
          */
         ParticipantAddressBook original = getTypicalAddressBook();
         storageManager.saveAddressBook(original);

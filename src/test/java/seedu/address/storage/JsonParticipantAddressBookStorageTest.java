@@ -21,7 +21,8 @@ import seedu.address.model.ParticipantAddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 
 public class JsonParticipantAddressBookStorageTest {
-    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonParticipantAddressBookStorageTest");
+    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data",
+            "JsonParticipantAddressBookStorageTest");
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
