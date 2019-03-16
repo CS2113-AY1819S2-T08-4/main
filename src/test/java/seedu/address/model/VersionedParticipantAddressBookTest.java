@@ -209,8 +209,8 @@ public class VersionedParticipantAddressBookTest {
 
     @Test
     public void equals() {
-        VersionedParticipantAddressBook versionedAddressBook
-                = prepareAddressBookList(addressBookWithAmy, addressBookWithBob);
+        VersionedParticipantAddressBook versionedAddressBook =
+                prepareAddressBookList(addressBookWithAmy, addressBookWithBob);
 
         // same values -> returns true
         VersionedParticipantAddressBook copy = prepareAddressBookList(addressBookWithAmy, addressBookWithBob);
@@ -226,8 +226,8 @@ public class VersionedParticipantAddressBookTest {
         assertFalse(versionedAddressBook.equals(1));
 
         // different state list -> returns false
-        VersionedParticipantAddressBook differentAddressBookList
-                = prepareAddressBookList(addressBookWithBob, addressBookWithCarl);
+        VersionedParticipantAddressBook differentAddressBookList =
+                prepareAddressBookList(addressBookWithBob, addressBookWithCarl);
         assertFalse(versionedAddressBook.equals(differentAddressBookList));
 
         // different current pointer index -> returns false
@@ -282,8 +282,8 @@ public class VersionedParticipantAddressBookTest {
     private VersionedParticipantAddressBook prepareAddressBookList(ReadOnlyAddressBook... addressBookStates) {
         assertFalse(addressBookStates.length == 0);
 
-        VersionedParticipantAddressBook versionedAddressBook
-                = new VersionedParticipantAddressBook(addressBookStates[0]);
+        VersionedParticipantAddressBook versionedAddressBook =
+                new VersionedParticipantAddressBook(addressBookStates[0]);
         for (int i = 1; i < addressBookStates.length; i++) {
             versionedAddressBook.resetData(addressBookStates[i]);
             versionedAddressBook.commit();

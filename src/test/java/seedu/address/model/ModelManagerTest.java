@@ -151,8 +151,8 @@ public class ModelManagerTest {
 
     @Test
     public void equals() {
-        ParticipantAddressBook participantAddressBook
-                = new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
+        ParticipantAddressBook participantAddressBook =
+                new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
         ParticipantAddressBook differentParticipantAddressBook = new ParticipantAddressBook();
         UserPrefs userPrefs = new UserPrefs();
 

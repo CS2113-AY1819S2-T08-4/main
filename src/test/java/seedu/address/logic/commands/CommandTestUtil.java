@@ -126,8 +126,8 @@ public class CommandTestUtil {
             String expectedMessage) {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
-        ParticipantAddressBook expectedParticipantAddressBook
-                = new ParticipantAddressBook(actualModel.getAddressBook());
+        ParticipantAddressBook expectedParticipantAddressBook =
+                new ParticipantAddressBook(actualModel.getAddressBook());
         List<Person> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
         Person expectedSelectedPerson = actualModel.getSelectedPerson();
 
