@@ -44,7 +44,6 @@ public class StorageManager implements Storage {
         userPrefsStorage.saveUserPrefs(userPrefs);
     }
 
-
     // ================ ParticipantAddressBook methods ==============================
 
     @Override
@@ -77,29 +76,5 @@ public class StorageManager implements Storage {
     /**
      * Following codes are extensions of the current Address Book Application
      */
-    // ================ Group storage methods ==============================
-    public Path getStorageFilePath() {
-        return addressBookStorage.getAddressBookFilePath();
-    }
-
-    public Optional<ReadOnlyAddressBook> readStorage() throws DataConversionException, IOException {
-        return readAddressBook(addressBookStorage.getAddressBookFilePath());
-    }
-
-    public Optional<ReadOnlyAddressBook> readStorage(Path filePath) throws DataConversionException, IOException {
-        logger.fine("Attempting to read data from file: " + filePath);
-        return addressBookStorage.readAddressBook(filePath);
-    }
-
-    public void saveStorage(ReadOnlyAddressBook addressBook) throws IOException {
-        saveAddressBook(addressBook, addressBookStorage.getAddressBookFilePath());
-    }
-
-    public void saveStorage(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
-        logger.fine("Attempting to write to data file: " + filePath);
-        addressBookStorage.saveAddressBook(addressBook, filePath);
-    }
-
-    // ================ Group storage methods ==============================
 
 }
