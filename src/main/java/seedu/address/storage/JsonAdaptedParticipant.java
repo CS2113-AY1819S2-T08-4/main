@@ -24,7 +24,7 @@ import seedu.address.model.tag.Tag;
 /**
  * Jackson-friendly version of {@link Person}.
  */
-class JsonAdaptedPerson {
+class JsonAdaptedParticipant {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Person's %s field is missing!";
 
@@ -38,13 +38,13 @@ class JsonAdaptedPerson {
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonAdaptedPerson} with the given person details.
+     * Constructs a {@code JsonAdaptedParticipant} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("sex") String sex,
-                             @JsonProperty("birthday") String birthday, @JsonProperty("phone") String phone,
-                             @JsonProperty("email") String email, @JsonProperty("major") String major,
-                             @JsonProperty("group") String group, @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+    public JsonAdaptedParticipant(@JsonProperty("name") String name, @JsonProperty("sex") String sex,
+                                  @JsonProperty("birthday") String birthday, @JsonProperty("phone") String phone,
+                                  @JsonProperty("email") String email, @JsonProperty("major") String major,
+                                  @JsonProperty("group") String group, @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.sex = sex;
         this.birthday = birthday;
@@ -60,7 +60,7 @@ class JsonAdaptedPerson {
     /**
      * Converts a given {@code Person} into this class for Jackson use.
      */
-    public JsonAdaptedPerson(Person source) {
+    public JsonAdaptedParticipant(Person source) {
         name = source.getName().fullName;
         sex = source.getSex().value;
         birthday = source.getBirthday().value;
