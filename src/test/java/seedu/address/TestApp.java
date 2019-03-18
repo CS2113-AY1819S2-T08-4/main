@@ -69,11 +69,11 @@ public class TestApp extends MainApp {
     }
 
     /**
-     * Returns a defensive copy of the address book data stored inside the participantStorage file.
+     * Returns a defensive copy of the address book data stored inside the storage file.
      */
     public ParticipantAddressBook readStorageAddressBook() {
         try {
-            return new ParticipantAddressBook(participantStorage.readAddressBook().get());
+            return new ParticipantAddressBook(storage.readAddressBook().get());
         } catch (DataConversionException dce) {
             throw new AssertionError("Data is not in the ParticipantAddressBook format.", dce);
         } catch (IOException ioe) {
@@ -82,10 +82,10 @@ public class TestApp extends MainApp {
     }
 
     /**
-     * Returns the file path of the participantStorage file.
+     * Returns the file path of the storage file.
      */
     public Path getStorageSaveLocation() {
-        return participantStorage.getAddressBookFilePath();
+        return storage.getAddressBookFilePath();
     }
 
     /**
