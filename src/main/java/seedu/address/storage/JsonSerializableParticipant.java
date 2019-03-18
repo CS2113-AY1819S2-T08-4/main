@@ -16,36 +16,28 @@ import seedu.address.model.person.Person;
 /**
  * An Immutable ParticipantAddressBook that is serializable to JSON format.
  */
-@JsonRootName(value = "addressbook")
-class JsonSerializableAddressBook {
+@JsonRootName(value = "participant")
+class JsonSerializableParticipant {
 
     public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
-    public static final String MESSAGE_DUPLICATE_GROUP = "Groups list contains duplicate group(s).";
 
-
-    private final List<JsonAdaptedParticipant> persons = new ArrayList<>();
-    private final List<JsonAdaptedGroup> groups = new ArrayList<>();
+    private final List<JsonAdaptedParticipant> participants = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableAddressBook} with the given persons.
+     * Constructs a {@code JsonSerializableParticipant} with the given participants.
      */
     @JsonCreator
-    public JsonSerializableAddressBook(@JsonProperty("persons") List<JsonAdaptedParticipant> persons) {
-        this.persons.addAll(persons);
-    }
-
-    @JsonCreator
-    public JsonSerializableAddressBook(@JsonProperty("groups") List<JsonAdaptedGroup> groups) {
-        this.groups.addAll(groups);
+    public JsonSerializableParticipant(@JsonProperty("participants") List<JsonAdaptedParticipant> participants) {
+        this.participants.addAll(participants);
     }
 
     /**
      * Converts a given {@code ReadOnlyAddressBook} into this class for Jackson use.
      *
-     * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
+     * @param source future changes to this will not affect the created {@code JsonSerializableParticipant}.
      */
-    public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
-        persons.addAll(source.getPersonList().stream().map(JsonAdaptedParticipant::new).collect(Collectors.toList()));
+    public JsonSerializableParticipant(ReadOnlyAddressBook source) {
+        participants.addAll(source.getPersonList().stream().map(JsonAdaptedParticipant::new).collect(Collectors.toList()));
     }
 
     /**
@@ -55,7 +47,7 @@ class JsonSerializableAddressBook {
      */
     public ParticipantAddressBook toModelType() throws IllegalValueException {
         ParticipantAddressBook participantAddressBook = new ParticipantAddressBook();
-        for (JsonAdaptedParticipant jsonAdaptedParticipant : persons) {
+        for (JsonAdaptedParticipant jsonAdaptedParticipant : participants) {
             Person person = jsonAdaptedParticipant.toModelType();
             if (participantAddressBook.hasPerson(person)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);

@@ -82,9 +82,9 @@ Examples:
 * `add_o n/John Tan p/92233445 g/M a/22 i/S9799998X e/92383842 g/ r/`
 * `add_o n/Clyde Chan p/87654321 g/M a/26 i/S9355555X e/ g/ r/`
 
-=== Listing all persons : `list`
+=== Listing all participants : `list`
 
-Shows a list of all persons in the address book. +
+Shows a list of all participants in the address book. +
 Format: `list`
 
 === Editing a person : `edit`
@@ -107,9 +107,9 @@ Edits the phone number and email major of the 1st person to be `91234567` and `j
 * `edit 2 n/Betsy Crower t/` +
 Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
-=== Locating persons by name: `find`
+=== Locating participants by name: `find`
 
-Finds persons whose names contain any of the given keywords. +
+Finds participants whose names contain any of the given keywords. +
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
 ****
