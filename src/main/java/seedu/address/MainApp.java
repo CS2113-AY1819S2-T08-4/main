@@ -61,7 +61,6 @@ public class MainApp extends Application {
         groupStorage = new StorageManager(new JsonAddressBookStorage(userPrefs.getGroupFilePath()), userPrefsStorage);
         houseStorage = new StorageManager(new JsonAddressBookStorage(userPrefs.getHouseFilePath()), userPrefsStorage);
 
-
         initLogging(config);
 
         model = initModelManager(participantStorage, userPrefs);
