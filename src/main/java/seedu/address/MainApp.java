@@ -22,7 +22,6 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.util.SampleParticipantDataUtil;
-import seedu.address.storage.AddressBookStorage;
 import seedu.address.storage.JsonAddressBookStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.Storage;
@@ -42,7 +41,7 @@ public class MainApp extends Application {
 
     protected Ui ui;
     protected Logic logic;
-    protected Storage storage;
+    protected Storage participantStorage, groupStorage, houseStorage;
     protected Model model;
     protected Config config;
 
@@ -57,22 +56,25 @@ public class MainApp extends Application {
 
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
-        storage = new StorageManager(addressBookStorage, userPrefsStorage);
+
+        participantStorage = new StorageManager(new JsonAddressBookStorage(userPrefs.getParticipantFilePath()), userPrefsStorage);
+        groupStorage = new StorageManager(new JsonAddressBookStorage(userPrefs.getGroupFilePath()), userPrefsStorage);
+        houseStorage = new StorageManager(new JsonAddressBookStorage(userPrefs.getHouseFilePath()), userPrefsStorage);
+
 
         initLogging(config);
 
-        model = initModelManager(storage, userPrefs);
+        model = initModelManager(participantStorage, userPrefs);
 
-        logic = new LogicManager(model, storage);
+        logic = new LogicManager(model, participantStorage);
 
         ui = new UiManager(logic);
     }
 
     /**
-     * Returns a {@code ModelManager} with the data from {@code storage}'s address book and {@code userPrefs}. <br>
-     * The data from the sample address book will be used instead if {@code storage}'s address book is not found,
-     * or an empty address book will be used instead if errors occur when reading {@code storage}'s address book.
+     * Returns a {@code ModelManager} with the data from {@code participantStorage}'s address book and {@code userPrefs}. <br>
+     * The data from the sample address book will be used instead if {@code participantStorage}'s address book is not found,
+     * or an empty address book will be used instead if errors occur when reading {@code participantStorage}'s address book.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
         Optional<ReadOnlyAddressBook> addressBookOptional;
@@ -137,7 +139,7 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns a {@code UserPrefs} using the file at {@code storage}'s user prefs file path,
+     * Returns a {@code UserPrefs} using the file at {@code participantStorage}'s user prefs file path,
      * or a new {@code UserPrefs} with default configuration if errors occur when
      * reading from the file.
      */
@@ -179,7 +181,7 @@ public class MainApp extends Application {
     public void stop() {
         logger.info("============================ [ Stopping Address book ] =============================");
         try {
-            storage.saveUserPrefs(model.getUserPrefs());
+            participantStorage.saveUserPrefs(model.getUserPrefs());
         } catch (IOException e) {
             logger.severe("Failed to save preferences " + StringUtil.getDetails(e));
         }
