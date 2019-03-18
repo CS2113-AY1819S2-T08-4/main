@@ -62,6 +62,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     }
 
     public Path getHouseFilePath() {
+        requireNonNull(houseFilePath);
         return houseFilePath;
     }
 
@@ -70,6 +71,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     }
 
     public Path getGroupFilePath() {
+        requireNonNull(groupFilePath);
         return groupFilePath;
     }
 
