@@ -27,6 +27,14 @@ public class StorageManager implements Storage {
         this.userPrefsStorage = userPrefsStorage;
     }
 
+    /**
+     * Constructor for FOP
+     */
+    public StorageManager(UserPrefsStorage userPrefsStorage) {
+        super();
+        this.userPrefsStorage = userPrefsStorage;
+    }
+
     // ================ UserPrefs methods ==============================
 
     @Override
@@ -72,9 +80,5 @@ public class StorageManager implements Storage {
         logger.fine("Attempting to write to data file: " + filePath);
         addressBookStorage.saveAddressBook(addressBook, filePath);
     }
-
-    /**
-     * Following codes are extensions of the current Address Book Application
-     */
 
 }
