@@ -57,7 +57,8 @@ public class MainApp extends Application {
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
 
-        participantStorage = new StorageManager(new JsonAddressBookStorage(userPrefs.getParticipantFilePath()), userPrefsStorage);
+        participantStorage = new StorageManager(new JsonAddressBookStorage(userPrefs.getParticipantFilePath()),
+                userPrefsStorage);
         groupStorage = new StorageManager(new JsonAddressBookStorage(userPrefs.getGroupFilePath()), userPrefsStorage);
         houseStorage = new StorageManager(new JsonAddressBookStorage(userPrefs.getHouseFilePath()), userPrefsStorage);
 
@@ -71,9 +72,12 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns a {@code ModelManager} with the data from {@code participantStorage}'s address book and {@code userPrefs}. <br>
-     * The data from the sample address book will be used instead if {@code participantStorage}'s address book is not found,
-     * or an empty address book will be used instead if errors occur when reading {@code participantStorage}'s address book.
+     * Returns a {@code ModelManager} with the data from {@code participantStorage}'s address book
+     * and {@code userPrefs}. <br>
+     * The data from the sample address book will be used instead
+     * if {@code participantStorage}'s address book is not found,
+     * or an empty address book will be used instead if errors occur
+     * when reading {@code participantStorage}'s address book.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
         Optional<ReadOnlyAddressBook> addressBookOptional;
