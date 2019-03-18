@@ -20,15 +20,23 @@ import seedu.address.model.person.Person;
 class JsonSerializableAddressBook {
 
     public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
+    public static final String MESSAGE_DUPLICATE_GROUP = "Groups list contains duplicate group(s).";
 
-    private final List<JsonAdaptedPerson> persons = new ArrayList<>();
+
+    private final List<JsonAdaptedParticipant> persons = new ArrayList<>();
+    private final List<JsonAdaptedGroup> groups = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonSerializableAddressBook} with the given persons.
      */
     @JsonCreator
-    public JsonSerializableAddressBook(@JsonProperty("persons") List<JsonAdaptedPerson> persons) {
+    public JsonSerializableAddressBook(@JsonProperty("persons") List<JsonAdaptedParticipant> persons) {
         this.persons.addAll(persons);
+    }
+
+    @JsonCreator
+    public JsonSerializableAddressBook(@JsonProperty("groups") List<JsonAdaptedGroup> groups) {
+        this.groups.addAll(groups);
     }
 
     /**
@@ -37,7 +45,7 @@ class JsonSerializableAddressBook {
      * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
      */
     public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
-        persons.addAll(source.getPersonList().stream().map(JsonAdaptedPerson::new).collect(Collectors.toList()));
+        persons.addAll(source.getPersonList().stream().map(JsonAdaptedParticipant::new).collect(Collectors.toList()));
     }
 
     /**
@@ -47,8 +55,8 @@ class JsonSerializableAddressBook {
      */
     public ParticipantAddressBook toModelType() throws IllegalValueException {
         ParticipantAddressBook participantAddressBook = new ParticipantAddressBook();
-        for (JsonAdaptedPerson jsonAdaptedPerson : persons) {
-            Person person = jsonAdaptedPerson.toModelType();
+        for (JsonAdaptedParticipant jsonAdaptedParticipant : persons) {
+            Person person = jsonAdaptedParticipant.toModelType();
             if (participantAddressBook.hasPerson(person)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
