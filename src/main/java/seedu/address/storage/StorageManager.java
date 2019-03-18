@@ -12,7 +12,7 @@ import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 
 /**
- * Manages storage of ParticipantAddressBook data in local storage.
+ * Manages participantStorage of ParticipantAddressBook data in local participantStorage.
  */
 public class StorageManager implements Storage {
 

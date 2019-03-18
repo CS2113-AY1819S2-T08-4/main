@@ -9,7 +9,7 @@ import seedu.address.model.ParticipantAddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 
 /**
- * Represents a storage for {@link ParticipantAddressBook}.
+ * Represents a participantStorage for {@link ParticipantAddressBook}.
  */
 public interface AddressBookStorage {
 
@@ -20,9 +20,9 @@ public interface AddressBookStorage {
 
     /**
      * Returns ParticipantAddressBook data as a {@link ReadOnlyAddressBook}.
-     *   Returns {@code Optional.empty()} if storage file is not found.
-     * @throws DataConversionException if the data in storage is not in the expected format.
-     * @throws IOException if there was any problem when reading from the storage.
+     *   Returns {@code Optional.empty()} if participantStorage file is not found.
+     * @throws DataConversionException if the data in participantStorage is not in the expected format.
+     * @throws IOException if there was any problem when reading from the participantStorage.
      */
     Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException;
 
@@ -32,7 +32,7 @@ public interface AddressBookStorage {
     Optional<ReadOnlyAddressBook> readAddressBook(Path filePath) throws DataConversionException, IOException;
 
     /**
-     * Saves the given {@link ReadOnlyAddressBook} to the storage.
+     * Saves the given {@link ReadOnlyAddressBook} to the participantStorage.
      * @param addressBook cannot be null.
      * @throws IOException if there was any problem writing to the file.
      */

@@ -64,16 +64,16 @@ public class TestApp extends MainApp {
         double x = Screen.getPrimary().getVisualBounds().getMinX();
         double y = Screen.getPrimary().getVisualBounds().getMinY();
         userPrefs.setGuiSettings(new GuiSettings(600.0, 600.0, (int) x, (int) y));
-        userPrefs.setAddressBookFilePath(saveFileLocation);
+        userPrefs.setParticipantFilePath(saveFileLocation);
         return userPrefs;
     }
 
     /**
-     * Returns a defensive copy of the address book data stored inside the storage file.
+     * Returns a defensive copy of the address book data stored inside the participantStorage file.
      */
     public ParticipantAddressBook readStorageAddressBook() {
         try {
-            return new ParticipantAddressBook(storage.readAddressBook().get());
+            return new ParticipantAddressBook(participantStorage.readAddressBook().get());
         } catch (DataConversionException dce) {
             throw new AssertionError("Data is not in the ParticipantAddressBook format.", dce);
         } catch (IOException ioe) {
@@ -82,10 +82,10 @@ public class TestApp extends MainApp {
     }
 
     /**
-     * Returns the file path of the storage file.
+     * Returns the file path of the participantStorage file.
      */
     public Path getStorageSaveLocation() {
-        return storage.getAddressBookFilePath();
+        return participantStorage.getAddressBookFilePath();
     }
 
     /**
