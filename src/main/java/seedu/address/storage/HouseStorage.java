@@ -33,13 +33,15 @@ public class HouseStorage {
     }
 
     /**
-     * Returns true if House exists
-     * Group can be created
+     * Returns true if House exists; group can be created
      */
     public static boolean hasHouse (String toFind) {
         return houseNames.contains(toFind);
     }
 
+    /**
+     * Returns true if the group exists in any of the houses
+     */
     public static boolean hasGroup (String toFind) {
         for (House test : houses) {
             if (test.hasGroup(toFind)) {

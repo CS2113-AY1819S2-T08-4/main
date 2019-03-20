@@ -94,7 +94,8 @@ public class EditCommand extends Command {
         if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
-        if (!editedPerson.getGroup().getGroupName().equals("") && !model.hasGroup(editedPerson.getGroup().getGroupName())) {
+        if (!editedPerson.getGroup().getGroupName().equals("") &&
+                !model.hasGroup(editedPerson.getGroup().getGroupName())) {
             throw new CommandException(MESSAGE_NONEXISTENT_GROUP);
         }
 
