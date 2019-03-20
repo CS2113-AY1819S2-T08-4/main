@@ -162,7 +162,12 @@ public class AddCommandTest {
         @Override
         public boolean hasHouse(String house) {
             throw new AssertionError("This method should not be called.");
-        };
+        }
+
+        @Override
+        public boolean hasGroup(String group) {
+            throw new AssertionError("This method should not be called.");
+        }
 
         @Override
         public void addHouse(String house) {

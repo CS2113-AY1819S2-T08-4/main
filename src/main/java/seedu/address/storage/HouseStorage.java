@@ -40,6 +40,15 @@ public class HouseStorage {
         return houseNames.contains(toFind);
     }
 
+    public static boolean hasGroup (String toFind) {
+        for (House test : houses) {
+            if (test.hasGroup(toFind)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Returns house object
      */

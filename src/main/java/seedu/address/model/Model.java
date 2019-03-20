@@ -94,6 +94,11 @@ public interface Model {
     boolean hasHouse(String house);
 
     /**
+     * Returns true if a Group with the same name as {@code Group} exists in the address book.
+     */
+    boolean hasGroup(String group);
+
+    /**
      * Adds the given House into address book.
      * {@code house} must not already exist in the address book.
      */

@@ -140,6 +140,13 @@ public class ModelManager implements Model {
     };
 
     @Override
+    public boolean hasGroup (String group) {
+        requireAllNonNull(group);
+
+        return houseStorage.hasGroup(group);
+    }
+
+    @Override
     public void addHouse(String house) {
         requireAllNonNull(house);
 

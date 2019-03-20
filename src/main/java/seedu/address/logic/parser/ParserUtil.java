@@ -132,15 +132,10 @@ public class ParserUtil {
     /**
      * Parses a {@code String group} into an {@code Group}.
      * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code group} is invalid.
      */
     public static Group parseGroup(String group) throws ParseException {
-        requireNonNull(group);
-        String trimmedGroup = group.trim();
-        if (!Group.isValidGroup(trimmedGroup)) {
-            throw new ParseException(Group.MESSAGE_CONSTRAINTS);
-        }
+        String trimmedGroup = group.trim().toUpperCase();
+
         return new Group(trimmedGroup);
     }
 

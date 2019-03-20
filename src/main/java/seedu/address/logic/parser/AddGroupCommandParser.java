@@ -23,8 +23,8 @@ public class AddGroupCommandParser implements Parser<AddGroupCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddGroupCommand.MESSAGE_USAGE));
         }
 
-        String groupName = splitArg[0];
-        String houseName = splitArg[1];
+        String groupName = splitArg[0].toUpperCase();
+        String houseName = splitArg[1].toUpperCase();
 
         return new AddGroupCommand(groupName, houseName);
     };

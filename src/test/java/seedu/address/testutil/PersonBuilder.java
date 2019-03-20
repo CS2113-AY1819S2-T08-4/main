@@ -25,7 +25,7 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_MAJOR = "Computer Science";
-    public static final String DEFAULT_GROUP = "G3";
+    public static final String DEFAULT_GROUP = "";
 
 
     private Name name;

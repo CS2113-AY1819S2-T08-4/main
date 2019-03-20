@@ -34,7 +34,7 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String major;
-    private final String group;
+    private String group = "";
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -51,7 +51,9 @@ class JsonAdaptedPerson {
         this.phone = phone;
         this.email = email;
         this.major = major;
-        this.group = group;
+        if (group != null) {
+            this.group = group;
+        }
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -133,12 +135,6 @@ class JsonAdaptedPerson {
         }
         final Major modelMajor = new Major(major);
 
-        if (group == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Group.class.getSimpleName()));
-        }
-        if (!Group.isValidGroup(group)) {
-            throw new IllegalValueException(Group.MESSAGE_CONSTRAINTS);
-        }
         final Group modelGroup = new Group(group);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);

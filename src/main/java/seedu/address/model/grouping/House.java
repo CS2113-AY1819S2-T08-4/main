@@ -39,6 +39,11 @@ public class House {
      * Returns true if Group exists in House
      */
     public boolean hasGroup (String groupName) {
-        return groups.contains(new Group(groupName, houseName));
+        for (Group test : groups) {
+            if (test.getGroupName().equalsIgnoreCase(groupName)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

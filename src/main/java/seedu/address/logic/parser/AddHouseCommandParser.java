@@ -18,7 +18,7 @@ public class AddHouseCommandParser implements Parser<AddHouseCommand> {
 
     @Override
     public AddHouseCommand parse(String args) throws ParseException {
-        String houseName = args.trim();
+        String houseName = args.trim().toUpperCase();
 
         if (houseName.isEmpty()) {
             throw new ParseException(

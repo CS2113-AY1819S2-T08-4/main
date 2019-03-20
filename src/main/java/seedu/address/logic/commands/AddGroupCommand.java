@@ -52,7 +52,7 @@ public class AddGroupCommand extends Command {
 
         House baseHouse = model.getHouse(houseName);
 
-        if (!baseHouse.hasGroup(groupName)) {
+        if (baseHouse.hasGroup(groupName)) {
             throw new CommandException(MESSAGE_DUPLICATE_GROUP);
         }
 
