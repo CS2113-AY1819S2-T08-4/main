@@ -16,8 +16,8 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.grouping.House;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.participant.Person;
+import seedu.address.model.participant.exceptions.PersonNotFoundException;
 import seedu.address.storage.HouseStorage;
 
 /**

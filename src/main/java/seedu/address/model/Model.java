@@ -7,7 +7,7 @@ import javafx.beans.property.ReadOnlyProperty;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.grouping.House;
-import seedu.address.model.person.Person;
+import seedu.address.model.participant.Person;
 
 /**
  * The API of the Model component.
