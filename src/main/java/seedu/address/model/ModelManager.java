@@ -108,12 +108,20 @@ public class ModelManager implements Model {
     @Override
     public void deletePerson(Person target) {
         versionedAddressBook.removePerson(target);
+        if (FreshmanList.hasFreshman(target.toString())) {
+            FreshmanList.deleteFreshman(target.toString());
+        }
     }
 
     @Override
     public void addPerson(Person person) {
         versionedAddressBook.addPerson(person);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+    }
+
+    @Override
+    public void addFreshman(Participant person) {
+        FreshmanList.addFreshman(person.toString());
     }
 
     @Override
