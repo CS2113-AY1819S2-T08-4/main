@@ -44,7 +44,8 @@ class JsonAdaptedParticipant {
     public JsonAdaptedParticipant(@JsonProperty("name") String name, @JsonProperty("sex") String sex,
                                   @JsonProperty("birthday") String birthday, @JsonProperty("phone") String phone,
                                   @JsonProperty("email") String email, @JsonProperty("major") String major,
-                                  @JsonProperty("group") String group, @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+                                  @JsonProperty("group") String group,
+                                  @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.sex = sex;
         this.birthday = birthday;

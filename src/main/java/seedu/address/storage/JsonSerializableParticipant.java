@@ -37,7 +37,8 @@ class JsonSerializableParticipant {
      * @param source future changes to this will not affect the created {@code JsonSerializableParticipant}.
      */
     public JsonSerializableParticipant(ReadOnlyAddressBook source) {
-        participants.addAll(source.getPersonList().stream().map(JsonAdaptedParticipant::new).collect(Collectors.toList()));
+        participants.addAll(
+                source.getPersonList().stream().map(JsonAdaptedParticipant::new).collect(Collectors.toList()));
     }
 
     /**
