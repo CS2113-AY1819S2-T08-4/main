@@ -1,6 +1,5 @@
 package seedu.address.storage;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import seedu.address.model.grouping.House;
@@ -71,7 +70,7 @@ public class HouseStorage {
     public static ArrayList<String> getGroups() {
         ArrayList<String> groupNames = new ArrayList<>();
 
-        for (int i=0; i<houses.size(); i++) {
+        for (int i = 0; i < houses.size(); i++) {
             groupNames.add(houses.get(i).getGroupNames());
         }
         return groupNames;
