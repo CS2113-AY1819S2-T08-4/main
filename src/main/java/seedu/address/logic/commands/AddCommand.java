@@ -45,7 +45,7 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
-    private static final String MESSAGE_NONEXISTENT_GROUP =
+    public static final String MESSAGE_NONEXISTENT_GROUP =
             "Person must be added to a group that already exists. Add this group to a house first!";
 
     private final Person toAdd;

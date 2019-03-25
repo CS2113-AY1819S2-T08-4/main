@@ -67,6 +67,17 @@ public class AddCommandTest {
     }
 
     @Test
+    public void execute_nonexistentGroup_throwsCommandException() throws Exception {
+        Person invalidPerson = new PersonBuilder().withGroup("g1").build();
+        ModelStub modelStub = new ModelStubWithoutGroup();
+        AddCommand addCommand = new AddCommand(invalidPerson);
+
+        thrown.expect(CommandException.class);
+        thrown.expectMessage(AddCommand.MESSAGE_NONEXISTENT_GROUP);
+        addCommand.execute(modelStub, commandHistory);
+    }
+
+    @Test
     public void equals() {
         Person alice = new PersonBuilder().withName("Alice").build();
         Person bob = new PersonBuilder().withName("Bob").build();
@@ -279,6 +290,22 @@ public class AddCommandTest {
         @Override
         public ReadOnlyAddressBook getAddressBook() {
             return new AddressBook();
+        }
+    }
+
+    /**
+     * An empty model stub that has no groups.
+     */
+    private class ModelStubWithoutGroup extends ModelStub {
+
+        @Override
+        public boolean hasPerson(Person person) {
+            return false;
+        }
+
+        @Override
+        public boolean hasGroup(String group) {
+            return false;
         }
     }
 
