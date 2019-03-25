@@ -110,6 +110,9 @@ public interface Model {
      */
     House getHouse(String house);
 
+    /**
+     * Returns array of names of all Houses in address book.
+     */
     ArrayList<String> getHousesNames();
 
     void addGroup(String groupName, String houseName);

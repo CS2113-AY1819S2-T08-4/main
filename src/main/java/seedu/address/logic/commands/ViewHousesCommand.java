@@ -5,6 +5,9 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.logic.CommandHistory;
 import seedu.address.model.Model;
 
+/**
+ * Views all Houses added to the address book.
+ */
 public class ViewHousesCommand extends Command {
     public static final String COMMAND_WORD = "view_h";
 
