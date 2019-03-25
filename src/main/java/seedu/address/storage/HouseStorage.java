@@ -20,8 +20,14 @@ public class HouseStorage {
     public HouseStorage() {
     }
 
-    public static ArrayList<House> getHouses() {
-        return houses;
+    public static ArrayList<String> getHousesNames() {
+        ArrayList<String> houseNames = new ArrayList<>();
+
+        for (House i : houses) {
+            houseNames.add(i.getHouseName());
+        }
+
+        return houseNames;
     }
 
     /**

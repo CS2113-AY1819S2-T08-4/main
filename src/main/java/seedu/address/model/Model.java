@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.function.Predicate;
 
 import javafx.beans.property.ReadOnlyProperty;
@@ -108,6 +109,8 @@ public interface Model {
      * Returns House object.
      */
     House getHouse(String house);
+
+    ArrayList<String> getHousesNames();
 
     void addGroup(String groupName, String houseName);
 
