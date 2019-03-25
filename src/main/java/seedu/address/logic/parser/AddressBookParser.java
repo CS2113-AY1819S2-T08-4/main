@@ -7,10 +7,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.AddFreshmanCommand;
 import seedu.address.logic.commands.AddGroupCommand;
 import seedu.address.logic.commands.AddHouseCommand;
-import seedu.address.logic.commands.AddOglCommand;
+import seedu.address.logic.commands.AddParticipantCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
@@ -20,8 +19,9 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ListCommand;
-import seedu.address.logic.commands.ListFreshmenCommand;
+import seedu.address.logic.commands.ListParticipantCommand;
 import seedu.address.logic.commands.ListOglCommand;
+import seedu.address.logic.commands.RandomizeCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.UndoCommand;
@@ -57,17 +57,14 @@ public class AddressBookParser {
         case AddCommand.COMMAND_WORD:
             return new AddCommandParser().parse(arguments);
 
-        case AddFreshmanCommand.COMMAND_WORD:
-            return new AddFreshmanCommandParser().parse(arguments);
-
         case AddGroupCommand.COMMAND_WORD:
             return new AddGroupCommandParser().parse(arguments);
 
         case AddHouseCommand.COMMAND_WORD:
             return new AddHouseCommandParser().parse(arguments);
 
-        case AddOglCommand.COMMAND_WORD:
-            return new AddOglCommandParser().parse(arguments);
+        case AddParticipantCommand.COMMAND_WORD:
+            return new AddParticipantCommandParser().parse(arguments);
 
         case EditCommand.COMMAND_WORD:
             return new EditCommandParser().parse(arguments);
@@ -87,8 +84,8 @@ public class AddressBookParser {
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
 
-        case ListFreshmenCommand.COMMAND_WORD:
-            return new ListFreshmenCommand();
+        case ListParticipantCommand.COMMAND_WORD:
+            return new ListParticipantCommand();
 
         case ListOglCommand.COMMAND_WORD:
             return new ListOglCommand();
@@ -107,6 +104,9 @@ public class AddressBookParser {
 
         case RedoCommand.COMMAND_WORD:
             return new RedoCommand();
+
+        case RandomizeCommand.COMMAND_WORD:
+            return new RandomizeCommand();
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

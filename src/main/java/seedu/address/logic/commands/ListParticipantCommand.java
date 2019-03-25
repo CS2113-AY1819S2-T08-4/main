@@ -9,7 +9,7 @@ import seedu.address.storage.FreshmanList;
 /**
  * Lists all persons in the address book to the user.
  */
-public class ListFreshmenCommand extends Command {
+public class ListParticipantCommand extends Command {
 
     public static final String COMMAND_WORD = "list_f";
 

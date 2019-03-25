@@ -1,4 +1,4 @@
-= FOP Management App
+= FOP Manager
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
 https://travis-ci.org/cs2113-ay1819s2-t08-4/main[image:https://travis-ci.org/cs2113-ay1819s2-t08-4/main.svg?branch=master[Build Status]]
@@ -12,14 +12,13 @@ image::images/Ui.png[width="600"]
 endif::[]
 
 * This is a desktop Address Book application. It has a GUI but most of the user interactions happen using a CLI (Command Line Interface).
-* It is a Java application targeted at *Project Directors* of *School of Computing Orientation Camps*.
-* The application is a useful tool to manage the contacts of organising committee members and participating freshmen. Its features include:
-** An easy to use GUI with a list panel displaying contacts.
-** Viewing organisers and freshmen separately.
-** Viewing condensed reports of the current camp size.
-** Random shuffling of freshman grouping.
-** Sorting participants according to their groups and houses.
-** More features underway, stay tuned!
+* It is a Java application targeted at *Project Directors* organizing the *School of Computing Freshman Orientation Camp*.
+* This application is a useful tool to manage the contacts of participating freshmen and OGLs. Its features include:
+** An easy to use GUI with a list panel displaying participant details
+** Data encryption to ensure security of data
+** Viewing graphs of the statistics of the camp participants
+** Random shuffling of freshman grouping
+** Exporting participant information from the application to a readable format
 
 == Site Map
 
@@ -30,7 +29,7 @@ endif::[]
 
 == Acknowledgements
 
-* This address book was built upon the outstanding https://github.com/se-edu/[AddressBook-Level4 project] by the SE-EDU initiative.
+* This address book is built upon the awesome https://github.com/se-edu/[AddressBook-Level4] codebase by the SE-EDU initiative.
 * Some parts of this application were inspired by the excellent http://code.makery.ch/library/javafx-8-tutorial/[Java FX tutorial] by _Marco Jakob_.
 * Libraries used: https://github.com/TestFX/TestFX[TextFX], https://github.com/FasterXML/jackson[Jackson], https://github.com/google/guava[Guava], https://github.com/junit-team/junit5[JUnit5]
 

@@ -1,4 +1,4 @@
-= FOP Management - Developer Guide
+= FOP Manager - Developer Guide
 :site-section: DeveloperGuide
 :toc:
 :toc-title:
@@ -290,7 +290,7 @@ image::UndoRedoNewCommand4StateListDiagram.png[width="800"]
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
-image::UndoRedoActivityDiagram.png[width="650"]
+image::UndoRedoActivityDiagram.png[width="800"]
 
 ==== Design Considerations
 
@@ -315,10 +315,39 @@ image::UndoRedoActivityDiagram.png[width="650"]
 
 // tag::dataencryption[]
 === [Proposed] Data Encryption
+==== Planned Implementation
 
-_{Explain here how the data encryption feature will be implemented}_
+The data encryption feature will make use of the Java `Cipher` class that provides the functionality of a cryptographic cipher for encryption and decryption.
+
+All participants' private contact details are saved in the JSON file `addressbook.json` when the user exits the application. The data from this file is retrieved when the user starts the application. The data encryption feature encrypts the data saved in this JSON file just before the application exits, and decrypts it when the application starts up, such that participants' private details cannot be accessed between these two periods.
+
+==== Design Consideration
+_{to be completed in v1.3}_
 
 // end::dataencryption[]
+
+// tag::statistic[]
+=== [Proposed] Statistic feature
+==== Planned Implementation
+
+The statistic feature is facilitated by `VersionedAddressBook`. It extends `AddressBook` with two Hashtables, one containing the number of male and female participants, and the other one contains the number of participants in each major. These
+variables will be updated after each `add`, `edit` or `delete` command.
+
+The following sequence diagram show hows the Hashtable is updated after an `add` command:
+
+image::StatisticUpdateSequenceDiagram.png[width="800"]
+
+==== Design Consideration
+
+===== Aspect: Data structure to get the data from the AddressBook
+
+* **Alternative 1 (current choice):** Add new variables inside the `VersionedAddressBook` to store the data and update them after each commands.
+** Pros: Quick runtime, does not require much changes to the codebase.
+** Cons: We must ensure that the data is updated after each command.
+* **Alternative 2**: Use a loop to loop through the `UniquePersonList` to get the data of everyone
+** Pros: Easy to implement, guaranteed to get the correct data every time.
+** Cons: Takes longer time to get the result, especially if there are many person in the `UniquePersonList`.
+// end:: statistic[]
 
 === Logging
 
@@ -839,22 +868,18 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* * *` |user |create Houses and Groups |allocate students to their groupings
 
-|`* * *` |user |delete Houses or Groups |keep my data compact if the group is not needed anymore
+|`* * *` |user |log in with a unique user type |have the correct access permissions to participants' data
+
+|`* * *` |user |randomly divide freshmen into different houses and groups |do not have to manually assign them
+
+|`* *` |user |view graphical statistics of my participants data |have visual representation of participants' data to show stakeholders
 
 |`* *` |user |save my data to cloud storage between logins |access address book data from elsewhere
-
-|`* *` |user |randomly divide freshmen into different houses and groups |do not have to manually assign them
-
-|`* *` |user |hide <<private-contact-detail,private contact details>> by default |minimize chance of someone else seeing them by accident
 
 |`* *` |user |color code participants based on their house colors |easily identify which house they belong to
 
 |`*` |user |keep track of the prices of items I have bought for the camp |know if I am within budget
-
-|`*` |user |input a color-coded schedule |plan what is happening on each day of the camp
 |=======================================================================
-
-_{More to be added}_
 
 [appendix]
 == Use Cases
