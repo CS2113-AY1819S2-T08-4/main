@@ -106,9 +106,11 @@ public interface Model {
     void addHouse(String house);
 
     /**
-     * Returns House object.
+     * Returns House name.
      */
     House getHouse(String house);
+
+    ArrayList<String> getGroupNames();
 
     /**
      * Returns array of names of all Houses in address book.

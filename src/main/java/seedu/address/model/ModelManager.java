@@ -168,6 +168,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public ArrayList<String> getGroupNames() {
+        return houseStorage.getGroups();
+    }
+
+    @Override
     public void addGroup(String groupName, String houseName) {
         requireAllNonNull(groupName, houseName);
 
