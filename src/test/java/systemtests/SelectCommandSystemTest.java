@@ -121,11 +121,14 @@ public class SelectCommandSystemTest extends AddressBookSystemTest {
         executeCommand(command);
         assertApplicationDisplaysExpected("", expectedResultMessage, expectedModel);
 
+        //Browser Remove
+        /*
         if (preExecutionSelectedCardIndex == expectedSelectedCardIndex.getZeroBased()) {
             assertSelectedCardUnchanged();
         } else {
             assertSelectedCardChanged(expectedSelectedCardIndex);
         }
+        */
 
         assertCommandBoxShowsDefaultStyle();
         assertStatusBarUnchanged();
