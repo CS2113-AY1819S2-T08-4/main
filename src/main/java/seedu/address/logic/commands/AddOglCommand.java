@@ -20,7 +20,7 @@ import seedu.address.model.role.Ogl;
  */
 public class AddOglCommand extends AddCommand {
 
-    public static final String COMMAND_WORD = "add_ogl";
+    public static final String COMMAND_WORD = "add_o";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an OGL to the address book. "
             + "Parameters: "
@@ -43,8 +43,7 @@ public class AddOglCommand extends AddCommand {
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
-    public static final String MESSAGE_SUCCESS = "New ogl added: %1$s";
-    private static final String MESSAGE_DUPLICATE_OGL = "This ogl already exists in the address book";
+    public static final String MESSAGE_SUCCESS = "New OGL added: %1$s";
 
     private final Ogl toAdd;
 
@@ -62,7 +61,11 @@ public class AddOglCommand extends AddCommand {
         requireNonNull(model);
 
         if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_OGL);
+            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+
+        if (!toAdd.getGroup().getGroupName().equals("") && !model.hasGroup(toAdd.getGroup().getGroupName())) {
+            throw new CommandException(MESSAGE_NONEXISTENT_GROUP);
         }
 
         model.addPerson(toAdd);
