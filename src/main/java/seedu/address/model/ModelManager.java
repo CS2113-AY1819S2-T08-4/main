@@ -20,8 +20,10 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.grouping.House;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.role.Ogl;
 import seedu.address.model.role.Participant;
 import seedu.address.storage.HouseStorage;
+import seedu.address.storage.OglList;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -117,6 +119,8 @@ public class ModelManager implements Model {
 
         if (FreshmanList.hasFreshman(target.toString())) {
             FreshmanList.deleteFreshman(target.toString());
+        } else if (OglList.hasOgl(target.toString())) {
+            OglList.deleteOgl(target.toString());
         }
     }
 
@@ -130,6 +134,11 @@ public class ModelManager implements Model {
     @Override
     public void addFreshman(Participant person) {
         FreshmanList.addFreshman(person.toString());
+    }
+
+    @Override
+    public void addOgl(Ogl person) {
+        OglList.addOgl(person.toString());
     }
 
     @Override
