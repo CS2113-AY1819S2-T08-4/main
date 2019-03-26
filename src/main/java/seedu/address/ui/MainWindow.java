@@ -33,6 +33,8 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private BrowserPanel browserPanel;
     private PersonListPanel personListPanel;
+    private UndoListPanel undoListPanel;
+    private RedoListPanel redoListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
 
@@ -47,6 +49,12 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane personListPanelPlaceholder;
+
+    @FXML
+    private StackPane undoListPanelPlaceholder;
+
+    @FXML
+    private StackPane redoListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -111,12 +119,19 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        browserPanel = new BrowserPanel(logic.selectedPersonProperty());
-        browserPlaceholder.getChildren().add(browserPanel.getRoot());
+        //Browser Remove
+        //browserPanel = new BrowserPanel(logic.selectedPersonProperty());
+        //browserPlaceholder.getChildren().add(browserPanel.getRoot());
 
         personListPanel = new PersonListPanel(logic.getFilteredPersonList(), logic.selectedPersonProperty(),
                 logic::setSelectedPerson);
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+
+        undoListPanel = new UndoListPanel(logic.getUndoList());
+        undoListPanelPlaceholder.getChildren().add(undoListPanel.getRoot());
+
+        redoListPanel = new RedoListPanel(logic.getRedoList());
+        redoListPanelPlaceholder.getChildren().add(redoListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -182,6 +197,9 @@ public class MainWindow extends UiPart<Stage> {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+
+            undoListPanel.updateUndoList(logic.getUndoList());
+            redoListPanel.updateRedoList(logic.getRedoList());
 
             if (commandResult.isShowHelp()) {
                 handleHelp();

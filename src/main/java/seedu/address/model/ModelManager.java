@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 
 import javafx.beans.property.ReadOnlyProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -20,7 +21,6 @@ import seedu.address.model.grouping.House;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.role.Participant;
-import seedu.address.storage.FreshmanList;
 import seedu.address.storage.HouseStorage;
 
 /**
@@ -33,7 +33,9 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
     private final SimpleObjectProperty<Person> selectedPerson = new SimpleObjectProperty<>();
+
     private final HouseStorage houseStorage = new HouseStorage();
+    private String undoableCommand;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -94,6 +96,7 @@ public class ModelManager implements Model {
     @Override
     public void setAddressBook(ReadOnlyAddressBook addressBook) {
         versionedAddressBook.resetData(addressBook);
+        undoableCommand = "clear";
     }
 
     @Override
@@ -110,6 +113,8 @@ public class ModelManager implements Model {
     @Override
     public void deletePerson(Person target) {
         versionedAddressBook.removePerson(target);
+        undoableCommand = "Delete" + target.getName().fullName;
+
         if (FreshmanList.hasFreshman(target.toString())) {
             FreshmanList.deleteFreshman(target.toString());
         }
@@ -119,6 +124,7 @@ public class ModelManager implements Model {
     public void addPerson(Person person) {
         versionedAddressBook.addPerson(person);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        undoableCommand = "Add " + person.getName().fullName;
     }
 
     @Override
@@ -131,6 +137,7 @@ public class ModelManager implements Model {
         requireAllNonNull(target, editedPerson);
 
         versionedAddressBook.setPerson(target, editedPerson);
+        undoableCommand = "Edit " + editedPerson.getName().fullName;
     }
 
     @Override
@@ -181,7 +188,25 @@ public class ModelManager implements Model {
     //=========== Filtered Person List Accessors =============================================================
 
     /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * Returns an unmodifiable view of the list of {@code Undoable Command} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<String> getUndoList() {
+        return FXCollections.observableArrayList(versionedAddressBook.getUndoList());
+    }
+
+    /**
+     * Returns an unmodifiable view of the list of {@code Redoable Command} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<String> getRedoList() {
+        return FXCollections.observableArrayList(versionedAddressBook.getRedoList());
+    }
+
+    /**
+     * Returns an unmodifiable view of the list of {@code Undoable Command} backed by the internal list of
      * {@code versionedAddressBook}
      */
     @Override
@@ -220,6 +245,7 @@ public class ModelManager implements Model {
     @Override
     public void commitAddressBook() {
         versionedAddressBook.commit();
+        versionedAddressBook.addUndoableCommand(undoableCommand);
     }
 
     //=========== Selected person ===========================================================================
