@@ -20,8 +20,14 @@ public class HouseStorage {
     public HouseStorage() {
     }
 
-    public static ArrayList<House> getHouses() {
-        return houses;
+    public static ArrayList<String> getHousesNames() {
+        ArrayList<String> houseNames = new ArrayList<>();
+
+        for (House i : houses) {
+            houseNames.add(i.getHouseName());
+        }
+
+        return houseNames;
     }
 
     /**
@@ -56,6 +62,18 @@ public class HouseStorage {
      */
     public static House getHouse(String toGet) {
         return houses.get(houseNames.indexOf(toGet));
+    }
+
+    /**
+     * Returns array of names of all groups
+     */
+    public static ArrayList<String> getGroups() {
+        ArrayList<String> groupNames = new ArrayList<>();
+
+        for (int i = 0; i < houses.size(); i++) {
+            groupNames.add(houses.get(i).getGroupNames());
+        }
+        return groupNames;
     }
 
     /**

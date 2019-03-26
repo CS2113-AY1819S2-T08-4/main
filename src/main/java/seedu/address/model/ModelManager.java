@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
@@ -165,6 +166,17 @@ public class ModelManager implements Model {
         requireAllNonNull(house);
 
         return houseStorage.getHouse(house);
+    }
+
+    @Override
+    public ArrayList<String> getHousesNames() {
+
+        return houseStorage.getHousesNames();
+    }
+
+    @Override
+    public ArrayList<String> getGroupNames() {
+        return houseStorage.getGroups();
     }
 
     @Override

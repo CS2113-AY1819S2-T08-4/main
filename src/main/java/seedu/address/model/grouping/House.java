@@ -27,6 +27,21 @@ public class House {
         return groups;
     }
 
+    public String getGroupNames() {
+        String groupNames = "";
+
+        if (groups.isEmpty()) {
+            groupNames += getHouseName() + ": empty";
+        } else {
+            groupNames += getHouseName() + ":";
+        }
+
+        for (Group temp : groups) {
+            groupNames += " " + temp.getGroupName();
+        }
+        return groupNames;
+    }
+
     /**
      * Adds a new group to the house
      */

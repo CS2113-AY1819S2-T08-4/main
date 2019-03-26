@@ -181,6 +181,16 @@ public class AddCommandTest {
         }
 
         @Override
+        public ArrayList<String> getGroupNames() {
+            throw new AssertionError("This method should not be called.");
+        };
+
+        @Override
+        public ArrayList<String> getHousesNames() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void addHouse(String house) {
             throw new AssertionError("This method should not be called.");
         }
