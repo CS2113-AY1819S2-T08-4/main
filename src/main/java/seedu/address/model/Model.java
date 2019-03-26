@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.grouping.House;
 import seedu.address.model.person.Person;
+import seedu.address.model.role.Ogl;
 import seedu.address.model.role.Participant;
 
 /**
@@ -73,10 +74,16 @@ public interface Model {
     void addPerson(Person person);
 
     /**
-     * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     * Adds the given freshman.
+     * {@code freshman} must not already exist in the address book.
      */
     void addFreshman(Participant person);
+
+    /**
+     * Adds the given OGL.
+     * {@code Ogl} must not already exist in the address book.
+     */
+    void addOgl(Ogl person);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
@@ -87,6 +94,12 @@ public interface Model {
 
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
+
+    /** Returns an unmodifiable view of the undo list */
+    ObservableList<String> getUndoList();
+
+    /** Returns an unmodifiable view of the redo list */
+    ObservableList<String> getRedoList();
 
     /**
      * Returns true if a House with the same name as {@code House} exists in the address book.

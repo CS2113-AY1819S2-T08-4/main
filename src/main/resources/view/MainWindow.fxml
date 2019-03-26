@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.Label?>
 <fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
          title="FOP Manager" minWidth="450" minHeight="600" onCloseRequest="#handleExit">
   <icons>
@@ -33,14 +34,30 @@
           </Menu>
         </MenuBar>
 
-
         <SplitPane id="splitPane" fx:id="splitPane" dividerPositions="0.4" VBox.vgrow="ALWAYS">
+          <VBox fx:id="undoList" minWidth="140" prefWidth="140"  SplitPane.resizableWithParent="false">
+            <padding>
+              <Insets top="5" right="5" bottom="5" left="5" />
+            </padding>
+            <Label text="Undo" styleClass="label-bright"/>
+            <StackPane fx:id="undoListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+          </VBox>
+
+          <VBox fx:id="redoList" minWidth="140" prefWidth="140" SplitPane.resizableWithParent="false">
+            <padding>
+              <Insets top="5" right="5" bottom="5" left="5" />
+            </padding>
+            <Label text="Redo" styleClass="label-bright"/>
+            <StackPane fx:id="redoListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+          </VBox>
+<!-- Browser Remove
           <StackPane fx:id="browserPlaceholder" prefWidth="340" >
             <padding>
               <Insets top="10" right="10" bottom="10" left="10" />
             </padding>
           </StackPane>
-          <VBox fx:id="personList" minWidth="1100" prefWidth="1100" SplitPane.resizableWithParent="false">
+-->
+          <VBox fx:id="personList" minWidth="800" prefWidth="800" SplitPane.resizableWithParent="false">
             <padding>
               <Insets top="10" right="10" bottom="10" left="10" />
             </padding>

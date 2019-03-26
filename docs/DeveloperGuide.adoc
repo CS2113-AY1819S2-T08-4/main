@@ -349,6 +349,18 @@ image::StatisticUpdateSequenceDiagram.png[width="800"]
 ** Cons: Takes longer time to get the result, especially if there are many person in the `UniquePersonList`.
 // end:: statistic[]
 
+// tag::export[]
+=== [Proposed] Export Feature
+
+The Export feature will allow the FOC Project Director to export the data into excel files and distribute to other relevant people involved in the FOC. This way, data can be distributed and raw data untouched except by the Project Director.
+
+==== Planned Implementation
+(To be updated)
+
+==== Design Consideration
+(To be updated)
+
+// end:: export[]
 === Logging
 
 We are using `java.util.logging` package for logging. The `LogsCenter` class is used to manage the logging levels and logging destinations.

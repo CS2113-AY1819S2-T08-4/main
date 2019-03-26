@@ -1,4 +1,4 @@
-package seedu.address.storage;
+package seedu.address.model;
 
 import java.util.ArrayList;
 
@@ -14,9 +14,6 @@ public class FreshmanList {
     /**
      * Constructs a List for storing freshmen.
      */
-    public FreshmanList() {
-    }
-
     public static ArrayList<Participant> getFreshmen() {
         return freshmen;
     }

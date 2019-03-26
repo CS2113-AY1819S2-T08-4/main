@@ -18,140 +18,237 @@ By: `Team T08-4`      Since: `Jan 2019`      Licence: `MIT`
 
 == Introduction
 
-FOP Manager is for NUS Freshman Orientation Camp Organizers who *prefer to use a desktop app for managing participants' contacts*. More importantly, FOP Manager is *optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, FOP Manager can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <<Quick Start>> to get started. Enjoy!
+FOP Manager is a desktop Graphical User Interface (GUI) address book app, specifically designed for *NUS Freshman Orientation Camp Organizers* to manage the contact information of camp participants. It is optimized for those who prefer to work with a *Command Line Interface* (CLI). If you can type fast, FOP Manager can get your contact management tasks done faster than traditional GUI apps.
+
+Interested? Hurry, jump to <<Quick Start>> to get started!
+
+== About User Guide
+
+This user guide shows you how to get started with FOP Manager. It introduces you to the features of FOP Manager, providing examples, that you may become an expert user in no time.
+
+Throughout this user guide, there will be various icons used, as shown below:
+
+TIP: This is a tip. Following these suggestions will make using FOP Manager much simpler!
+
+NOTE: This is a note. Read these for additional information.
+
+WARNING: This is a warning. Make sure to heed the warnings for FOP Manager to work smoothly!
 
 == Quick Start
 
+This section serves as a tutorial for a new user to FOP Manager.
+
+=== Installation
+
 .  Ensure you have Java version `9` or later installed in your Computer.
 .  Download the latest `addressbook.jar` link:{repoURL}/releases[here].
-.  Copy the file to the folder you want to use as the home folder for your "App Name".
-.  Double-click the file to start the app. The GUI should appear in a few seconds.
+.  Copy the file to the folder you want to use as the home folder for FOP Manager.
+.  Double-click the file to start the app. The GUI should appear in a few seconds:
 +
 image::Ui.png[width="790"]
-+
-.  Type the command in the command box and press kbd:[Enter] to execute it. +
-e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
-.  Some example commands you can try:
 
-* *`list`* : lists all contacts
-* **`add`**`n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information Systems g/G1` : adds a contact named `John Doe` to the Address Book.
-* **`delete`**`3` : deletes the 3rd contact shown in the current list
-* *`exit`* : exits the app
+=== Introducing the Interface
 
-.  Refer to <<Features>> for details of each command.
+NOTE: Figure to be inserted by v1.3
+
+*  Undo Redo List: This list displays all undo and redo commands executed since the app was started. [v1.3]
+*  Panel List: This panel shows a list of the contacts you have stored so far.
+*  Result Box: The result box displays the result to the commands you input.
+*  Command Box: The command box is where all commands should be typed in.
+
+=== Try It Out!
+
+Now that you understand the app's interface, you can now try keying in commands to interact with FOP Manager.
+
+NOTE: Type the command in the command box and press kbd:[Enter] to execute it. +
+e.g. typing `help` and pressing kbd:[Enter] opens the help window.
+
+Some example commands you can try:
+
+* `list` : lists all contacts
+* `add_o  n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information Systems g/` : adds an OGL named `John Doe` to your contact list
+* `add_h  Red` : adds a House named `RED`
+* `add_g  R1 Red` : adds a Group named `R1` to the House `RED`
+* `delete  3` : deletes the 3rd contact shown in the current list
+* `exit` : exits the app
+
+Refer to <<Features>> for details of each command.
 
 [[Features]]
 == Features
 
+This section tells you about the features available in FOP Manager.
+
 ====
 *Command Format*
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
-* Items in square brackets are optional e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
-* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
-* Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+* Words in `UPPER_CASE` are parameters to be supplied by the user +
+e.g. if the command states `n/NAME`, `NAME` is a parameter which can be used as `n/John Doe`.
+* Items in square brackets are optional +
+e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+* Items with `…` after them can be used as many times as you want +
+e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 ====
 
+[[ViewHelp]]
 === Viewing help : `help`
 
 Format: `help`
 
-=== Adding a person to freshman contact list : `add_f`
+[[AddFresh]]
+=== Adding a freshman : `add_f`
 
-Adds a person to the freshman list +
+Adds a participant to the freshman list +
 Format: `add_f n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...`
 
+****
+* Parameters can be accepted in any order.
+* A participant can have any number of tags (including 0).
+
 [TIP]
-A person can have any number of tags (including 0)
+`GROUP` can be left blank i.e. `g/`
+
+[WARNING]
+If not blank, the `GROUP` must exist before a participant can be added to it
+****
 
 Examples:
 
-* `add_f n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information Systems g/G1`
-* `add_f n/Betsy Crowe s/F e/betsycrowe@example.com m/CS g/G2 p/1234567 t/househead`
+* `add_f n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information Systems g/`
+* `add_f n/Jane Doe s/F e/betsycrowe@example.com m/CS g/ p/1234567 t/househead`
 
-=== Adding a person to organisers contact list : `add_o`
+[[AddOrg]]
+=== Adding an organizer : `add_o`
 
-Adds a person to the organisers list +
+Adds a participant to the organizers list +
 Format: `add_o n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...`
 
-=== Adding a house that groups groups together : `add_h`
+****
+* Parameters can be accepted in any order.
+* A participant can have any number of tags (including 0).
+****
 
-Adds a house that contains different groups +
+Example:
+
+* `add_f n/James Boe s/M b/27071999 p/13579753 e/jamesd@example.com m/CEG g/`
+
+[[AddHouse]]
+=== Adding a house : `add_h`
+
+Adds a house that can contain different groups +
 Format: `add_h HOUSENAME`
 
-=== Listing all persons : `list`
+[NOTE]
+House names are always saved in all-caps
 
-Shows a list of all persons in the address book. +
+Example:
+
+* `add_h blue`
+
+[[AddGroup]]
+=== Adding a group : `add_g`
+
+Adds a group to a house +
+Format: `add_g GROUPNAME HOUSENAME`
+
+[NOTE]
+Group names are always saved in all-caps
+
+[WARNING]
+Groups can only be added to houses that already exist
+
+Example:
+
+* `add_g b1 blue`
+
+[[List]]
+=== Listing all participants : `list`
+
+Shows a list of all camp participants in your contact list. +
 Format: `list`
 
-=== Editing a person : `edit`
+[[Edit]]
+=== Editing a participant : `edit`
 
-Edits an existing person in the address book. +
-Format: `edit INDEX [n/NAME] [p/PHONE] [m/MAJOR] [t/TAG]......`
+Edits an existing participant in your contact list. +
+Format: `edit INDEX [n/NAME] [p/PHONE] [m/MAJOR] [g/GROUP] [t/TAG] ...`
 
 ****
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
+* Edits the participant at `INDEX`.
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person's tags by typing `t/` without specifying any tags after it.
+* When editing tags, the existing tags of the participant will be removed i.e adding of tags is not cumulative.
+
+[WARNING]
+`INDEX` must be a *positive integer*: 1, 2, 3, ...
+
+[TIP]
+Edit a participant's `GROUP` after adding them, instead of choosing a group for them from the start
+
+[TIP]
+Remove all the participant's tags by typing `t/` without specifying any tags after it
 ****
 
 Examples:
 
-* `edit 1 p/91234567 e/johndoe@example.com` +
-Edits the phone number and email major of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower t/` +
-Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `edit 1 p/91234567 g/g1` +
+Edits the phone number and group of the participant at index 1 to be `91234567` and `G1` respectively.
+* `edit 2 n/John Koe t/` +
+Edits the name of the participant at index 2 to be `John Koe` and clears all existing tags.
 
-=== Locating persons by name: `find`
+[[Find]]
+=== Locating participants by name: `find`
 
-Finds persons whose names contain any of the given keywords. +
+Finds participants whose names contain any of the given keywords. +
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
 ****
 * The search is case insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
+* The order of the keywords does not matter. e.g. `John Poe` will match `Poe John`
+* Only name is searched.
 * Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+* Participants matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 ****
 
 Examples:
 
 * `find John` +
-Returns `john` and `John Doe`
+Returns `john` and `John Goe`
 * `find Betsy Tim John` +
-Returns any person having names `Betsy`, `Tim`, or `John`
+Returns any participant having names `Betsy`, `Tim`, or `John`
 
-=== Deleting a person : `delete`
+[[Delete]]
+=== Deleting a participant : `delete`
 
-Deletes the specified person from the address book. +
+Deletes the specified participant from your contact list. +
 Format: `delete INDEX`
 
 ****
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index *must be a positive integer* 1, 2, 3, ...
+* Deletes the participant at the specified `INDEX`.
+* The index refers to the index number shown in the displayed contact list.
+
+[WARNING]
+The index *must be a positive integer*: 1, 2, 3, ...
 ****
 
 Examples:
 
 * `list` +
 `delete 2` +
-Deletes the 2nd person in the address book.
+Deletes the participant at index 2.
 * `find Betsy` +
 `delete 1` +
-Deletes the 1st person in the results of the `find` command.
+Deletes the participant at index 2 in the results of the `find` command.
 
-=== Selecting a person : `select`
+[[Select]]
+=== Selecting a participant : `select`
 
-Selects the person identified by the index number used in the displayed person list. +
+Selects the participant identified by the index number used in the displayed participant list. +
 Format: `select INDEX`
 
 ****
-* Selects the person and loads the Google search page the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Selects the participant at the specified `INDEX`.
+* The index refers to the index number shown in the displayed participant list.
 * The index *must be a positive integer* `1, 2, 3, ...`
 ****
 
@@ -159,11 +256,12 @@ Examples:
 
 * `list` +
 `select 2` +
-Selects the 2nd person in the address book.
+Selects the participant at index 2 in your contact list.
 * `find Betsy` +
 `select 1` +
-Selects the 1st person in the results of the `find` command.
+Selects the participant at index 1 in the results of the `find` command.
 
+[[History]]
 === Listing entered commands : `history`
 
 Lists all the commands that you have entered in reverse chronological order. +
@@ -175,15 +273,14 @@ Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and 
 ====
 
 // tag::undoredo[]
+[[Undo]]
 === Undoing previous command : `undo`
 
-Restores the address book to the state before the previous _undoable_ command was executed. +
+Restores your contact list to the state before the previous _undoable_ command was executed. +
 Format: `undo`
 
 [NOTE]
-====
-Undoable commands: those commands that modify the address book's content (`add`, `delete`, `edit` and `clear`).
-====
+Undoable commands are commands that modify your contact list's content (`add`, `delete`, `edit` and `clear`).
 
 Examples:
 
@@ -201,7 +298,8 @@ The `undo` command fails as there are no undoable commands executed previously.
 `undo` (reverses the `clear` command) +
 `undo` (reverses the `delete 1` command) +
 
-=== Redoing the previously undone command : `redo`
+[[Redo]]
+=== Redoing previously undone command : `redo`
 
 Reverses the most recent `undo` command. +
 Format: `redo`
@@ -224,11 +322,13 @@ The `redo` command fails as there are no `undo` commands executed previously.
 `redo` (reapplies the `clear` command) +
 // end::undoredo[]
 
+[[Clear]]
 === Clearing all entries : `clear`
 
-Clears all entries from the address book. +
+Clears all entries from your contact list. +
 Format: `clear`
 
+[[Exit]]
 === Exiting the program : `exit`
 
 Exits the program. +
@@ -236,7 +336,7 @@ Format: `exit`
 
 === Saving the data
 
-Address book data are saved in the hard disk automatically after any command that changes the data. +
+Participants' data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
 // tag::dataencryption[]
@@ -248,25 +348,31 @@ _{explain how the user can enable/disable data encryption}_
 == FAQ
 
 *Q*: How do I transfer my data to another Computer? +
-*A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.
+*A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous FOP Manager folder.
 
 == Command Summary
 
-* *Add Freshman* `add_f n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...` +
-e.g. `add_f n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information Systems g/G1 t/Vegetarian`
-* *Add Organizer* `add_o n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...` +
-* *Add House* `add_h HOUSENAME` +
-* *Clear* : `clear`
-* *Delete* : `delete INDEX` +
-e.g. `delete 3`
-* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [g/GROUP] [t/TAG]...` +
-e.g. `edit 2 n/James Lee e/jameslee@example.com`
-* *Find* : `find KEYWORD [MORE_KEYWORDS]` +
-e.g. `find James Jake`
-* *List* : `list`
-* *Help* : `help`
-* *Select* : `select INDEX` +
-e.g.`select 2`
-* *History* : `history`
-* *Undo* : `undo`
-* *Redo* : `redo`
+Congratulations, you are now ready to start your journey with FOP Manager!
+
+Below is a summary of all commands available in FOP Manager:
+
+[cols="20%,<30%,<50%, <20%",options="header",]
+|============================================================
+|Command |Purpose |Example |Reference
+
+|`help` |Views help |`help` |<<ViewHelp,Viewing help>>
+|`add_f` |Adds a freshman |`add_f n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...` |<<AddFresh,Adding a freshman>>
+|`add_o` |Adds an organizer |`add_o n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...` |<<AddOrg,Adding an organizer>>
+|`add_h` |Adds a house |`add_h HOUSENAME` |<<AddHouse,Adding a house>>
+|`add_g` |Adds a group |`add_g GROUPNAME HOUSENAME`|<<AddGroup,Adding a group>>
+|`list` |Lists all participants in contact list |`list` |<<List,Listing all participants>>
+|`edit` |Edits participant at `INDEX` |`edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [g/GROUP] [t/TAG]...` |<<Edit,Editing a Participant>>
+|`find` |Finds participants by name |`find KEYWORD [MORE_KEYWORDS]` |<<Find,Locating participants by name>>
+|`delete` |Deletes participant at `INDEX` |`delete INDEX` |<<Delete,Deleting a participant>>
+|`select` |Selects participant at `INDEX` |`select INDEX` |<<Select,Selecting a participant>>
+|`history` |Lists all previously entered commands |`history` |<<History,Listing entered comamnds>>
+|`undo` |Undoes previous command |`undo` |<<Undo,Undoing previous command>>
+|`redo` |Redoes previously undone command |`redo` |<<Redo, Redoing previously undone command>>
+|`clear` |Clears contact list |`clear` |<<Clear, Clearing all entries>>
+|`exit` |Exits program |`exit` |<<Exit, Exiting the program>>
+|=============================================================
