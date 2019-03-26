@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AddGroupCommand;
 import seedu.address.logic.commands.AddHouseCommand;
+import seedu.address.logic.commands.AddOglCommand;
 import seedu.address.logic.commands.AddParticipantCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
@@ -19,6 +20,7 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.ListOglCommand;
 import seedu.address.logic.commands.ListParticipantCommand;
 import seedu.address.logic.commands.RandomizeCommand;
 import seedu.address.logic.commands.RedoCommand;
@@ -62,6 +64,9 @@ public class AddressBookParser {
         case AddHouseCommand.COMMAND_WORD:
             return new AddHouseCommandParser().parse(arguments);
 
+        case AddOglCommand.COMMAND_WORD:
+            return new AddOglCommandParser().parse(arguments);
+
         case AddParticipantCommand.COMMAND_WORD:
             return new AddParticipantCommandParser().parse(arguments);
 
@@ -82,6 +87,9 @@ public class AddressBookParser {
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
+
+        case ListOglCommand.COMMAND_WORD:
+            return new ListOglCommandParser().parse(arguments);
 
         case ListParticipantCommand.COMMAND_WORD:
             return new ListParticipantCommand();
