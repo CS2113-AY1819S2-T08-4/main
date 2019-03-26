@@ -44,7 +44,6 @@ public class AddParticipantCommand extends AddCommand {
             + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_SUCCESS = "New freshman added: %1$s";
-    private static final String MESSAGE_DUPLICATE_FRESHMAN = "This freshman already exists in the address book";
 
     private final Participant toAdd;
 
@@ -62,7 +61,10 @@ public class AddParticipantCommand extends AddCommand {
         requireNonNull(model);
 
         if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_FRESHMAN);
+            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+        if (!toAdd.getGroup().getGroupName().equals("") && !model.hasGroup(toAdd.getGroup().getGroupName())) {
+            throw new CommandException(MESSAGE_NONEXISTENT_GROUP);
         }
 
         model.addPerson(toAdd);
