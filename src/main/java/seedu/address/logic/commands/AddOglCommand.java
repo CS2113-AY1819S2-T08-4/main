@@ -68,7 +68,7 @@ public class AddOglCommand extends AddCommand {
         }
 
         model.addPerson(toAdd);
-        model.addOgl(toAdd);
+        //model.addOgl(toAdd);
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }

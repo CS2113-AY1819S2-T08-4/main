@@ -1,4 +1,6 @@
 {
+  "houses": [ ],
+  "groups": [],
   "persons": [ {
     "name": "Alice Pauline",
     "sex": "F",
