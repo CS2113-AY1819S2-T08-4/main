@@ -43,7 +43,7 @@ public class AddOglCommand extends AddCommand {
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
-    public static final String MESSAGE_SUCCESS = "New ogl added: %1$s";
+    public static final String MESSAGE_SUCCESS = "New OGL added: %1$s";
 
     private final Ogl toAdd;
 
@@ -62,9 +62,6 @@ public class AddOglCommand extends AddCommand {
 
         if (model.hasPerson(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
-        }
-        if (!toAdd.getGroup().getGroupName().equals("") && !model.hasGroup(toAdd.getGroup().getGroupName())) {
-            throw new CommandException(MESSAGE_NONEXISTENT_GROUP);
         }
 
         model.addPerson(toAdd);
