@@ -13,7 +13,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Person;
+import seedu.address.model.participant.Person;
 
 /**
  * Adds a person to the address book.
@@ -65,10 +65,9 @@ public class AddCommand extends Command {
         if (model.hasPerson(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
-
-        if (!toAdd.getGroup().getGroupName().equals("") && !model.hasGroup(toAdd.getGroup().getGroupName())) {
-            throw new CommandException(MESSAGE_NONEXISTENT_GROUP);
-        }
+//        if (!toAdd.getGroup().getGroupName().equals("") && !model.hasGroup(toAdd.getGroup().getGroupName())) {
+//            throw new CommandException(MESSAGE_NONEXISTENT_GROUP);
+//        }
 
         model.addPerson(toAdd);
         model.commitAddressBook();

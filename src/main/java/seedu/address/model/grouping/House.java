@@ -10,18 +10,25 @@ import java.util.ArrayList;
 public class House {
 
     private String houseName;
-    private ArrayList<Group> groups = new ArrayList<>();
+    private ArrayList<Group> groups;
 
     /**
      * Constructs an {@code House}.
      */
     public House (String name) {
         houseName = name;
+        groups = new ArrayList<>();
     }
 
     public String getHouseName() {
         return houseName;
     }
+
+    public void setHouseName(String houseName) {
+        this.houseName = houseName;
+    }
+
+    // ========== Group Operations ==========
 
     public ArrayList<Group> getGroups() {
         return groups;
@@ -31,19 +38,44 @@ public class House {
      * Adds a new group to the house
      */
     public void addGroup (String groupName) {
-        Group newGroup = new Group(groupName, houseName);
-        groups.add(newGroup);
+        if (hasGroup(groupName)) {
+            return;
+        }
+        groups.add(new Group(groupName, getHouseName()));
+    }
+
+    /**
+     * Remove a group from the house
+     */
+    public void removeGroup(String groupName) {
+        groups.remove(new Group(groupName, getHouseName()));
     }
 
     /**
      * Returns true if Group exists in House
      */
-    public boolean hasGroup (String groupName) {
-        for (Group test : groups) {
-            if (test.getGroupName().equalsIgnoreCase(groupName)) {
-                return true;
-            }
+
+    public boolean hasGroup(String groupName) {
+        return groups.contains(new Group(groupName, getHouseName()));
+    }
+
+    /**
+     * Returns true if both houses of the same name have at least one other identity field that is the same.
+     * This defines a weaker notion of equality between two houses.
+     */
+    public boolean isSameHouse(House otherHouse) {
+        if (otherHouse == this) {
+            return true;
         }
-        return false;
+
+        return otherHouse != null
+                && otherHouse.equals(this);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj == this // short circuit if same object
+                || (obj instanceof House // instanceof handles nulls
+                && this.getHouseName().equals(((House) obj).getHouseName())); // state check
     }
 }

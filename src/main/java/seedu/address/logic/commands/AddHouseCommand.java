@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.grouping.House;
 
 /**
  * Adds a House in the address book.
@@ -34,11 +35,11 @@ public class AddHouseCommand extends Command {
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
 
-        if (model.hasHouse(houseName)) {
+        if (model.hasHouse(new House(houseName))) {
             throw new CommandException(MESSAGE_DUPLICATE_HOUSE);
         }
 
-        model.addHouse(houseName);
+        model.addHouse(new House(houseName));
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SUCCESS, houseName));
     }

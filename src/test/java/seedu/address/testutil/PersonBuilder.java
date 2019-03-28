@@ -4,15 +4,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.grouping.Group;
-import seedu.address.model.person.Birthday;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Major;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
-import seedu.address.model.person.Sex;
+import seedu.address.model.participant.Birthday;
+import seedu.address.model.participant.Email;
+import seedu.address.model.participant.Major;
+import seedu.address.model.participant.Name;
+import seedu.address.model.participant.Person;
+import seedu.address.model.participant.Phone;
+import seedu.address.model.participant.Sex;
 import seedu.address.model.tag.Tag;
-import seedu.address.model.util.SampleDataUtil;
+import seedu.address.model.util.SampleParticipantsUtil;
 
 /**
  * A utility class to help with building Person objects.
@@ -90,7 +90,7 @@ public class PersonBuilder {
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
      */
     public PersonBuilder withTags(String ... tags) {
-        this.tags = SampleDataUtil.getTagSet(tags);
+        this.tags = SampleParticipantsUtil.getTagSet(tags);
         return this;
     }
 

@@ -46,17 +46,17 @@ public class AddGroupCommand extends Command {
 
         Group toAddGroup = new Group(groupName, houseName);
 
-        if (!model.hasHouse(houseName)) {
+        if (!model.hasHouse(new House(houseName))) {
             throw new CommandException(MESSAGE_NONEXISTENT_HOUSE);
         }
 
-        House baseHouse = model.getHouse(houseName);
+        House baseHouse = model.getHouse(new House(houseName));
 
         if (baseHouse.hasGroup(groupName)) {
             throw new CommandException(MESSAGE_DUPLICATE_GROUP);
         }
 
-        model.addGroup(groupName, houseName);
+        model.addGroup(new Group(groupName, houseName));
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SUCCESS, groupName));
     }
