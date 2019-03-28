@@ -6,10 +6,9 @@ import java.util.function.Predicate;
 import javafx.beans.property.ReadOnlyProperty;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.grouping.Group;
 import seedu.address.model.grouping.House;
-import seedu.address.model.person.Person;
-import seedu.address.model.role.Ogl;
-import seedu.address.model.role.Participant;
+import seedu.address.model.participant.Person;
 
 /**
  * The API of the Model component.
@@ -74,18 +73,6 @@ public interface Model {
     void addPerson(Person person);
 
     /**
-     * Adds the given freshman.
-     * {@code freshman} must not already exist in the address book.
-     */
-    void addFreshman(Participant person);
-
-    /**
-     * Adds the given OGL.
-     * {@code Ogl} must not already exist in the address book.
-     */
-    void addOgl(Ogl person);
-
-    /**
      * Replaces the given person {@code target} with {@code editedPerson}.
      * {@code target} must exist in the address book.
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
@@ -95,40 +82,18 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 
-    /** Returns an unmodifiable view of the undo list */
-    ObservableList<String> getUndoList();
-
-    /** Returns an unmodifiable view of the redo list */
-    ObservableList<String> getRedoList();
-
-    /**
-     * Returns true if a House with the same name as {@code House} exists in the address book.
-     */
-    boolean hasHouse(String house);
-
-    /**
-     * Returns true if a Group with the same name as {@code Group} exists in the address book.
-     */
-    boolean hasGroup(String group);
-
-    /**
-     * Adds the given House into address book.
-     * {@code house} must not already exist in the address book.
-     */
-    void addHouse(String house);
-
-    /**
-     * Returns House object.
-     */
-    House getHouse(String house);
-
-    void addGroup(String groupName, String houseName);
-
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    // ================ Undo/Redo functions ======================
+    /** Returns an unmodifiable view of the undo list */
+    ObservableList<String> getUndoList();
+
+    /** Returns an unmodifiable view of the redo list */
+    ObservableList<String> getRedoList();
 
     /**
      * Returns true if the model has previous address book states to restore.
@@ -171,4 +136,78 @@ public interface Model {
      * Sets the selected person in the filtered person list.
      */
     void setSelectedPerson(Person person);
+
+    // ================ Group ======================
+    /**
+     * Returns true if a group with the same identity as {@code group} exists in the address book.
+     */
+    boolean hasGroup(Group group);
+
+    /**
+     * Deletes the given group.
+     * The group must exist in the address book.
+     */
+    void deleteGroup(Group target);
+
+    /**
+     * Adds the given group.
+     * {@code group} must not already exist in the address book.
+     */
+    void addGroup(Group group);
+
+    /**
+     * Replaces the given group {@code target} with {@code editedGroup}.
+     * {@code target} must exist in the address book.
+     * The group identity of {@code editedGroup} must not be the same as another existing group in the address book.
+     */
+    void setGroup(Group target, Group editedGroup);
+
+    /** Returns an unmodifiable view of the filtered group list */
+    ObservableList<Group> getFilteredGroupList();
+
+    /**
+     * Updates the filter of the filtered group list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredGroupList(Predicate<Group> predicate);
+
+    // ================ House ======================
+    /**
+     * Returns a house if it exists
+     */
+    House getHouse(House house);
+
+    /**
+     * Returns true if a house with the same identity as {@code house} exists in the address book.
+     */
+    boolean hasHouse(House house);
+
+    /**
+     * Deletes the given house.
+     * The house must exist in the address book.
+     */
+    void deleteHouse(House target);
+
+    /**
+     * Adds the given house.
+     * {@code house} must not already exist in the address book.
+     */
+    void addHouse(House house);
+
+    /**
+     * Replaces the given house {@code target} with {@code editedHouse}.
+     * {@code target} must exist in the address book.
+     * The house identity of {@code editedHouse} must not be the same as another existing house in the address book.
+     */
+    void setHouse(House target, House editedHouse);
+
+    /** Returns an unmodifiable view of the filtered house list */
+    ObservableList<Group> getFilteredHouseList();
+
+    /**
+     * Updates the filter of the filtered house list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredHouseList(Predicate<House> predicate);
+
 }
