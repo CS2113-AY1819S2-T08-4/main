@@ -106,7 +106,7 @@ public class ModelManager implements Model {
     @Override
     public void setAddressBook(ReadOnlyAddressBook addressBook) {
         versionedAddressBook.resetData(addressBook);
-        undoableCommand = "clear";
+        undoableCommand = "Clear";
     }
 
     @Override
@@ -249,7 +249,7 @@ public class ModelManager implements Model {
     public void addGroup(Group group) {
         versionedAddressBook.addGroup(group);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        undoableCommand = "Add " + group.getGroupName();
+        undoableCommand = "Add Group " + group.getGroupName();
     }
 
     @Override
@@ -257,7 +257,7 @@ public class ModelManager implements Model {
         requireAllNonNull(target, editedGroup);
 
         versionedAddressBook.setGroup(target, editedGroup);
-        undoableCommand = "Edit " + editedGroup.getGroupName();
+        undoableCommand = "Edit Group " + editedGroup.getGroupName();
     }
 
     @Override
@@ -286,7 +286,7 @@ public class ModelManager implements Model {
     @Override
     public void deleteHouse(House target) {
         versionedAddressBook.removeHouse(target);
-        undoableCommand = "Delete" + target.getHouseName();
+        undoableCommand = "Delete House " + target.getHouseName();
 
         if (HouseList.hasHouse(target.toString())) {
             HouseList.deleteHouse(target.toString());
@@ -297,7 +297,7 @@ public class ModelManager implements Model {
     public void addHouse(House house) {
         versionedAddressBook.addHouse(house);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        undoableCommand = "Add " + house.getHouseName();
+        undoableCommand = "Add House " + house.getHouseName();
     }
 
     @Override
@@ -305,7 +305,7 @@ public class ModelManager implements Model {
         requireAllNonNull(target, editedHouse);
 
         versionedAddressBook.setHouse(target, editedHouse);
-        undoableCommand = "Edit " + editedHouse.getHouseName();
+        undoableCommand = "Edit House " + editedHouse.getHouseName();
 
     }
 
