@@ -52,7 +52,7 @@ public class PersonCard extends UiPart<Region> {
         name.setText(person.getName().fullName);
         sex.setText("S: " + person.getSex().value);
         birthday.setText("B: " + person.getBirthday().value.substring(0,2) + "/"
-                + person.getBirthday().value.substring(2,4) + "/" 
+                + person.getBirthday().value.substring(2,4) + "/"
                 + person.getBirthday().value.substring(4));
         phone.setText("P: " + person.getPhone().value);
         major.setText("M: " + person.getMajor().value);
