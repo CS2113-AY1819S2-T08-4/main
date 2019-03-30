@@ -50,12 +50,14 @@ public class PersonCard extends UiPart<Region> {
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
-        sex.setText(person.getSex().value);
-        birthday.setText(person.getBirthday().value);
-        phone.setText(person.getPhone().value);
-        major.setText(person.getMajor().value);
-        email.setText(person.getEmail().value);
-        group.setText(person.getGroup().getGroupName());
+        sex.setText("S: " + person.getSex().value);
+        birthday.setText("B: " + person.getBirthday().value.substring(0,2) + "/"
+                + person.getBirthday().value.substring(2,4) + "/"
+                + person.getBirthday().value.substring(4));
+        phone.setText("P: " + person.getPhone().value);
+        major.setText("M: " + person.getMajor().value);
+        email.setText("E: " + person.getEmail().value);
+        group.setText("G: " + person.getGroup().getGroupName());
         person.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
     }
 
