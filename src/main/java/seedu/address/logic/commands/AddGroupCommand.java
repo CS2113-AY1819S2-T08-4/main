@@ -21,7 +21,7 @@ public class AddGroupCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New group added: %1$s";
     public static final String MESSAGE_NONEXISTENT_HOUSE = "This House does not exist. Create House first!";
-    public static final String MESSAGE_DUPLICATE_GROUP = "This group already exists";
+    public static final String MESSAGE_DUPLICATE_GROUP = "This group already exists. Create a unique group!";
 
     private static String groupName;
     private static String houseName;
@@ -49,14 +49,11 @@ public class AddGroupCommand extends Command {
         if (!model.hasHouse(new House(houseName))) {
             throw new CommandException(MESSAGE_NONEXISTENT_HOUSE);
         }
-
-        House baseHouse = model.getHouse(new House(houseName));
-
-        if (baseHouse.hasGroup(groupName)) {
+        if (model.hasGroup(toAddGroup)) {
             throw new CommandException(MESSAGE_DUPLICATE_GROUP);
         }
 
-        model.addGroup(new Group(groupName, houseName));
+        model.addGroup(toAddGroup);
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SUCCESS, groupName));
     }
