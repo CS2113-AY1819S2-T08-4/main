@@ -94,7 +94,7 @@ public class AddressBookParser {
             return new ListOglCommandParser().parse(arguments);
 
         case ListParticipantCommand.COMMAND_WORD:
-            return new ListParticipantCommand();
+            return new ListParticipantCommandParser().parse(arguments);
 
         case ViewHousesCommand.COMMAND_WORD:
             return new ViewHousesCommand();
