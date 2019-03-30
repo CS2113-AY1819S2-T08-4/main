@@ -348,10 +348,10 @@ public class AddCommandTest {
             return false;
         }
 
-//        @Override
-//        public boolean hasGroup(String group) {
-//            return false;
-//        }
+        @Override
+        public boolean hasGroup(Group group) {
+            return false;
+        }
     }
 
 }
