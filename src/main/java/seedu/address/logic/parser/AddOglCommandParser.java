@@ -27,13 +27,13 @@ import seedu.address.model.role.Ogl;
 import seedu.address.model.tag.Tag;
 
 /**
- * Parses input arguments and creates a new AddFreshmanCommand object
+ * Parses input arguments and creates a new AddOglCommand object
  */
 public class AddOglCommandParser extends AddCommandParser {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the AddFreshmanCommand
-     * and returns an AddFreshmanCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the AddOglCommand
+     * and returns an AddOglCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddOglCommand parse(String args) throws ParseException {

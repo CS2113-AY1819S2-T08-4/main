@@ -18,7 +18,7 @@ import seedu.address.model.role.Participant;
 /**
  * Adds a freshman to the address book.
  */
-public class AddParticipantCommand extends AddCommand {
+public class AddFreshmanCommand extends AddCommand {
 
     public static final String COMMAND_WORD = "add_f";
 
@@ -49,10 +49,10 @@ public class AddParticipantCommand extends AddCommand {
     private final Participant toAdd;
 
     /**
-     * Creates an AddParticipantCommand to add the specified {@code Participant}
+     * Creates an AddFreshmanCommand to add the specified {@code Participant}
      */
 
-    public AddParticipantCommand(Participant person) {
+    public AddFreshmanCommand(Participant person) {
         super(person);
         toAdd = person;
     }

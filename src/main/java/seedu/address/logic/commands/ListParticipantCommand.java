@@ -13,7 +13,7 @@ public class ListParticipantCommand extends Command {
 
     public static final String COMMAND_WORD = "list_f";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Lists all participants";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Lists all freshmen";
 
     public static final String MESSAGE_SUCCESS = "Listed all freshmen";
 

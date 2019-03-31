@@ -12,7 +12,7 @@ import seedu.address.model.person.FindingParticipantPredicate;
 /**
  * Parses input arguments and creates a new FindCommand object
  */
-public class ListParticipantCommandParser implements Parser<ListParticipantCommand> {
+public class ListFreshmanCommandParser implements Parser<ListParticipantCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the FindCommand

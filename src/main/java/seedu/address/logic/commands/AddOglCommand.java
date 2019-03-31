@@ -49,7 +49,7 @@ public class AddOglCommand extends AddCommand {
     private final Ogl toAdd;
 
     /**
-     * Creates an AddFreshmanCommand to add the specified {@code Participant}
+     * Creates an AddOglCommand to add the specified {@code Ogl}
      */
 
     public AddOglCommand(Ogl person) {
@@ -66,7 +66,6 @@ public class AddOglCommand extends AddCommand {
         }
 
         model.addPerson(toAdd);
-        //model.addOgl(toAdd);
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
