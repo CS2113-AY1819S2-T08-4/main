@@ -9,7 +9,8 @@ public class Messages {
     public static final String MESSAGE_INVALID_COMMAND_FORMAT = "Invalid command format! \n%1$s";
     public static final String MESSAGE_INVALID_PERSON_DISPLAYED_INDEX = "The person index provided is invalid";
     public static final String MESSAGE_PERSONS_LISTED_OVERVIEW = "%1$d persons listed!";
-    public static final String MESSAGE_EXCEL_FILE_WRITTEN_SUCCESSFULLY = "success";
+    public static final String MESSAGE_EXCEL_FILE_WRITTEN_SUCCESSFULLY = "successfully wrote the file";
     public static final String MESSAGE_EXPORT_COMMAND_ERRORS = "Error occurred";
+    public static final String MESSAGE_DIRECTORY_NO_EXIST = "Directory does not exist";
 
 }
