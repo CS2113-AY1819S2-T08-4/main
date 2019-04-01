@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import seedu.address.ui.CustomPieChart?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="560.0" prefHeight="21.0" prefWidth="1800.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Statistic" textAlignment="CENTER" textFill="WHITE" wrapText="true" VBox.vgrow="ALWAYS" />
+    <HBox>
+        <VBox>
+            <CustomPieChart fx:id="agePieChart"  />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="1800" styleClass="label-bright" text="Age" textAlignment="CENTER" VBox.vgrow="ALWAYS" />
+        </VBox>
+        <VBox >
+            <CustomPieChart fx:id="majorPieChart"  />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="1800" styleClass="label-bright" text="Major" VBox.vgrow="ALWAYS" />
+        </VBox>
+        <VBox >
+            <CustomPieChart fx:id="sexPieChart"   />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="1800" styleClass="label-bright" text="Sex" VBox.vgrow="ALWAYS" />
+        </VBox>
+    </HBox>
+</VBox>
+
+<!--<VBox spacing="20" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">-->
+<!--<Label alignment="CENTER" contentDisplay="CENTER" layoutX="560.0" prefHeight="21.0" prefWidth="1800.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Statistic" textAlignment="CENTER" textFill="WHITE" wrapText="true" VBox.vgrow="ALWAYS" />-->
+<!--<HBox>-->
+    <!--<VBox HBox.hgrow="ALWAYS">-->
+        <!--<CustomPieChart fx:id="agePieChart" stylesheets="DarkTheme.css" VBox.vgrow="ALWAYS" />-->
+        <!--<Label alignment="CENTER" contentDisplay="CENTER" prefWidth="1800" styleClass="label-bright" text="Age" textAlignment="CENTER" VBox.vgrow="ALWAYS" />-->
+    <!--</VBox>-->
+    <!--<VBox HBox.hgrow="ALWAYS">-->
+        <!--<CustomPieChart fx:id="majorPieChart" stylesheets="DarkTheme.css" VBox.vgrow="ALWAYS" />-->
+        <!--<Label alignment="CENTER" contentDisplay="CENTER" prefWidth="1800" styleClass="label-bright" text="Major" VBox.vgrow="ALWAYS" />-->
+    <!--</VBox>-->
+    <!--<VBox HBox.hgrow="ALWAYS">-->
+        <!--<CustomPieChart fx:id="sexPieChart" stylesheets="DarkTheme.css" VBox.vgrow="ALWAYS" />-->
+        <!--<Label alignment="CENTER" contentDisplay="CENTER" prefWidth="1800" styleClass="label-bright" text="Sex" VBox.vgrow="ALWAYS" />-->
+    <!--</VBox>-->
+<!--</HBox>-->

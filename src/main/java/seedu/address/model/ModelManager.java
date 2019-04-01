@@ -13,6 +13,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
@@ -91,6 +92,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public Path getChartStoragePath() {
+        return userPrefs.getChartStoragePath();
+    }
+
+    @Override
     public Path getAddressBookFilePath() {
         return userPrefs.getAddressBookFilePath();
     }
@@ -104,9 +110,29 @@ public class ModelManager implements Model {
     //=========== AddressBook ================================================================================
 
     @Override
+    public boolean isEmpty() {
+        return versionedAddressBook.isEmpty();
+    }
+
+    @Override
+    public ObservableMap<String, Integer> getAgeData() {
+        return versionedAddressBook.getAgeData();
+    }
+
+    @Override
+    public ObservableMap<String, Integer> getMajorData() {
+        return versionedAddressBook.getMajorData();
+    }
+
+    @Override
+    public ObservableMap<String, Integer> getSexData() {
+        return versionedAddressBook.getSexData();
+    }
+
+    @Override
     public void setAddressBook(ReadOnlyAddressBook addressBook) {
         versionedAddressBook.resetData(addressBook);
-        undoableCommand = "clear";
+        undoableCommand = "Clear all persons";
     }
 
     @Override
@@ -123,7 +149,7 @@ public class ModelManager implements Model {
     @Override
     public void deletePerson(Person target) {
         versionedAddressBook.removePerson(target);
-        undoableCommand = "Delete" + target.getName().fullName;
+        undoableCommand = "Delete " + target.getName().fullName;
 
         if (FreshmanList.hasFreshman(target.toString())) {
             FreshmanList.deleteFreshman(target.toString());

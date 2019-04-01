@@ -24,7 +24,7 @@ Interested? Hurry, jump to <<Quick Start>> to get started!
 
 == About User Guide
 
-This user guide shows you how to get started with FOP Manager. It introduces you to the features of FOP Manager, providing examples, that you may become an expert user in no time.
+This user guide shows you how to get started with FOP Manager. It introduces you to the features of FOP Manager and provides you with examples, that you will become an expert user in no time!
 
 Throughout this user guide, there will be various icons used, as shown below:
 
@@ -43,7 +43,7 @@ This section serves as a tutorial for a new user to FOP Manager.
 .  Ensure you have Java version `9` or later installed in your Computer.
 .  Download the latest `addressbook.jar` link:{repoURL}/releases[here].
 .  Copy the file to the folder you want to use as the home folder for FOP Manager.
-.  Double-click the file to start the app. The GUI should appear in a few seconds:
+.  Double-click the file to start the app. The GUI should appear in a few seconds and will look like this:
 +
 image::Ui.png[width="790"]
 
@@ -93,44 +93,71 @@ e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend 
 [[ViewHelp]]
 === Viewing help : `help`
 
+Opens a window with a list of all the commands available on FOP Manager +
 Format: `help`
 
 [[AddFresh]]
 === Adding a freshman : `add_f`
 
-Adds a participant to the freshman list +
+Adds a freshman to the Freshman list +
 Format: `add_f n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...`
 
 ****
 * Parameters can be accepted in any order.
-* A participant can have any number of tags (including 0).
+* A freshman can have any number of tags (including 0).
 
 [TIP]
 `GROUP` can be left blank i.e. `g/`
 
 [WARNING]
-If not blank, the `GROUP` must exist before a participant can be added to it
+If not blank, the `GROUP` must exist before a freshman can be added to it
 ****
 
 Examples:
 
 * `add_f n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information Systems g/`
-* `add_f n/Jane Doe s/F e/betsycrowe@example.com m/CS g/ p/1234567 t/househead`
+* `add_f n/Jane Doe s/F e/betsycrowe@example.com m/CS g/ p/1234567 t/vegetarian`
 
-[[AddOrg]]
-=== Adding an organizer : `add_o`
+[[AddOGL]]
+=== Adding an Orientation Group Leader (OGL) : `add_o`
 
-Adds a participant to the organizers list +
+Adds an OGL to the OGL list +
 Format: `add_o n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...`
 
 ****
 * Parameters can be accepted in any order.
-* A participant can have any number of tags (including 0).
+* An OGL can have any number of tags (including 0).
+
+[TIP]
+`GROUP` can be left blank i.e. `g/`
+
+[WARNING]
+If not blank, the `GROUP` must exist before an OGL can be added to it
 ****
 
 Example:
 
-* `add_f n/James Boe s/M b/27071999 p/13579753 e/jamesd@example.com m/CEG g/`
+* `add_o n/James Boe s/M b/27071999 p/13579753 e/jamesd@example.com m/CEG g/`
+* `add_o n/Jane Doe s/F e/betsycrowe@example.com m/CS g/ p/1234567 t/vegetarian`
+
+[[AddOther]]
+=== Adding other participants such as organizers : `add_o`
+
+Adds other participants involved in the camp such as organizers to the contact list +
+Format: `add n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...`
+
+****
+* Parameters can be accepted in any order.
+* An entered person can have any number of tags (including 0).
+
+[TIP]
+`GROUP` is left blank i.e. `g/` since there is no group allocation for this person that is added
+
+****
+
+Example:
+
+* `add n/James Boe s/M b/27071999 p/13579753 e/jamesd@example.com m/CEG g/`t/Voucher Sponsor
 
 [[AddHouse]]
 === Adding a house : `add_h`
@@ -161,10 +188,22 @@ Example:
 
 * `add_g b1 blue`
 
-[[List]]
-=== Listing all participants : `list`
+[[ListFresh]]
+=== Listing all freshmen : `list_f`
 
-Shows a list of all camp participants in your contact list. +
+Shows a list of all the freshmen in your Freshman list. +
+Format: `list_f`
+
+[[ListOGL]]
+=== Listing all OGLs : `list_o`
+
+Shows a list of all the OGLs in your OGL list. +
+Format: `list_o`
+
+[[ListALL]]
+=== Listing all the participants : `list`
+
+Shows a list of all the participants involved in the camp, including freshmen and OGL, in your contact list. +
 Format: `list`
 
 [[Edit]]
@@ -362,10 +401,13 @@ Below is a summary of all commands available in FOP Manager:
 
 |`help` |Views help |`help` |<<ViewHelp,Viewing help>>
 |`add_f` |Adds a freshman |`add_f n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...` |<<AddFresh,Adding a freshman>>
-|`add_o` |Adds an organizer |`add_o n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...` |<<AddOrg,Adding an organizer>>
+|`add_o` |Adds an OGL |`add_o n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...` |<<AddOGL,Adding an OGL>>
+|`add` |Adds a participant |`add n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]...` |<<AddOther,Adding a participant>>
 |`add_h` |Adds a house |`add_h HOUSENAME` |<<AddHouse,Adding a house>>
 |`add_g` |Adds a group |`add_g GROUPNAME HOUSENAME`|<<AddGroup,Adding a group>>
-|`list` |Lists all participants in contact list |`list` |<<List,Listing all participants>>
+|`list_f` |Lists all freshmen in contact list |`list` |<<ListFresh,Listing all participants>>
+|`list_o` |Lists all participants in contact list |`list` |<<ListOGL,Listing all participants>>
+|`list` |Lists all participants in contact list |`list` |<<ListALL,Listing all participants>>
 |`edit` |Edits participant at `INDEX` |`edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [g/GROUP] [t/TAG]...` |<<Edit,Editing a Participant>>
 |`find` |Finds participants by name |`find KEYWORD [MORE_KEYWORDS]` |<<Find,Locating participants by name>>
 |`delete` |Deletes participant at `INDEX` |`delete INDEX` |<<Delete,Deleting a participant>>

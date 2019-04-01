@@ -3,6 +3,9 @@ package seedu.address.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.collections.ObservableMap;
+
+
 /**
  * {@code AddressBook} that keeps track of its own history.
  */
@@ -21,6 +24,22 @@ public class VersionedAddressBook extends AddressBook {
         addressBookStateList = new ArrayList<>();
         addressBookStateList.add(new AddressBook(initialState));
         currentStatePointer = 0;
+    }
+
+    public boolean isEmpty() {
+        return addressBookStateList.get(currentStatePointer).getPersonList().isEmpty();
+    }
+
+    public ObservableMap<String, Integer> getAgeData() {
+        return addressBookStateList.get(currentStatePointer).getAgeData();
+    }
+
+    public ObservableMap<String, Integer> getMajorData() {
+        return addressBookStateList.get(currentStatePointer).getMajorData();
+    }
+
+    public ObservableMap<String, Integer> getSexData() {
+        return addressBookStateList.get(currentStatePointer).getSexData();
     }
 
     public void addUndoableCommand (String undoableCommand) {

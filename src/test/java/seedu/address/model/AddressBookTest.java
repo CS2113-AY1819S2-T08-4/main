@@ -21,6 +21,7 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import seedu.address.model.grouping.Group;
 import seedu.address.model.grouping.House;
 import seedu.address.model.participant.Person;
@@ -123,6 +124,18 @@ public class AddressBookTest {
 
         AddressBookStub(Collection<Person> persons) {
             this.persons.setAll(persons);
+        }
+
+        public ObservableMap<String, Integer> getAgeData() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        public ObservableMap<String, Integer> getMajorData() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        public ObservableMap<String, Integer> getSexData() {
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override

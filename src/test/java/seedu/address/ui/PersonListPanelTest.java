@@ -87,8 +87,8 @@ public class PersonListPanelTest extends GuiUnitTest {
             Birthday birthday = new Birthday("12345678");
             Phone phone = new Phone("000");
             Email email = new Email("a@aa");
-            Major major = new Major("a");
-            Group group = new Group("G" + i);
+            Major major = new Major("cs");
+            Group group = new Group("");
             Person person = new Person(name, sex, birthday, phone, email, major, group, Collections.emptySet());
             backingList.add(person);
         }

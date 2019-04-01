@@ -8,8 +8,8 @@
     "birthday": "07081994",
     "phone" : "94351253",
     "email" : "alice@example.com",
-    "major" : "123, Jurong West Ave 6, #08-111",
-    "group" : "G",
+    "major" : "CS",
+    "group" : "",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
@@ -17,8 +17,8 @@
     "birthday": "08071993",
     "phone" : "98765432",
     "email" : "johnd@example.com",
-    "major" : "311, Clementi Ave 2, #02-25",
-    "group" : "G",
+    "major" : "IS",
+    "group" : "",
     "tagged" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
@@ -26,8 +26,8 @@
     "birthday": "01023456",
     "phone" : "95352563",
     "email" : "heinz@example.com",
-    "major" : "wall street",
-    "group" : "G",
+    "major" : "CS",
+    "group" : "",
     "tagged" : [ ]
   }, {
     "name" : "Daniel Meier",
@@ -35,8 +35,8 @@
     "birthday": "01023456",
     "phone" : "87652533",
     "email" : "cornelia@example.com",
-    "major" : "10th street",
-    "group" : "G",
+    "major" : "BZA",
+    "group" : "",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
@@ -44,8 +44,8 @@
     "birthday": "01023456",
     "phone" : "9482224",
     "email" : "werner@example.com",
-    "major" : "michegan ave",
-    "group" : "G",
+    "major" : "CS",
+    "group" : "",
     "tagged" : [ ]
   }, {
     "name" : "Fiona Kunz",
@@ -53,8 +53,8 @@
     "birthday": "01023456",
     "phone" : "9482427",
     "email" : "lydia@example.com",
-    "major" : "little tokyo",
-    "group" : "G",
+    "major" : "ISC",
+    "group" : "",
     "tagged" : [ ]
   }, {
     "name" : "George Best",
@@ -62,8 +62,8 @@
     "birthday": "01023456",
     "phone" : "9482442",
     "email" : "anna@example.com",
-    "major" : "4th street",
-    "group" : "G",
+    "major" : "CS",
+    "group" : "",
     "tagged" : [ ]
   } ]
 }

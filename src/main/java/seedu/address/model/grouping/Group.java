@@ -10,9 +10,7 @@ import seedu.address.model.participant.Person;
  */
 public class Group {
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "Group can take any values, and it should not be blank";
-    public static final String VALIDATION_REGEX = "[^\\s].*";
+    public static final String MESSAGE_CONSTRAINTS = "Group can take any value";
 
     private String groupName;
     private String houseName;
@@ -37,12 +35,12 @@ public class Group {
     }
 
     /**
-     * Returns true if it's a valid group.
+     * Returns true if it's a valid group. Always true (can be empty).
      * @param test
      * @return
      */
     public static boolean isValidGroup(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return true;
     }
 
     /**
@@ -50,7 +48,7 @@ public class Group {
      * This defines a weaker notion of equality between two groups.
      */
     public boolean isSameGroup(Group otherGroup) {
-        return this.equals(otherGroup);
+        return this.getGroupName().equals(otherGroup.getGroupName());
     }
 
     // ========= House Operations =========

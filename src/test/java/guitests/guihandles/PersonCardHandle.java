@@ -98,12 +98,12 @@ public class PersonCardHandle extends NodeHandle<Node> {
      */
     public boolean equals(Person person) {
         return getName().equals(person.getName().fullName)
-                && getMajor().equals(person.getMajor().value)
-                && getSex().equals(person.getSex().value)
-                && getBirthday().equals(person.getBirthday().value)
-                && getPhone().equals(person.getPhone().value)
-                && getEmail().equals(person.getEmail().value)
-                && getGroup().equals(person.getGroup().getGroupName())
+                && getMajor().equals("Major: " + person.getMajor().getFullMajor())
+                && getSex().equals("Sex: " + person.getSex().value)
+                && getBirthday().equals("Birthday: " + person.getBirthday().getFormattedBirthday())
+                && getPhone().equals("Phone Number: " + person.getPhone().value)
+                && getEmail().equals("Email: " + person.getEmail().value)
+                && getGroup().equals("Group: " + person.getGroup().getGroupName())
                 && ImmutableMultiset.copyOf(getTags()).equals(ImmutableMultiset.copyOf(person.getTags().stream()
                         .map(tag -> tag.tagName)
                         .collect(Collectors.toList())));

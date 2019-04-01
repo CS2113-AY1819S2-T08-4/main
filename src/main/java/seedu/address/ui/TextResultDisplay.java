@@ -9,20 +9,20 @@ import javafx.scene.layout.Region;
 /**
  * A ui for the status bar that is displayed at the header of the application.
  */
-public class ResultDisplay extends UiPart<Region> {
+public class TextResultDisplay extends UiPart<Region> {
 
-    private static final String FXML = "ResultDisplay.fxml";
+    private static final String FXML = "TextResultDisplay.fxml";
 
     @FXML
-    private TextArea resultDisplay;
+    private TextArea textResultDisplay;
 
-    public ResultDisplay() {
+    public TextResultDisplay() {
         super(FXML);
     }
 
     public void setFeedbackToUser(String feedbackToUser) {
         requireNonNull(feedbackToUser);
-        resultDisplay.setText(feedbackToUser);
+        textResultDisplay.setText(feedbackToUser);
     }
 
 }

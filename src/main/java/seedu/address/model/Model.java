@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import javafx.beans.property.ReadOnlyProperty;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.grouping.Group;
 import seedu.address.model.grouping.House;
@@ -38,6 +39,11 @@ public interface Model {
     void setGuiSettings(GuiSettings guiSettings);
 
     /**
+     * Returns the user prefs' chart storage path.
+     */
+    Path getChartStoragePath();
+
+    /**
      * Returns the user prefs' address book file path.
      */
     Path getAddressBookFilePath();
@@ -54,6 +60,26 @@ public interface Model {
 
     /** Returns the AddressBook */
     ReadOnlyAddressBook getAddressBook();
+
+    /**
+     * Returns true if there are no person in the address book.
+     */
+    boolean isEmpty();
+
+    /**
+     * Returns the number of persons by age
+     */
+    ObservableMap<String, Integer> getAgeData();
+
+    /**
+     * Returns the number of persons by sex
+     */
+    ObservableMap<String, Integer> getSexData();
+
+    /**
+     * Returns the number of persons by major
+     */
+    ObservableMap<String, Integer> getMajorData();
 
     /**
      * Returns true if a person with the same identity as {@code person} exists in the address book.

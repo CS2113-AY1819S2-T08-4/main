@@ -45,6 +45,8 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_NONEXISTENT_GROUP = "This group does not exist. "
+            + "A person must be added to an existent group!";
 
     private final Person toAdd;
 
@@ -62,6 +64,9 @@ public class AddCommand extends Command {
 
         if (model.hasPerson(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+        if (!toAdd.getGroup().getGroupName().equals("") && !model.hasGroup(toAdd.getGroup())) {
+            throw new CommandException(MESSAGE_NONEXISTENT_GROUP);
         }
         model.addPerson(toAdd);
         model.commitAddressBook();

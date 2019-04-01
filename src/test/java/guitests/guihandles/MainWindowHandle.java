@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class MainWindowHandle extends StageHandle {
 
     private final PersonListPanelHandle personListPanel;
-    private final ResultDisplayHandle resultDisplay;
+    private final TextResultDisplayHandle resultDisplay;
     private final CommandBoxHandle commandBox;
     private final StatusBarFooterHandle statusBarFooter;
     private final MainMenuHandle mainMenu;
@@ -18,7 +18,7 @@ public class MainWindowHandle extends StageHandle {
         super(stage);
 
         personListPanel = new PersonListPanelHandle(getChildNode(PersonListPanelHandle.PERSON_LIST_VIEW_ID));
-        resultDisplay = new ResultDisplayHandle(getChildNode(ResultDisplayHandle.RESULT_DISPLAY_ID));
+        resultDisplay = new TextResultDisplayHandle(getChildNode(TextResultDisplayHandle.TEXT_RESULT_DISPLAY));
         commandBox = new CommandBoxHandle(getChildNode(CommandBoxHandle.COMMAND_INPUT_FIELD_ID));
         statusBarFooter = new StatusBarFooterHandle(getChildNode(StatusBarFooterHandle.STATUS_BAR_PLACEHOLDER));
         mainMenu = new MainMenuHandle(getChildNode(MainMenuHandle.MENU_BAR_ID));
@@ -30,7 +30,7 @@ public class MainWindowHandle extends StageHandle {
         return personListPanel;
     }
 
-    public ResultDisplayHandle getResultDisplay() {
+    public TextResultDisplayHandle getResultDisplay() {
         return resultDisplay;
     }
 

@@ -32,7 +32,7 @@ public class ParserUtilTest {
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
-    private static final String VALID_ADDRESS = "123 Main Street #0505";
+    private static final String VALID_MAJOR = "CEG";
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
@@ -122,14 +122,14 @@ public class ParserUtilTest {
 
     @Test
     public void parseAddress_validValueWithoutWhitespace_returnsAddress() throws Exception {
-        Major expectedMajor = new Major(VALID_ADDRESS);
-        assertEquals(expectedMajor, ParserUtil.parseMajor(VALID_ADDRESS));
+        Major expectedMajor = new Major(VALID_MAJOR);
+        assertEquals(expectedMajor, ParserUtil.parseMajor(VALID_MAJOR));
     }
 
     @Test
     public void parseAddress_validValueWithWhitespace_returnsTrimmedAddress() throws Exception {
-        String addressWithWhitespace = WHITESPACE + VALID_ADDRESS + WHITESPACE;
-        Major expectedMajor = new Major(VALID_ADDRESS);
+        String addressWithWhitespace = WHITESPACE + VALID_MAJOR + WHITESPACE;
+        Major expectedMajor = new Major(VALID_MAJOR);
         assertEquals(expectedMajor, ParserUtil.parseMajor(addressWithWhitespace));
     }
 

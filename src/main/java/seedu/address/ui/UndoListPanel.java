@@ -23,7 +23,6 @@ public class UndoListPanel extends UiPart<Region> {
         super(FXML);
         undoListView.setItems(undoList);
         undoListView.setCellFactory(listView -> new UndoListViewCell());
-        //undoListView.getSelectionModel().getSelectedItems().addListener(observable -> {updateUndoList(undoList);});
     }
 
     /**

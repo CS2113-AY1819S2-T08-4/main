@@ -5,7 +5,9 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 
 import javafx.beans.InvalidationListener;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import seedu.address.commons.util.InvalidationListenerManager;
 import seedu.address.model.grouping.Group;
 import seedu.address.model.grouping.House;
@@ -19,6 +21,10 @@ import seedu.address.model.participant.UniqueParticipantList;
  * Duplicates are not allowed (by .isSamePerson comparison)
  */
 public class AddressBook implements ReadOnlyAddressBook {
+
+    private final ObservableMap<String, Integer> ageData = FXCollections.observableHashMap();
+    private final ObservableMap<String, Integer> majorData = FXCollections.observableHashMap();
+    private final ObservableMap<String, Integer> sexData = FXCollections.observableHashMap();
 
     private final UniqueParticipantList persons;
     private final UniqueGroupList groups;
@@ -47,6 +53,7 @@ public class AddressBook implements ReadOnlyAddressBook {
         this();
         resetData(toBeCopied);
     }
+
     //// list overwrite operations
     /**
      * Replaces the contents of the person list with {@code persons}.
@@ -55,6 +62,46 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void setPersons(List<Person> persons) {
         this.persons.setPersons(persons);
         indicateModified();
+    }
+
+    /**
+     * Add data of a new person
+     * @param toAdd
+     */
+    public void addData (Person toAdd) {
+        ageData.put(toAdd.getBirthday().getAge(), (!ageData.containsKey(toAdd.getBirthday().getAge())) ? 1
+                : ageData.get(toAdd.getBirthday().getAge()) + 1);
+        majorData.put(toAdd.getMajor().value, (!majorData.containsKey(toAdd.getMajor().value)) ? 1
+                : majorData.get(toAdd.getMajor().value) + 1);
+        sexData.put(toAdd.getSex().value, (!sexData.containsKey(toAdd.getSex().value)) ? 1
+                : sexData.get(toAdd.getSex().value) + 1);
+    }
+
+    /**
+     * Delete data of a person
+     */
+    public void deleteData (Person toDelete) {
+        ageData.put(toDelete.getBirthday().getAge(), ageData.get(toDelete.getBirthday().getAge()) - 1);
+        majorData.put(toDelete.getMajor().value, majorData.get(toDelete.getMajor().value) - 1);
+        sexData.put(toDelete.getSex().value, sexData.get(toDelete.getSex().value) - 1);
+    }
+
+    /**
+    * Resets the existing data of this {@code AddressBook} with {@code newData}.
+    */
+    public void resetData(ReadOnlyAddressBook newData) {
+        requireNonNull(newData);
+
+        setPersons(newData.getPersonList());
+        setGroups(newData.getGroupList());
+        setHouses(newData.getHouseList());
+
+        //ageData.clear();
+        ageData.putAll(newData.getAgeData());
+        //majorData.clear();
+        majorData.putAll(newData.getMajorData());
+        //sexData.clear();
+        sexData.putAll(newData.getSexData());
     }
 
     /**
@@ -75,17 +122,6 @@ public class AddressBook implements ReadOnlyAddressBook {
         indicateModified();
     }
 
-    /**
-     * Resets the existing data of this {@code AddressBook} with {@code newData}.
-     */
-    public void resetData(ReadOnlyAddressBook newData) {
-        requireNonNull(newData);
-
-        setPersons(newData.getPersonList());
-        setGroups(newData.getGroupList());
-        setHouses(newData.getHouseList());
-    }
-
     //// person-level operations
 
     /**
@@ -102,6 +138,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void addPerson(Person p) {
         persons.add(p);
+        //addData(p);
         indicateModified();
     }
 
@@ -113,6 +150,9 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void setPerson(Person target, Person editedPerson) {
         requireNonNull(editedPerson);
 
+        //addData(editedPerson);
+        //deleteData(target);
+
         persons.setPerson(target, editedPerson);
         indicateModified();
     }
@@ -123,6 +163,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void removePerson(Person key) {
         persons.remove(key);
+        //deleteData(key);
         indicateModified();
     }
 
@@ -224,6 +265,36 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     //// util methods
+
+    public ObservableMap<String, Integer> getAgeData() {
+        ageData.clear();
+        for (Person p : persons) {
+            String key = p.getBirthday().getAge();
+            Integer value = (ageData.containsKey(key)) ? (ageData.get(key) + 1) : (1);
+            ageData.put(key, value);
+        }
+        return FXCollections.observableMap(ageData);
+    }
+
+    public ObservableMap<String, Integer> getMajorData() {
+        majorData.clear();
+        for (Person p : persons) {
+            String key = p.getMajor().value;
+            Integer value = (majorData.containsKey(key)) ? (majorData.get(key) + 1) : (1);
+            majorData.put(key, value);
+        }
+        return FXCollections.unmodifiableObservableMap(majorData);
+    }
+
+    public ObservableMap<String, Integer> getSexData() {
+        sexData.clear();
+        for (Person p : persons) {
+            String key = p.getSex().value;
+            Integer value = (sexData.containsKey(key)) ? (sexData.get(key) + 1) : (1);
+            sexData.put(key, value);
+        }
+        return FXCollections.unmodifiableObservableMap(sexData);
+    }
 
     @Override
     public String toString() {

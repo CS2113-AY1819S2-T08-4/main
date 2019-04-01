@@ -26,8 +26,8 @@ import guitests.guihandles.CommandBoxHandle;
 import guitests.guihandles.MainMenuHandle;
 import guitests.guihandles.MainWindowHandle;
 import guitests.guihandles.PersonListPanelHandle;
-import guitests.guihandles.ResultDisplayHandle;
 import guitests.guihandles.StatusBarFooterHandle;
+import guitests.guihandles.TextResultDisplayHandle;
 import seedu.address.TestApp;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.ClearCommand;
@@ -115,7 +115,7 @@ public abstract class AddressBookSystemTest {
         return mainWindowHandle.getStatusBarFooter();
     }
 
-    public ResultDisplayHandle getResultDisplay() {
+    public TextResultDisplayHandle getResultDisplay() {
         return mainWindowHandle.getResultDisplay();
     }
 
@@ -168,7 +168,7 @@ public abstract class AddressBookSystemTest {
     }
 
     /**
-     * Asserts that the {@code CommandBox} displays {@code expectedCommandInput}, the {@code ResultDisplay} displays
+     * Asserts that the {@code CommandBox} displays {@code expectedCommandInput}, the {@code TextResultDisplay} displays
      * {@code expectedResultMessage}, the storage contains the same person objects as {@code expectedModel}
      * and the person list panel displays the persons in the model correctly.
      */

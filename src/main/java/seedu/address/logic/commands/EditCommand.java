@@ -61,6 +61,8 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
+    public static final String MESSAGE_NONEXISTENT_GROUP = "This group does not exist. "
+            + "A person must be added to an existent group!";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -91,6 +93,10 @@ public class EditCommand extends Command {
 
         if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+
+        if (!editedPerson.getGroup().getGroupName().equals("") && !model.hasGroup(editedPerson.getGroup())) {
+            throw new CommandException(MESSAGE_NONEXISTENT_GROUP);
         }
 
         model.setPerson(personToEdit, editedPerson);
@@ -172,7 +178,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, major, tags);
+            return CollectionUtil.isAnyNonNull(name, sex, phone, birthday, email, major, group, tags);
         }
 
         public void setName(Name name) {

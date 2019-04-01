@@ -3,6 +3,9 @@ package seedu.address.model.participant;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.util.Calendar;
+
+
 /**
  * Represents a Person's birthday in the address book
  */
@@ -26,8 +29,13 @@ public class Birthday {
         return test.matches(VALIDATION_REGEX);
     }
 
-    public int getYear() {
-        return Integer.parseInt(value.substring(4));
+    public String getAge() {
+        int yearOfBirth = Integer.parseInt(value.substring(4));
+        return Integer.toString(Calendar.getInstance().get(Calendar.YEAR) - yearOfBirth);
+    }
+
+    public String getFormattedBirthday () {
+        return value.substring(0, 2) + "/" + value.substring(2, 4) + "/" + value.substring(4, 8);
     }
 
     @Override
