@@ -12,10 +12,10 @@
 For our Software Engineering module CS2113T, my team and I worked on morphing a given Command Line Interface (CLI) Address book for its **use by Faculty Orientation Program (FOP) organizer for easier management of participant data during camps**.
 
 === Purpose of the Project
-Often it gets messy during the facilitation and organisation of FOP camps as the FOP participant size is a lot larger than normal camps and there are various critical student data that need to be passed around among organizers. __FOP Manager__ will aid FOP Organizers in viewing, sharing and changing the participant data more easily.
+Often it gets messy during the facilitation and organisation of FOP camps as the FOP participant size is a lot larger than normal camps and there are various critical student data that need to be shared among organizers. __FOP Manager__ will aid FOP Organizers in viewing, sharing and changing the participant data more easily.
 
 === My Role
-**My role** was to design features that will enable the separate listing of Freshmen, Orientation Group Leaders (OGL) and other participants in the camp, such as Sponsors, from the contact list stored on FOP Manager. I was also tasked to do an export feature to export the participant data from the contact list into an Excel spreadsheet. Hence, I contributed the `add_f`, `add_o`, `list_f`, `list_o` and `export` features to the FOP Manager.
+**My role** was to design features that will allow the user to obtain a list of Freshmen, Orientation Group Leaders (OGL) and other participants in the camp, such as Sponsors, from the contact list stored on FOP Manager. The contact list is a collection of all three categories (Freshmen, OGLs and other participants). Thus, the list commands will help to view a list of each category separately. I was also tasked to do an export feature to export the participant data from the contact list into an Excel spreadsheet. Hence, I contributed the `add_f`, `add_o`, `list_f`, `list_o` and `export` features to the FOP Manager.
 
 == Summary of contributions
 This section shows a summary of my coding, documentation and other contributions to the team project.
@@ -23,14 +23,14 @@ This section shows a summary of my coding, documentation and other contributions
 * *Major enhancements*:
 ** *Feature 1*: __Listing of Freshmen and Orientation Group Leaders (OGLs)__
 *** *Format*: `list_f`, `list_o`
-*** *Purpose*: To distinguish among the freshmen, the OGLs and other participants involved in the camp from the full contact list.
+*** *Purpose*: To enable user to obtain a list of just the freshmen, the OGLs and other participants involved in the camp from the full contact list.
 *** *Justification*: This command will help the FOP Manager user to clearly see the participants in the list of freshmen involved, the list of OGLs involved and the list of other participants involved. It will also display the number of participants in each list to give the user an idea of the expected camp size and accordingly manage the logistics.
 *** *Highlights*: This enhancement is a good to have feature for future enhancements where we need to pull out separate lists. The implementation tactfully used the understanding and flow of the Addressbook commands, reducing need for extensive lines of code.
 *** *Code contributed*: [LINK]
 
 ** *Feature 2*: __Exporting of data to an Excel file__
 *** *Format*: `export`
-*** *Purpose*: To export the data in the contact list to Excel spreadsheets, a form shareable with other organisers involved in the camp and others without access to FOP Manager.
+*** *Purpose*: To export the data in the contact list to Excel spreadsheets, so that it is shareable with other organisers involved in the camp and others without access to FOP Manager.
 *** *Justification*: This command is necessary for other organizers and non-organisers to be able to view the full contact list, without altering the data stored in the FOP Manager. It will also allow the FOP Organizer to share the contact list information to others without access to the FOP Manager.
 *** *Highlights*: This enhancement required the integration of a third-party library. Basic understanding of the usage of the library was sufficient for the implementation of this feature.
 *** *Code contributed*: [LINK]
@@ -39,7 +39,7 @@ This section shows a summary of my coding, documentation and other contributions
 ** *Feature*: __Adding of freshmen and Orientation Group Leaders(OGLs)__
 *** *Format*: `add_f`, `add_o`
 *** *Purpose*: To add a freshman and an OGL, respectively to the contact list.
-*** *Justification*: This command will help the FOP Manager user to add a tag to the freshmen and the OGLs respectively, without the need to type out the tag "Freshman" or "OGL". The feature will automatically save the Freshman and OGL added with their respective tags.
+*** *Justification*: This command will help the FOP Manager user to tag a contact as a freshman or an OGL, without the need to type out the tag "Freshman" or "OGL". The feature will automatically save the Freshman and OGL added with their respective tags.
 *** *Highlights*: It was a necessary enhancement to implement for the various listing commands to work the way they were implemented.
 *** *Code contributed*: [LINK]
 
@@ -47,9 +47,9 @@ This section shows a summary of my coding, documentation and other contributions
 
 * *Other contributions*:
 
-** I contributed to the User Guide and Developer Guide to update it with features that were added by the team (LINK)
+** I updated the User Guide and Developer Guide with features that were added by the team (LINK)
 ** I approved of Pull Requests made by other members of the team (LINK) (Pull requests https://github.com[#33], https://github.com[#34])
-** I integrated a third-party library (Apache) to the project (Pull requests https://github.com[#36], https://github.com[#38])
+** I integrated a third-party library (Apache) to the project for the purpose of implementing the `export` command (Pull requests https://github.com[#36], https://github.com[#38])
 
 == Contributions to the User Guide
 
