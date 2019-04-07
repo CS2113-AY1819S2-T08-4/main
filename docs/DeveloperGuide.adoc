@@ -292,7 +292,7 @@ This section describes how the 3 types of participants are managed.
 
 ==== Current Implementation
 
-In *FOP Manager*, participants can be added, edited and deleted.
+In *FOP Manager*, participants can be added, edited, deleted and listed.
 
 Add
 
@@ -329,16 +329,19 @@ The list commands, 'list_o' and 'list_f`, use the keywords/predicates "Freshman"
 * Pros: Smaller code base needed, and allows for participants who are neither OGLs nor Freshmen (such as camp directors or camp commandants) to be added
 * Cons: More computationally expensive to access lists of freshmen and lists of OGLs
 
+We decided to go ahead with *Alternative 2* as it was easier to implement. It would not require creation of switch cases for the UI to display the respective lists and would not require unnecessarily long codes to filter out freshmen and OGLs from the participant list. The pros of doing *Alternative 2* outweighs the pros of doing *Alternative 1* hence the decision to implement the latter.
+
 ===== Aspect: Editing or deleting participants
 
 * *Alternative 1:* Editing and deleting by name.
 * Pros: More intuitive for the user to edit and delete a participant by name
 * Cons: Greater complexity required to handle multiple participants who have the same partial name, or user must specify participant's full name
 
-* *Alternative 2 (current choice):* Editing and deleting by index.
+* *Alternative 2(current choice):* Editing and deleting by index.
 * Pros: Specifies the exact participant to be edited or deleted
 * Cons: Must be used with other commands such as `find` to obtain the index of the desired participant
 
+We decided to go with *Alternative 2* as it meant there was no need to check for the full name of the participant and so fewer complications as in indexing, each participant has a unique index.
 //end::PartManagement[]
 
 //tag::GroupHouseManagement[]
@@ -538,16 +541,16 @@ image::StatisticUpdateSequenceDiagram.png[width="800"]
 // end:: statistic[]
 
 // tag::export[]
-=== [Proposed] Export Feature
+=== Export Feature
 
-The Export feature will allow the FOC Project Director to export the data into excel files and distribute to other relevant people involved in the FOC. This way, data can be distributed and raw data untouched except by the Project Director.
+The Export feature will allow the FOP Manager user to export the data into an excel file and distribute to other relevant people involved in the FOP. This way, data can be distributed and raw data untouched except by the Project Director or other camp organisers who are given the access to the raw data.
 
-==== Planned Implementation
-(To be updated)
+==== Current Implementation
+* A third-party library 'Apache.poi' was integrated into the project to enable easy creation of excel files through Object-Oriented Programming (OOP). In this case, the library will enable the creation of HSSF Workbook.
+* The `export` command will call a function from a class `WriteToExcel` to start the creation of the HSSF Workbook and the addition of all the participants found on the participant list to the Workbook, with the respective objects to the participant class added to the correct column. The system will get the current directory path and add the path name to the proposed file name that end with ".xls". The file will thus be successfully saved in the current user directory.
 
 ==== Design Consideration
-(To be updated)
-
+Only one way was considered for the implementation of Export feature, which involved importing the third-party library.
 // end:: export[]
 
 // tag::autocompletion[]
