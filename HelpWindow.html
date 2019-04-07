@@ -39,9 +39,10 @@
 </li>
 <li><a href="#list-commands">4.4. List Commands</a>
 <ul class="sectlevel3">
-<li><a href="#ListFresh">4.4.1. Listing all freshmen : <code>list_f</code></a></li>
-<li><a href="#ListOGL">4.4.2. Listing all OGLs : <code>list_o</code></a></li>
-<li><a href="#ListALL">4.4.3. Listing all the participants : <code>list</code></a></li>
+<li><a href="#ListALL">4.4.1. Listing all the participants : <code>list</code></a></li>
+<li><a href="#ListFresh">4.4.2. Listing all freshmen : <code>list_f</code></a></li>
+<li><a href="#ListOGL">4.4.3. Listing all OGLs : <code>list_o</code></a></li>
+<li><a href="#ListGroup">4.4.4. Listing all group participants : <code>list_g</code></a></li>
 </ul>
 </li>
 <li><a href="#view-commands">4.5. View Commands</a>
@@ -57,17 +58,18 @@
 <li><a href="#DeleteHouse">4.6.3. Deleting a house : <code>delete_h</code></a></li>
 </ul>
 </li>
-<li><a href="#Find">4.7. Finding participants by name: <code>find</code></a></li>
-<li><a href="#Select">4.8. Selecting a participant : <code>select</code></a></li>
-<li><a href="#History">4.9. Listing entered commands : <code>history</code></a></li>
-<li><a href="#Undo">4.10. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#Redo">4.11. Redoing previously undone command : <code>redo</code></a></li>
-<li><a href="#Randomize">4.12. Randomize command : <code>randomize</code></a></li>
-<li><a href="#Clear">4.13. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#Size">4.7. Displaying the camp size: <code>size</code></a></li>
+<li><a href="#Find">4.8. Finding participants by name: <code>find</code></a></li>
+<li><a href="#Select">4.9. Selecting a participant : <code>select</code></a></li>
+<li><a href="#History">4.10. Listing entered commands : <code>history</code></a></li>
+<li><a href="#Undo">4.11. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#Redo">4.12. Redoing previously undone command : <code>redo</code></a></li>
+<li><a href="#Randomize">4.13. Randomizing groupings : <code>randomize</code></a></li>
 <li><a href="#Export">4.14. Exporting contact list : <code>export</code></a></li>
-<li><a href="#Exit">4.15. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">4.16. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.17. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#Clear">4.15. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#Exit">4.16. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.17. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -165,33 +167,29 @@ This is a warning. Make sure to heed the warnings for FOP Manager to work smooth
 </div>
 <div class="sect2">
 <h3 id="introducing-the-interface"><a class="link" href="#introducing-the-interface">3.2. Introducing the Interface</a></h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Figure to be inserted by v1.3
-</td>
-</tr>
-</table>
+<div class="imageblock">
+<div class="content">
+<img src="images/UiLabelledParts.png" alt="UiLabelledParts" width="790">
 </div>
-<div class="ulist">
-<ul>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>Undo Redo List: This list displays all undo and redo commands executed since the app was started. [v1.3]</p>
+<p><span class="lime">Undo List</span>: This list displays all undoable commands executed since the app was started.</p>
 </li>
 <li>
-<p>Panel List: This panel shows a list of the contacts you have stored so far.</p>
+<p><span class="blue">Redo List</span>: This list displays all redoable commands executed since the app was started.</p>
 </li>
 <li>
-<p>Result Box: The result box displays the result to the commands you input.</p>
+<p><span class="red">Participant List</span>: This panel shows a list of all the participants and their information you have stored so far.</p>
 </li>
 <li>
-<p>Command Box: The command box is where all commands should be typed in.</p>
+<p><span class="yellow">Result Box</span>: The result box displays the result to the commands you input.</p>
 </li>
-</ul>
+<li>
+<p><span class="fuchsia">Command Box</span>: The command box is where all commands should be typed in.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
@@ -224,10 +222,10 @@ e.g. typing <code>help</code> and pressing <kbd>Enter</kbd> opens the help windo
 <p><code>add_o  n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information Systems g/</code> : adds an OGL named <code>John Doe</code> to your contact list</p>
 </li>
 <li>
-<p><code>add_h  Red</code> : adds a House named <code>RED</code></p>
+<p><code>add_h  Red</code> : adds a House named <code>Red</code></p>
 </li>
 <li>
-<p><code>add_g  R1 Red</code> : adds a Group named <code>R1</code> to the House <code>RED</code></p>
+<p><code>add_g  R1 Red</code> : adds a Group named <code>R1</code> to the House <code>Red</code></p>
 </li>
 <li>
 <p><code>delete  3</code> : deletes the 3rd contact shown in the current list</p>
@@ -446,6 +444,8 @@ Leave <code>GROUP</code> blank i.e. <code>g/</code> since there is no group allo
 <p>Adds a house that can contain different groups<br>
 Format: <code>add_h HOUSENAME</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -470,6 +470,8 @@ House names cannot contain spaces
 </tr>
 </table>
 </div>
+</div>
+</div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
@@ -487,6 +489,8 @@ House names cannot contain spaces
 <p>Adds a group to a house<br>
 Format: <code>add_g GROUPNAME HOUSENAME</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -522,6 +526,8 @@ Groups can only be added to houses that already exist
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -767,24 +773,69 @@ Edits the group named <code>RED1</code> to <code>RED2</code>. All participants i
 <div class="sect2">
 <h3 id="list-commands"><a class="link" href="#list-commands">4.4. List Commands</a></h3>
 <div class="sect3">
-<h4 id="ListFresh"><a class="link" href="#ListFresh">4.4.1. Listing all freshmen : <code>list_f</code></a></h4>
+<h4 id="ListALL"><a class="link" href="#ListALL">4.4.1. Listing all the participants : <code>list</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all the participants involved in the camp in your contact list.<br>
+Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ListFresh"><a class="link" href="#ListFresh">4.4.2. Listing all freshmen : <code>list_f</code></a></h4>
 <div class="paragraph">
 <p>Shows a list of all the freshmen in the freshmen list.<br>
 Format: <code>list_f</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ListOGL"><a class="link" href="#ListOGL">4.4.2. Listing all OGLs : <code>list_o</code></a></h4>
+<h4 id="ListOGL"><a class="link" href="#ListOGL">4.4.3. Listing all OGLs : <code>list_o</code></a></h4>
 <div class="paragraph">
 <p>Shows a list of all the OGLs in the OGL list.<br>
 Format: <code>list_o</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ListALL"><a class="link" href="#ListALL">4.4.3. Listing all the participants : <code>list</code></a></h4>
+<h4 id="ListGroup"><a class="link" href="#ListGroup">4.4.4. Listing all group participants : <code>list_g</code></a></h4>
 <div class="paragraph">
-<p>Shows a list of all the participants involved in the camp in your contact list.<br>
-Format: <code>list</code></p>
+<p>Shows a list of all the participants in a group.<br>
+Format: <code>list_g GROUPNAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Group names are not case-sensitive
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>OLDGROUPNAME</code> must exist in the current list of groups
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list_g g1</code> lists all participants in Group <code>G1</code> if <code>G1</code> exists.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -902,12 +953,40 @@ Format: <code>delete_g GROUPNAME</code></p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-The group <strong>must contain no participants</strong> before it can be deleted.
+The group <strong>must contain no participants</strong> before it can be deleted
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Group names are not case-sensitive
 </td>
 </tr>
 </table>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Group <code>G1</code> has just been added under house <code>Green</code>.<br>
+<code>delete_g G1</code> removes the group <code>G1</code> from the list of groups.</p>
+</li>
+<li>
+<p><code>list_g y1</code> shows only one participant in Group <code>Y1</code>.<br>
+<code>edit 1 g/</code> removes the participant from the group.<br>
+<code>delete_g Y1</code> removes the group <code>Y1</code> from the list of groups.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -940,12 +1019,47 @@ The house <strong>must contain no groups</strong> before it can be deleted.
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+House names are not case-sensitive
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A house named <code>Blue</code> has just been added.<br>
+<code>delete_h blue</code> deletes the house <code>Blue</code>.</p>
+</li>
+<li>
+<p><code>view_g</code> shows only 1 group <code>R1</code> in the house <code>Red</code>.<br>
+ Group <code>R1</code> is deleted by first removing its participants from the group, then entering <code>delete_g R1</code>.<br>
+<code>delete_h RED</code> deletes the house <code>Red</code>.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Find"><a class="link" href="#Find">4.7. Finding participants by name: <code>find</code></a></h3>
+<h3 id="Size"><a class="link" href="#Size">4.7. Displaying the camp size: <code>size</code></a></h3>
+<div class="paragraph">
+<p>Displays the total number of participants, the number of OGLs and freshmen, and the number of houses and groups in the command result box.<br>
+Format: <code>size</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Find"><a class="link" href="#Find">4.8. Finding participants by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds participants whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
@@ -988,7 +1102,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Select"><a class="link" href="#Select">4.8. Selecting a participant : <code>select</code></a></h3>
+<h3 id="Select"><a class="link" href="#Select">4.9. Selecting a participant : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the participant identified by the index number used in the displayed participant list.<br>
 Format: <code>select INDEX</code></p>
@@ -1027,11 +1141,13 @@ Format: <code>select INDEX</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="History"><a class="link" href="#History">4.9. Listing entered commands : <code>history</code></a></h3>
+<h3 id="History"><a class="link" href="#History">4.10. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1047,12 +1163,16 @@ Format: <code>history</code></p>
 </table>
 </div>
 </div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="Undo"><a class="link" href="#Undo">4.10. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="Undo"><a class="link" href="#Undo">4.11. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores your contact list to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1077,6 +1197,8 @@ Undoable commands are shown in the undo list.
 </tr>
 </table>
 </div>
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1099,11 +1221,13 @@ Undoable commands are shown in the undo list.
 </div>
 </div>
 <div class="sect2">
-<h3 id="Redo"><a class="link" href="#Redo">4.11. Redoing previously undone command : <code>redo</code></a></h3>
+<h3 id="Redo"><a class="link" href="#Redo">4.12. Redoing previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -1115,6 +1239,8 @@ Redoable commands are shown in the redo list.
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1141,11 +1267,13 @@ Redoable commands are shown in the redo list.
 </div>
 </div>
 <div class="sect2">
-<h3 id="Randomize"><a class="link" href="#Randomize">4.12. Randomize command : <code>randomize</code></a></h3>
+<h3 id="Randomize"><a class="link" href="#Randomize">4.13. Randomizing groupings : <code>randomize</code></a></h3>
 <div class="paragraph">
 <p>Randomize group allocation of all registered participants.<br>
 Format: <code>randomize</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1157,6 +1285,8 @@ Command will only work when there is at least 2 registered participants and 2 cr
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1175,13 +1305,6 @@ Output: Unable to distribute participants (min 2 groups and 2 participants)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Clear"><a class="link" href="#Clear">4.13. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from your contact list.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
 <h3 id="Export"><a class="link" href="#Export">4.14. Exporting contact list : <code>export</code></a></h3>
 <div class="paragraph">
 <p>Exports all entries from your contact list to Excel Spreadsheet.<br>
@@ -1190,21 +1313,28 @@ Format: <code>export</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Exit"><a class="link" href="#Exit">4.15. Exiting the program : <code>exit</code></a></h3>
+<h3 id="Clear"><a class="link" href="#Clear">4.15. Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from your contact list.<br>
+Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Exit"><a class="link" href="#Exit">4.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.16. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.17. Saving the data</a></h3>
 <div class="paragraph">
 <p>Participants' data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.17. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1231,10 +1361,10 @@ There is no need to save manually.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 25%;">
-<col style="width: 41.6666%;">
-<col style="width: 16.6668%;">
+<col style="width: 13.0434%;">
+<col style="width: 26.0869%;">
+<col style="width: 43.4782%;">
+<col style="width: 17.3915%;">
 </colgroup>
 <thead>
 <tr>
@@ -1289,15 +1419,21 @@ There is no need to save manually.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit_h</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edits house with <code>OLDHOUSENAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits an existing house&#8217;s name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit_h OLDHOUSENAME NEWHOUSENAME</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#EditHouse">Editing a house</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit_g</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edits group with <code>OLDGROUPNAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits an existing group&#8217;s name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit_g OLDGROUPNAME NEWGROUPNAME</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#EditGroup">Editing a group</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all participants in contact list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ListALL">Listing all participants</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_f</code></p></td>
@@ -1312,10 +1448,10 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ListOGL">Listing all OGLs</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all participants in contact list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ListALL">Listing all participants</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_g</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all participants in a particular group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_g GROUPNAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ListGroup">Listing all group participants</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>view_h</code></p></td>
@@ -1337,15 +1473,21 @@ There is no need to save manually.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete_g</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes group with <code>GROUPNAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a group</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete_g GROUPNAME</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#DeleteGroup">Deleting a group</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete_h</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes house with <code>HOUSENAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a house</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete_h HOUSENAME</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#DeleteHouse">Deleting a participant</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the number of participants, OGLs, freshmen, houses and groups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Size">Displaying camp size</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find</code></p></td>
@@ -1378,6 +1520,18 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Redo">Redoing previously undone command</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>randomize</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Randomizes group allocation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>randomize</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Randomize">Randomizing groupings</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>export</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exports contact list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>export</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Export">Exporting contact list</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clears contact list</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
@@ -1398,4 +1552,4 @@ There is no need to save manually.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 13:14:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 13:25:55 UTC</div></div></div></body></html>
