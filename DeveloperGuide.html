@@ -37,7 +37,7 @@
 <li><a href="#undo-redo-feature">5.4. Undo/Redo feature</a></li>
 <li><a href="#randomized-group-allocation">5.5. Randomized Group Allocation</a></li>
 <li><a href="#proposed-statistic-feature">5.6. [Proposed] Statistic feature</a></li>
-<li><a href="#proposed-export-feature">5.7. [Proposed] Export Feature</a></li>
+<li><a href="#export-feature">5.7. Export Feature</a></li>
 <li><a href="#proposed-auto-completion">5.8. [Proposed] Auto-Completion</a></li>
 <li><a href="#proposed-data-encryption">5.9. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">5.10. Logging</a></li>
@@ -717,7 +717,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>In <strong>FOP Manager</strong>, participants can be added, edited and deleted.</p>
+<p>In <strong>FOP Manager</strong>, participants can be added, edited, deleted and listed.</p>
 </div>
 <div class="paragraph">
 <p>Add</p>
@@ -804,6 +804,9 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>We decided to go ahead with <strong>Alternative 2</strong> as it was easier to implement. It would not require creation of switch cases for the UI to display the respective lists and would not require unnecessarily long codes to filter out freshmen and OGLs from the participant list. The pros of doing <strong>Alternative 2</strong> outweighs the pros of doing <strong>Alternative 1</strong> hence the decision to implement the latter.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="aspect-editing-or-deleting-participants"><a class="link" href="#aspect-editing-or-deleting-participants">Aspect: Editing or deleting participants</a></h5>
@@ -819,7 +822,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>Cons: Greater complexity required to handle multiple participants who have the same partial name, or user must specify participant&#8217;s full name</p>
 </li>
 <li>
-<p><strong>Alternative 2 (current choice):</strong> Editing and deleting by index.</p>
+<p><strong>Alternative 2(current choice):</strong> Editing and deleting by index.</p>
 </li>
 <li>
 <p>Pros: Specifies the exact participant to be edited or deleted</p>
@@ -828,6 +831,9 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>Cons: Must be used with other commands such as <code>find</code> to obtain the index of the desired participant</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>We decided to go with <strong>Alternative 2</strong> as it meant there was no need to check for the full name of the participant and so fewer complications as in indexing, each participant has a unique index.</p>
 </div>
 </div>
 </div>
@@ -1338,20 +1344,27 @@ variables will be updated after each <code>add</code>, <code>edit</code> or <cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-export-feature"><a class="link" href="#proposed-export-feature">5.7. [Proposed] Export Feature</a></h3>
+<h3 id="export-feature"><a class="link" href="#export-feature">5.7. Export Feature</a></h3>
 <div class="paragraph">
-<p>The Export feature will allow the FOC Project Director to export the data into excel files and distribute to other relevant people involved in the FOC. This way, data can be distributed and raw data untouched except by the Project Director.</p>
+<p>The Export feature will allow the FOP Manager user to export the data into an excel file and distribute to other relevant people involved in the FOP. This way, data can be distributed and raw data untouched except by the Project Director or other camp organisers who are given the access to the raw data.</p>
 </div>
 <div class="sect3">
-<h4 id="planned-implementation-2"><a class="link" href="#planned-implementation-2">5.7.1. Planned Implementation</a></h4>
-<div class="paragraph">
-<p>(To be updated)</p>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">5.7.1. Current Implementation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>A third-party library 'Apache.poi' was integrated into the project to enable easy creation of excel files through Object-Oriented Programming (OOP). In this case, the library will enable the creation of HSSF Workbook.</p>
+</li>
+<li>
+<p>The <code>export</code> command will call a function from a class <code>WriteToExcel</code> to start the creation of the HSSF Workbook and the addition of all the participants found on the participant list to the Workbook, with the respective objects to the participant class added to the correct column. The system will get the current directory path and add the path name to the proposed file name that end with ".xls". The file will thus be successfully saved in the current user directory.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">5.7.2. Design Consideration</a></h4>
 <div class="paragraph">
-<p>(To be updated)</p>
+<p>Only one way was considered for the implementation of Export feature, which involved importing the third-party library.</p>
 </div>
 </div>
 </div>
@@ -3042,4 +3055,4 @@ Expected: Group named <code>G1</code> is added on first command. No group is add
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 09:03:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 13:09:17 UTC</div></div></div></body></html>
