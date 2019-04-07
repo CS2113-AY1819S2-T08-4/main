@@ -316,7 +316,28 @@ Participant contact details can be viewed in different manners:
 
 All participants are stored in the same contact list as a `UniqueParticipantList` in an AddressBook object. Participants created as OGLs or Freshmen differ only in the tags added to them.
 
-The list commands, 'list_o' and 'list_f`, use the keywords/predicates "Freshman" and "OGL" to search through the tags of all participants in the contact list. All participants with matching tags of "Freshman" or "OGL" will be added into the filtered participant list, enabling the user to view all freshmen or OGLs in the contact list.
+*[Explanation on the need to have separate listing commands. TO INSERT]*
+
+The following is an Activity Diagram to summarize what happens when either the `list_f` or `list_o` commands are entered.
+
+image::ListFreshmenCommandActivityDiagram.png[width="800"]
+_Activity Diagram for listing Freshmen command_
+
+The list commands, `list_o` and `list_f`, use the keywords/predicates "OGL" and "Freshman", respectively, to search through the tags of all participants in the contact list. All participants with matching tags of "Freshman" or "OGL" will be added into the filtered participant list, enabling the user to view all freshmen or OGLs in the contact list.
+
+The following Sequence diagram below will explain how the `list_f` command works in detail.
+
+image::ListParticipantCommandSequenceDiagram.png[width="800"]
+
+An example usage of the `list_f` command is as follows:
+
+*Step 1:* The user launches the application. The `VersionedAddressBook` will be initialized with the initial address book state. 
+
+*Step 2:* The user enters the `list_f` command . The `list_f` command calls the `FindingParticipantPredicate` class and searches all tags of each person for "Freshman".
+
+*Step 3:* The `updateFilteredPersonList()` takes in this predicate and the `getFilteredPersonList()` is called to give the list of Freshmen in the contact list
+
+The implementation is similar for the `list_o` command with the use of `FindingOglPredicate` instead where the searched tag is "OGL".
 
 ==== Design Considerations
 
@@ -545,9 +566,30 @@ image::StatisticUpdateSequenceDiagram.png[width="800"]
 
 The Export feature will allow the FOP Manager user to export the data into an excel file and distribute to other relevant people involved in the FOP. This way, data can be distributed and raw data untouched except by the Project Director or other camp organisers who are given the access to the raw data.
 
+The following is an Activity Diagram to summarize what happens when the `export` command is entered.
+
+image::ExportCommandActivityDiagram.png[width="800"]
+_Activity Diagram for exporting command_
+
 ==== Current Implementation
 * A third-party library 'Apache.poi' was integrated into the project to enable easy creation of excel files through Object-Oriented Programming (OOP). In this case, the library will enable the creation of HSSF Workbook.
 * The `export` command will call a function from a class `WriteToExcel` to start the creation of the HSSF Workbook and the addition of all the participants found on the participant list to the Workbook, with the respective objects to the participant class added to the correct column. The system will get the current directory path and add the path name to the proposed file name that end with ".xls". The file will thus be successfully saved in the current user directory.
+
+The following Sequence diagram below will explain how the `export` command works in detail.
+
+image::ExportCommandSequenceDiagram.png[width="800"]
+
+An example usage of the command is as follows:
+
+*Step 1:* The user launches the application. The `VersionedAddressBook` will be initialized with the initial address book state. 
+
+*Step 2:* The user enters the `export` command . The `export` command updates the filtered list with the predicate to show all persons in the address book.
+
+*Step 3:* The filtered list is obtained in the command. The export command calls the `WriteToExcel` class's `WriteExcelSheet()`. This will set the directory, create the Excel Workbook and Sheet, the file name, the cells and rows with the titles for the FOP Manager.
+
+*Step 4:* `WriteExcelSheet()` calls `WriteDataIntoExcelSheet()` which writes the values from the filtered person list into the Excel Sheet.
+
+*Step 5:* Returning to `WriteExcelSheet()`, the file is output to user's current directory as an .xls file.
 
 ==== Design Consideration
 Only one way was considered for the implementation of Export feature, which involved importing the third-party library.
