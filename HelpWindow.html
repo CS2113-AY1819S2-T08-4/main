@@ -1,1379 +1,8 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>FOP Manager - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>FOP Manager - Help</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>FOP Manager - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>FOP Manager - Help</h1></div><div id="content"><div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">1. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>By: <code>Team T08-4</code>      Since: <code>Jan 2019</code>      Licence: <code>MIT</code></p>
-</div>
-</div>
-<div id="toc" class="toc">
-<div id="toctitle"></div>
-<ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#about-user-guide">2. About User Guide</a></li>
-<li><a href="#quick-start">3. Quick Start</a>
-<ul class="sectlevel2">
-<li><a href="#installation">3.1. Installation</a></li>
-<li><a href="#introducing-the-interface">3.2. Introducing the Interface</a></li>
-<li><a href="#try-it-out">3.3. Try It Out!</a></li>
-</ul>
-</li>
-<li><a href="#Features">4. Features</a>
-<ul class="sectlevel2">
-<li><a href="#Help">4.1. Viewing help : <code>help</code></a></li>
-<li><a href="#add-commands">4.2. Add Commands</a>
-<ul class="sectlevel3">
-<li><a href="#AddFresh">4.2.1. Adding a freshman : <code>add_f</code></a></li>
-<li><a href="#AddOGL">4.2.2. Adding an OGL : <code>add_o</code></a></li>
-<li><a href="#AddOther">4.2.3. Adding other participants : <code>add</code></a></li>
-<li><a href="#AddHouse">4.2.4. Adding a house : <code>add_h</code></a></li>
-<li><a href="#AddGroup">4.2.5. Adding a group : <code>add_g</code></a></li>
-</ul>
-</li>
-<li><a href="#edit-commands">4.3. Edit Commands</a>
-<ul class="sectlevel3">
-<li><a href="#EditPart">4.3.1. Editing a participant : <code>edit</code></a></li>
-<li><a href="#EditHouse">4.3.2. Editing a house : <code>edit_h</code></a></li>
-<li><a href="#EditGroup">4.3.3. Editing a group : <code>edit_g</code></a></li>
-</ul>
-</li>
-<li><a href="#list-commands">4.4. List Commands</a>
-<ul class="sectlevel3">
-<li><a href="#ListALL">4.4.1. Listing all the participants : <code>list</code></a></li>
-<li><a href="#ListFresh">4.4.2. Listing all freshmen : <code>list_f</code></a></li>
-<li><a href="#ListOGL">4.4.3. Listing all OGLs : <code>list_o</code></a></li>
-<li><a href="#ListGroup">4.4.4. Listing all group participants : <code>list_g</code></a></li>
-</ul>
-</li>
-<li><a href="#view-commands">4.5. View Commands</a>
-<ul class="sectlevel3">
-<li><a href="#ViewHouse">4.5.1. Viewing all houses : <code>view_h</code></a></li>
-<li><a href="#ViewGroup">4.5.2. Viewing all groups : <code>view_g</code></a></li>
-</ul>
-</li>
-<li><a href="#delete-commands">4.6. Delete Commands</a>
-<ul class="sectlevel3">
-<li><a href="#DeletePart">4.6.1. Deleting a participant : <code>delete</code></a></li>
-<li><a href="#DeleteGroup">4.6.2. Deleting a group : <code>delete_g</code></a></li>
-<li><a href="#DeleteHouse">4.6.3. Deleting a house : <code>delete_h</code></a></li>
-</ul>
-</li>
-<li><a href="#Size">4.7. Displaying the camp size: <code>size</code></a></li>
-<li><a href="#Find">4.8. Finding participants by name: <code>find</code></a></li>
-<li><a href="#Select">4.9. Selecting a participant : <code>select</code></a></li>
-<li><a href="#History">4.10. Listing entered commands : <code>history</code></a></li>
-<li><a href="#Undo">4.11. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#Redo">4.12. Redoing previously undone command : <code>redo</code></a></li>
-<li><a href="#Randomize">4.13. Randomizing groupings : <code>randomize</code></a></li>
-<li><a href="#Export">4.14. Exporting contact list : <code>export</code></a></li>
-<li><a href="#Clear">4.15. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#Exit">4.16. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">4.17. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
-</ul>
-</li>
-<li><a href="#faq">5. FAQ</a></li>
-<li><a href="#command-summary">6. Command Summary</a></li>
-</ul>
-</div>
-</div>
-<div class="sect1">
-<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>FOP Manager is a desktop Graphical User Interface (GUI) address book app, specifically designed for <strong>NUS Freshman Orientation Camp Organizers</strong> to manage the contact information of camp participants: both Orientation Group Leaders (OGLs) and Freshmen. It is optimized for those who prefer to work with a <strong>Command Line Interface</strong> (CLI). If you can type fast, FOP Manager can get your contact management tasks done faster than traditional GUI apps.</p>
-</div>
-<div class="paragraph">
-<p>Interested? Hurry, jump to <a href="#quick-start">Quick Start</a> to get started!</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="about-user-guide"><a class="link" href="#about-user-guide">2. About User Guide</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This user guide shows you how to get started with FOP Manager. It introduces you to the features of FOP Manager and provides you with examples, that you will become an expert user in no time!</p>
-</div>
-<div class="paragraph">
-<p>Throughout this user guide, there will be various icons used, as shown below:</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-This is a tip. Following these suggestions will make using FOP Manager much simpler!
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This is a note. Read these for additional information.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-This is a warning. Make sure to heed the warnings for FOP Manager to work smoothly!
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="quick-start"><a class="link" href="#quick-start">3. Quick Start</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section serves as a tutorial for a new user to FOP Manager.</p>
-</div>
-<div class="sect2">
-<h3 id="installation"><a class="link" href="#installation">3.1. Installation</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
-</li>
-<li>
-<p>Download the latest <code>FOPManager.jar</code> <a href="https://github.com/cs2113-ay1819s2-t08-4/main/releases">here</a>.</p>
-</li>
-<li>
-<p>Copy the file to the folder you want to use as the home folder for FOP Manager.</p>
-</li>
-<li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds and will look like this:</p>
-<div class="imageblock">
-<div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="introducing-the-interface"><a class="link" href="#introducing-the-interface">3.2. Introducing the Interface</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/UiLabelledParts.png" alt="UiLabelledParts" width="790">
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><span class="lime">Undo List</span>: This list displays all undoable commands executed since the app was started.</p>
-</li>
-<li>
-<p><span class="blue">Redo List</span>: This list displays all redoable commands executed since the app was started.</p>
-</li>
-<li>
-<p><span class="red">Participant List</span>: This panel shows a list of all the participants and their information you have stored so far.</p>
-</li>
-<li>
-<p><span class="yellow">Result Box</span>: The result box displays the result to the commands you input.</p>
-</li>
-<li>
-<p><span class="fuchsia">Command Box</span>: The command box is where all commands should be typed in.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="try-it-out"><a class="link" href="#try-it-out">3.3. Try It Out!</a></h3>
-<div class="paragraph">
-<p>Now that you understand the app&#8217;s interface, you can now try keying in commands to interact with FOP Manager.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <code>help</code> and pressing <kbd>Enter</kbd> opens the help window.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Some example commands you can try:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code> : lists all contacts</p>
-</li>
-<li>
-<p><code>add_o  n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information Systems g/</code> : adds an OGL named <code>John Doe</code> to your contact list</p>
-</li>
-<li>
-<p><code>add_h  Red</code> : adds a House named <code>Red</code></p>
-</li>
-<li>
-<p><code>add_g  R1 Red</code> : adds a Group named <code>R1</code> to the House <code>Red</code></p>
-</li>
-<li>
-<p><code>delete  3</code> : deletes the 3rd contact shown in the current list</p>
-</li>
-<li>
-<p><code>exit</code> : exits the app</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Refer to <a href="#Features">Features</a> for details of each command.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section tells you about the features available in FOP Manager.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Command Format</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Words in <code>UPPER_CASE</code> are parameters to be supplied by the user<br>
-e.g. if the command states <code>n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>n/John Doe</code>.</p>
-</li>
-<li>
-<p>Items in square brackets are optional<br>
-e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
-</li>
-<li>
-<p>Items with <code>…</code> after them can be used as many times as you want<br>
-e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Help"><a class="link" href="#Help">4.1. Viewing help : <code>help</code></a></h3>
-<div class="paragraph">
-<p>Opens a window with a list of all the commands available on FOP Manager<br>
-Format: <code>help</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-commands"><a class="link" href="#add-commands">4.2. Add Commands</a></h3>
-<div class="sect3">
-<h4 id="AddFresh"><a class="link" href="#AddFresh">4.2.1. Adding a freshman : <code>add_f</code></a></h4>
-<div class="paragraph">
-<p>Adds a freshman to the Freshman list<br>
-Format: <code>add_f n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Parameters can be accepted in any order.</p>
-</li>
-<li>
-<p>A freshman can have any number of tags (including 0).</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<code>GROUP</code> can be left blank i.e. <code>g/</code>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-If not blank, the <code>GROUP</code> must exist before a freshman can be added to it
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add_f n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information Systems g/</code></p>
-</li>
-<li>
-<p><code>add_f n/Jane Doe s/F e/betsycrowe@example.com m/CS g/ p/1234567 t/vegetarian</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="AddOGL"><a class="link" href="#AddOGL">4.2.2. Adding an OGL : <code>add_o</code></a></h4>
-<div class="paragraph">
-<p>Adds an OGL to the OGL list<br>
-Format: <code>add_o n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Parameters can be accepted in any order.</p>
-</li>
-<li>
-<p>An OGL can have any number of tags (including 0).</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<code>GROUP</code> can be left blank i.e. <code>g/</code>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-If not blank, the <code>GROUP</code> must exist before an OGL can be added to it
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add_o n/James Boe s/M b/27071999 p/13579753 e/jamesd@example.com m/CEG g/</code></p>
-</li>
-<li>
-<p><code>add_o n/Jane Doe s/F e/betsycrowe@example.com m/CS g/ p/1234567 t/vegetarian</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="AddOther"><a class="link" href="#AddOther">4.2.3. Adding other participants : <code>add</code></a></h4>
-<div class="paragraph">
-<p>Adds other participants involved in the camp that are neither Freshmen nor OGLs to the contact list<br>
-Format: <code>add n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Parameters can be accepted in any order.</p>
-</li>
-<li>
-<p>An entered person can have any number of tags (including 0).</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Leave <code>GROUP</code> blank i.e. <code>g/</code> since there is no group allocation for this participant!
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/James Boe s/M b/27071999 p/13579753 e/jamesd@example.com m/CEG g/ t/Camp Commandant</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="AddHouse"><a class="link" href="#AddHouse">4.2.4. Adding a house : <code>add_h</code></a></h4>
-<div class="paragraph">
-<p>Adds a house that can contain different groups<br>
-Format: <code>add_h HOUSENAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-House names are always saved with first letter in Uppercase, the rest in lowercase
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-House names cannot contain spaces
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add_h blue</code> saves a house named <code>Blue</code> to the house list.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="AddGroup"><a class="link" href="#AddGroup">4.2.5. Adding a group : <code>add_g</code></a></h4>
-<div class="paragraph">
-<p>Adds a group to a house<br>
-Format: <code>add_g GROUPNAME HOUSENAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Group names are always saved in all-caps
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Group names cannot contain spaces
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Groups can only be added to houses that already exist
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add_g b1 blue</code> saves a group named <code>B1</code> in house <code>Blue</code> to the group list.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="edit-commands"><a class="link" href="#edit-commands">4.3. Edit Commands</a></h3>
-<div class="sect3">
-<h4 id="EditPart"><a class="link" href="#EditPart">4.3.1. Editing a participant : <code>edit</code></a></h4>
-<div class="paragraph">
-<p>Edits an existing participant in the contact list.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [m/MAJOR] [g/GROUP] [t/TAG] &#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the participant currently shown at <code>INDEX</code>.</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, the existing tags of the participant will be removed i.e adding of tags is not cumulative.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<code>INDEX</code> must be a <strong>positive integer</strong>: 1, 2, 3, &#8230;&#8203;
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-To edit a particular participant by name, first <a href="#Find">find</a> the participant by name, then edit by index
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Remove all the participant&#8217;s tags by typing <code>t/</code> without specifying any tags after it
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Edit a participant&#8217;s <code>GROUP</code> after adding them, instead of choosing a group for them from the start
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit 1 p/91234567 g/g1</code><br>
-Edits the phone number and group of the participant at index 1 to be <code>91234567</code> and <code>G1</code> respectively.</p>
-</li>
-<li>
-<p><code>edit 2 n/John Koe t/</code><br>
-Edits the name of the participant at index 2 to be <code>John Koe</code> and clears all existing tags.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="EditHouse"><a class="link" href="#EditHouse">4.3.2. Editing a house : <code>edit_h</code></a></h4>
-<div class="paragraph">
-<p>Edits a house name.<br>
-Format: <code>edit_h OLDHOUSENAME NEWHOUSENAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the house named <code>OLDHOUSENAME</code> to <code>NEWHOUSENAME</code></p>
-</li>
-<li>
-<p>All groups under the old house name remain in the new house.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<code>OLDHOUSENAME</code> must exist in the current list of houses
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<code>NEWHOUSENAME</code> must not exist in the current list of houses
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-House names are not case-sensitive
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit_h Red green</code><br>
-Edits the house named <code>Red</code> to <code>Green</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="EditGroup"><a class="link" href="#EditGroup">4.3.3. Editing a group : <code>edit_g</code></a></h4>
-<div class="paragraph">
-<p>Edits a group name.<br>
-Format: <code>edit_g OLDGROUPNAME NEWGROUPNAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the group named <code>OLDGROUPNAME</code> to <code>NEWGROUPNAME</code></p>
-</li>
-<li>
-<p>The <code>GROUP</code> of all participants within the old group is automatically updated.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<code>OLDGROUPNAME</code> must exist in the current list of groups
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<code>NEWGROUPNAME</code> must not exist in the current list of groups
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Group names are not case-sensitive
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit_g red1 red2</code><br>
-Edits the group named <code>RED1</code> to <code>RED2</code>. All participants in RED1 are now in RED2.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="list-commands"><a class="link" href="#list-commands">4.4. List Commands</a></h3>
-<div class="sect3">
-<h4 id="ListALL"><a class="link" href="#ListALL">4.4.1. Listing all the participants : <code>list</code></a></h4>
-<div class="paragraph">
-<p>Shows a list of all the participants involved in the camp in your contact list.<br>
-Format: <code>list</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="ListFresh"><a class="link" href="#ListFresh">4.4.2. Listing all freshmen : <code>list_f</code></a></h4>
-<div class="paragraph">
-<p>Shows a list of all the freshmen in the freshmen list.<br>
-Format: <code>list_f</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="ListOGL"><a class="link" href="#ListOGL">4.4.3. Listing all OGLs : <code>list_o</code></a></h4>
-<div class="paragraph">
-<p>Shows a list of all the OGLs in the OGL list.<br>
-Format: <code>list_o</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="ListGroup"><a class="link" href="#ListGroup">4.4.4. Listing all group participants : <code>list_g</code></a></h4>
-<div class="paragraph">
-<p>Shows a list of all the participants in a group.<br>
-Format: <code>list_g GROUPNAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Group names are not case-sensitive
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<code>list_g empty</code> lists participants with an empty group field
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<code>OLDGROUPNAME</code> must exist in the current list of groups
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list_g g1</code> lists all participants in Group <code>G1</code> if <code>G1</code> exists.</p>
-</li>
-<li>
-<p><code>list_g empty</code> lists all participants not in any group yet.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="view-commands"><a class="link" href="#view-commands">4.5. View Commands</a></h3>
-<div class="sect3">
-<h4 id="ViewHouse"><a class="link" href="#ViewHouse">4.5.1. Viewing all houses : <code>view_h</code></a></h4>
-<div class="paragraph">
-<p>Views the list of all houses added so far.<br>
-Format: <code>view_h</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Houses <code>Orange</code> and <code>Blue</code> have been added.<br>
-<code>view_h</code> returns <code>[Orange, Blue]</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="ViewGroup"><a class="link" href="#ViewGroup">4.5.2. Viewing all groups : <code>view_g</code></a></h4>
-<div class="paragraph">
-<p>Views the list of all groups added so far, along with the house they belong to.<br>
-Format: <code>view_g</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Groups <code>R1</code> and <code>R2</code> have been added under the house <code>Red</code>.<br>
-<code>view_g</code> returns <code>[(R1, Red), (R2, Red)]</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="delete-commands"><a class="link" href="#delete-commands">4.6. Delete Commands</a></h3>
-<div class="sect3">
-<h4 id="DeletePart"><a class="link" href="#DeletePart">4.6.1. Deleting a participant : <code>delete</code></a></h4>
-<div class="paragraph">
-<p>Deletes the specified participant from your contact list.<br>
-Format: <code>delete INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the participant at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed contact list.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-The index <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code> has just been entered.<br>
-<code>delete 2</code> deletes the participant at index 2.</p>
-</li>
-<li>
-<p><code>find Betsy</code> has just been entered.<br>
-<code>delete 1</code> deletes the participant at index 2 in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="DeleteGroup"><a class="link" href="#DeleteGroup">4.6.2. Deleting a group : <code>delete_g</code></a></h4>
-<div class="paragraph">
-<p>Deletes the specified group from the list of groups.<br>
-Format: <code>delete_g GROUPNAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the group matching the specified <code>GROUPNAME</code>.</p>
-</li>
-<li>
-<p><code>GROUPNAME</code> must exist in the list of groups.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-The group <strong>must contain no participants</strong> before it can be deleted
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Group names are not case-sensitive
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Group <code>G1</code> has just been added under house <code>Green</code>.<br>
-<code>delete_g G1</code> removes the group <code>G1</code> from the list of groups.</p>
-</li>
-<li>
-<p><code>list_g y1</code> shows only one participant in Group <code>Y1</code>.<br>
-<code>edit 1 g/</code> removes the participant from the group.<br>
-<code>delete_g Y1</code> removes the group <code>Y1</code> from the list of groups.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="DeleteHouse"><a class="link" href="#DeleteHouse">4.6.3. Deleting a house : <code>delete_h</code></a></h4>
-<div class="paragraph">
-<p>Deletes the specified house from the list of houses.<br>
-Format: <code>delete_h HOUSENAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the house matching the specified <code>HOUSENAME</code>.</p>
-</li>
-<li>
-<p><code>HOUSENAME</code> must exist in the list of hosues.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-The house <strong>must contain no groups</strong> before it can be deleted.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-House names are not case-sensitive
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A house named <code>Blue</code> has just been added.<br>
-<code>delete_h blue</code> deletes the house <code>Blue</code>.</p>
-</li>
-<li>
-<p><code>view_g</code> shows only 1 group <code>R1</code> in the house <code>Red</code>.<br>
- Group <code>R1</code> is deleted by first removing its participants from the group, then entering <code>delete_g R1</code>.<br>
-<code>delete_h RED</code> deletes the house <code>Red</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Size"><a class="link" href="#Size">4.7. Displaying the camp size: <code>size</code></a></h3>
-<div class="paragraph">
-<p>Displays the total number of participants, the number of OGLs and freshmen, and the number of houses and groups in the command result box.<br>
-Format: <code>size</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Find"><a class="link" href="#Find">4.8. Finding participants by name: <code>find</code></a></h3>
-<div class="paragraph">
-<p>Finds participants whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>John Poe</code> will match <code>Poe John</code></p>
-</li>
-<li>
-<p>Only name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Participants matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find John</code> returns <code>john</code> and <code>John Goe</code></p>
-</li>
-<li>
-<p><code>find Betsy Tim John</code> returns any participant having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Select"><a class="link" href="#Select">4.9. Selecting a participant : <code>select</code></a></h3>
-<div class="paragraph">
-<p>Selects the participant identified by the index number used in the displayed participant list.<br>
-Format: <code>select INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Selects the participant at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed participant list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code> has just been entered.<br>
-<code>select 2</code> selects the participant at index 2 in your contact list.</p>
-</li>
-<li>
-<p><code>find Betsy</code> has just been entered.<br>
-<code>select 1</code> selects the participant at index 1 in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="History"><a class="link" href="#History">4.10. Listing entered commands : <code>history</code></a></h3>
-<div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Undo"><a class="link" href="#Undo">4.11. Undoing previous command : <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Restores your contact list to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Undoable commands are commands that modify your contact list&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Undoable commands are shown in the undo list.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code> has just been entered.<br>
-<code>undo</code> reverses the <code>delete 1</code> command</p>
-</li>
-<li>
-<p>Only <code>select 1</code> has been entered.<br>
-<code>undo</code> fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code> and <code>clear</code> have been entered.<br>
-<code>undo</code> reverses the <code>clear</code> command.<br>
-<code>undo</code> reverses the <code>delete 1</code> command.<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Redo"><a class="link" href="#Redo">4.12. Redoing previously undone command : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Redoable commands are shown in the redo list.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code> has just been entered.<br>
-<code>undo</code> reverses the <code>delete 1</code> command.<br>
-<code>redo</code> reapplies the <code>delete 1</code> command.<br></p>
-</li>
-<li>
-<p>Only <code>delete 1</code> has been entered.<br>
-<code>redo</code> fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code> and <code>clear</code> have just been entered.<br>
-<code>undo</code> reverses the <code>clear</code> command.<br>
-<code>undo</code> reverses the <code>delete 1</code> command.<br>
-<code>redo</code> reapplies the <code>delete 1</code> command.<br>
-<code>redo</code> reapplies the <code>clear</code> command.<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Randomize"><a class="link" href="#Randomize">4.13. Randomizing groupings : <code>randomize</code></a></h3>
-<div class="paragraph">
-<p>Randomize group allocation of all registered participants.<br>
-Format: <code>randomize</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Command will only work when there is at least 2 registered participants and 2 created groups.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>randomize</code> has just been entered (successful).<br>
-Output: Participants are evenly distributed</p>
-</li>
-<li>
-<p><code>randomize</code> has just been entered (error).<br>
-Output: Unable to distribute participants (min 2 groups and 2 participants)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Export"><a class="link" href="#Export">4.14. Exporting contact list : <code>export</code></a></h3>
-<div class="paragraph">
-<p>Exports all entries from your contact list to Excel Spreadsheet.<br>
-Excel Spreadsheet will be saved in the current User Directory.<br>
-Format: <code>export</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Clear"><a class="link" href="#Clear">4.15. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from your contact list.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Exit"><a class="link" href="#Exit">4.16. Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.17. Saving the data</a></h3>
-<div class="paragraph">
-<p>Participants' data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous FOP Manager folder.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Congratulations, you are now ready to start your journey with FOP Manager!</p>
-</div>
-<div class="paragraph">
-<p>Below is a summary of all commands available in FOP Manager:</p>
-</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 13.0434%;">
@@ -1394,7 +23,7 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Views help</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ViewHelp">Viewing help</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Help">Viewing help</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add_f</code></p></td>
@@ -1567,4 +196,1117 @@ There is no need to save manually.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 18:31:03 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="features"><a class="link" href="#features">2. Features</a></h2>
+<div class="sectionbody">
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Command Format</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Words in <code>UPPER_CASE</code> are parameters to be supplied by the user<br>
+e.g. if the command states <code>n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>n/John Doe</code>.</p>
+</li>
+<li>
+<p>Items in square brackets are optional<br>
+e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+</li>
+<li>
+<p>Items with <code>…</code> after them can be used as many times as you want<br>
+e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Help"><a class="link" href="#Help">2.1. Viewing help : <code>help</code></a></h3>
+<div class="paragraph">
+<p>Opens a window with a list of all the commands available on FOP Manager<br>
+Format: <code>help</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-commands"><a class="link" href="#add-commands">2.2. Add Commands</a></h3>
+<div class="sect3">
+<h4 id="AddFresh"><a class="link" href="#AddFresh">2.2.1. Adding a freshman : <code>add_f</code></a></h4>
+<div class="paragraph">
+<p>Adds a freshman to the Freshman list<br>
+Format: <code>add_f n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Parameters can be accepted in any order.</p>
+</li>
+<li>
+<p>A freshman can have any number of tags (including 0).</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>GROUP</code> can be left blank i.e. <code>g/</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If not blank, the <code>GROUP</code> must exist before a freshman can be added to it
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_f n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information Systems g/</code></p>
+</li>
+<li>
+<p><code>add_f n/Jane Doe s/F e/betsycrowe@example.com m/CS g/ p/1234567 t/vegetarian</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="AddOGL"><a class="link" href="#AddOGL">2.2.2. Adding an OGL : <code>add_o</code></a></h4>
+<div class="paragraph">
+<p>Adds an OGL to the OGL list<br>
+Format: <code>add_o n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Parameters can be accepted in any order.</p>
+</li>
+<li>
+<p>An OGL can have any number of tags (including 0).</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>GROUP</code> can be left blank i.e. <code>g/</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If not blank, the <code>GROUP</code> must exist before an OGL can be added to it
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_o n/James Boe s/M b/27071999 p/13579753 e/jamesd@example.com m/CEG g/</code></p>
+</li>
+<li>
+<p><code>add_o n/Jane Doe s/F e/betsycrowe@example.com m/CS g/ p/1234567 t/vegetarian</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="AddOther"><a class="link" href="#AddOther">2.2.3. Adding other participants : <code>add</code></a></h4>
+<div class="paragraph">
+<p>Adds other participants involved in the camp that are neither Freshmen nor OGLs to the contact list<br>
+Format: <code>add n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Parameters can be accepted in any order.</p>
+</li>
+<li>
+<p>An entered person can have any number of tags (including 0).</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Leave <code>GROUP</code> blank i.e. <code>g/</code> since there is no group allocation for this participant!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/James Boe s/M b/27071999 p/13579753 e/jamesd@example.com m/CEG g/ t/Camp Commandant</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="AddHouse"><a class="link" href="#AddHouse">2.2.4. Adding a house : <code>add_h</code></a></h4>
+<div class="paragraph">
+<p>Adds a house that can contain different groups<br>
+Format: <code>add_h HOUSENAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+House names are always saved with first letter in Uppercase, the rest in lowercase
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+House names cannot contain spaces
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_h blue</code> saves a house named <code>Blue</code> to the house list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="AddGroup"><a class="link" href="#AddGroup">2.2.5. Adding a group : <code>add_g</code></a></h4>
+<div class="paragraph">
+<p>Adds a group to a house<br>
+Format: <code>add_g GROUPNAME HOUSENAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Group names are always saved in all-caps
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Group names cannot contain spaces
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Groups can only be added to houses that already exist
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_g b1 blue</code> saves a group named <code>B1</code> in house <code>Blue</code> to the group list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-commands"><a class="link" href="#edit-commands">2.3. Edit Commands</a></h3>
+<div class="sect3">
+<h4 id="EditPart"><a class="link" href="#EditPart">2.3.1. Editing a participant : <code>edit</code></a></h4>
+<div class="paragraph">
+<p>Edits an existing participant in the contact list.<br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [m/MAJOR] [g/GROUP] [t/TAG] &#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the participant currently shown at <code>INDEX</code>.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the participant will be removed i.e adding of tags is not cumulative.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>INDEX</code> must be a <strong>positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To edit a particular participant by name, first <a href="#Find">find</a> the participant by name, then edit by index
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Remove all the participant&#8217;s tags by typing <code>t/</code> without specifying any tags after it
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Edit a participant&#8217;s <code>GROUP</code> after adding them, instead of choosing a group for them from the start
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 p/91234567 g/g1</code><br>
+Edits the phone number and group of the participant at index 1 to be <code>91234567</code> and <code>G1</code> respectively.</p>
+</li>
+<li>
+<p><code>edit 2 n/John Koe t/</code><br>
+Edits the name of the participant at index 2 to be <code>John Koe</code> and clears all existing tags.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="EditHouse"><a class="link" href="#EditHouse">2.3.2. Editing a house : <code>edit_h</code></a></h4>
+<div class="paragraph">
+<p>Edits a house name.<br>
+Format: <code>edit_h OLDHOUSENAME NEWHOUSENAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the house named <code>OLDHOUSENAME</code> to <code>NEWHOUSENAME</code></p>
+</li>
+<li>
+<p>All groups under the old house name remain in the new house.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>OLDHOUSENAME</code> must exist in the current list of houses
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>NEWHOUSENAME</code> must not exist in the current list of houses
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+House names are not case-sensitive
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit_h Red green</code><br>
+Edits the house named <code>Red</code> to <code>Green</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="EditGroup"><a class="link" href="#EditGroup">2.3.3. Editing a group : <code>edit_g</code></a></h4>
+<div class="paragraph">
+<p>Edits a group name.<br>
+Format: <code>edit_g OLDGROUPNAME NEWGROUPNAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the group named <code>OLDGROUPNAME</code> to <code>NEWGROUPNAME</code></p>
+</li>
+<li>
+<p>The <code>GROUP</code> of all participants within the old group is automatically updated.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>OLDGROUPNAME</code> must exist in the current list of groups
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>NEWGROUPNAME</code> must not exist in the current list of groups
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Group names are not case-sensitive
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit_g red1 red2</code><br>
+Edits the group named <code>RED1</code> to <code>RED2</code>. All participants in RED1 are now in RED2.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-commands"><a class="link" href="#list-commands">2.4. List Commands</a></h3>
+<div class="sect3">
+<h4 id="ListALL"><a class="link" href="#ListALL">2.4.1. Listing all the participants : <code>list</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all the participants involved in the camp in your contact list.<br>
+Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ListFresh"><a class="link" href="#ListFresh">2.4.2. Listing all freshmen : <code>list_f</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all the freshmen in the freshmen list.<br>
+Format: <code>list_f</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ListOGL"><a class="link" href="#ListOGL">2.4.3. Listing all OGLs : <code>list_o</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all the OGLs in the OGL list.<br>
+Format: <code>list_o</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ListGroup"><a class="link" href="#ListGroup">2.4.4. Listing all group participants : <code>list_g</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all the participants in a group.<br>
+Format: <code>list_g GROUPNAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Group names are not case-sensitive
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>list_g empty</code> lists participants with an empty group field
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>OLDGROUPNAME</code> must exist in the current list of groups
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list_g g1</code> lists all participants in Group <code>G1</code> if <code>G1</code> exists.</p>
+</li>
+<li>
+<p><code>list_g empty</code> lists all participants not in any group yet.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-commands"><a class="link" href="#view-commands">2.5. View Commands</a></h3>
+<div class="sect3">
+<h4 id="ViewHouse"><a class="link" href="#ViewHouse">2.5.1. Viewing all houses : <code>view_h</code></a></h4>
+<div class="paragraph">
+<p>Views the list of all houses added so far.<br>
+Format: <code>view_h</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Houses <code>Orange</code> and <code>Blue</code> have been added.<br>
+<code>view_h</code> returns <code>[Orange, Blue]</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ViewGroup"><a class="link" href="#ViewGroup">2.5.2. Viewing all groups : <code>view_g</code></a></h4>
+<div class="paragraph">
+<p>Views the list of all groups added so far, along with the house they belong to.<br>
+Format: <code>view_g</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Groups <code>R1</code> and <code>R2</code> have been added under the house <code>Red</code>.<br>
+<code>view_g</code> returns <code>[(R1, Red), (R2, Red)]</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-commands"><a class="link" href="#delete-commands">2.6. Delete Commands</a></h3>
+<div class="sect3">
+<h4 id="DeletePart"><a class="link" href="#DeletePart">2.6.1. Deleting a participant : <code>delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified participant from your contact list.<br>
+Format: <code>delete INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the participant at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed contact list.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The index <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code> has just been entered.<br>
+<code>delete 2</code> deletes the participant at index 2.</p>
+</li>
+<li>
+<p><code>find Betsy</code> has just been entered.<br>
+<code>delete 1</code> deletes the participant at index 2 in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="DeleteGroup"><a class="link" href="#DeleteGroup">2.6.2. Deleting a group : <code>delete_g</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified group from the list of groups.<br>
+Format: <code>delete_g GROUPNAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the group matching the specified <code>GROUPNAME</code>.</p>
+</li>
+<li>
+<p><code>GROUPNAME</code> must exist in the list of groups.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The group <strong>must contain no participants</strong> before it can be deleted
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Group names are not case-sensitive
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Group <code>G1</code> has just been added under house <code>Green</code>.<br>
+<code>delete_g G1</code> removes the group <code>G1</code> from the list of groups.</p>
+</li>
+<li>
+<p><code>list_g y1</code> shows only one participant in Group <code>Y1</code>.<br>
+<code>edit 1 g/</code> removes the participant from the group.<br>
+<code>delete_g Y1</code> removes the group <code>Y1</code> from the list of groups.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="DeleteHouse"><a class="link" href="#DeleteHouse">2.6.3. Deleting a house : <code>delete_h</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified house from the list of houses.<br>
+Format: <code>delete_h HOUSENAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the house matching the specified <code>HOUSENAME</code>.</p>
+</li>
+<li>
+<p><code>HOUSENAME</code> must exist in the list of hosues.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The house <strong>must contain no groups</strong> before it can be deleted.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+House names are not case-sensitive
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A house named <code>Blue</code> has just been added.<br>
+<code>delete_h blue</code> deletes the house <code>Blue</code>.</p>
+</li>
+<li>
+<p><code>view_g</code> shows only 1 group <code>R1</code> in the house <code>Red</code>.<br>
+ Group <code>R1</code> is deleted by first removing its participants from the group, then entering <code>delete_g R1</code>.<br>
+<code>delete_h RED</code> deletes the house <code>Red</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Size"><a class="link" href="#Size">2.7. Displaying the camp size: <code>size</code></a></h3>
+<div class="paragraph">
+<p>Displays the total number of participants, the number of OGLs and freshmen, and the number of houses and groups in the command result box.<br>
+Format: <code>size</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Find"><a class="link" href="#Find">2.8. Finding participants by name: <code>find</code></a></h3>
+<div class="paragraph">
+<p>Finds participants whose names contain any of the given keywords.<br>
+Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>John Poe</code> will match <code>Poe John</code></p>
+</li>
+<li>
+<p>Only name is searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Participants matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find John</code> returns <code>john</code> and <code>John Goe</code></p>
+</li>
+<li>
+<p><code>find Betsy Tim John</code> returns any participant having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Select"><a class="link" href="#Select">2.9. Selecting a participant : <code>select</code></a></h3>
+<div class="paragraph">
+<p>Selects the participant identified by the index number used in the displayed participant list.<br>
+Format: <code>select INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Selects the participant at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed participant list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code> has just been entered.<br>
+<code>select 2</code> selects the participant at index 2 in your contact list.</p>
+</li>
+<li>
+<p><code>find Betsy</code> has just been entered.<br>
+<code>select 1</code> selects the participant at index 1 in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="History"><a class="link" href="#History">2.10. Listing entered commands : <code>history</code></a></h3>
+<div class="paragraph">
+<p>Lists all the commands that you have entered in reverse chronological order.<br>
+Format: <code>history</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Undo"><a class="link" href="#Undo">2.11. Undoing previous command : <code>undo</code></a></h3>
+<div class="paragraph">
+<p>Restores your contact list to the state before the previous <em>undoable</em> command was executed.<br>
+Format: <code>undo</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Undoable commands are commands that modify your contact list&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Undoable commands are shown in the undo list.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code> has just been entered.<br>
+<code>undo</code> reverses the <code>delete 1</code> command</p>
+</li>
+<li>
+<p>Only <code>select 1</code> has been entered.<br>
+<code>undo</code> fails as there are no undoable commands executed previously.</p>
+</li>
+<li>
+<p><code>delete 1</code> and <code>clear</code> have been entered.<br>
+<code>undo</code> reverses the <code>clear</code> command.<br>
+<code>undo</code> reverses the <code>delete 1</code> command.<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Redo"><a class="link" href="#Redo">2.12. Redoing previously undone command : <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Reverses the most recent <code>undo</code> command.<br>
+Format: <code>redo</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Redoable commands are shown in the redo list.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code> has just been entered.<br>
+<code>undo</code> reverses the <code>delete 1</code> command.<br>
+<code>redo</code> reapplies the <code>delete 1</code> command.<br></p>
+</li>
+<li>
+<p>Only <code>delete 1</code> has been entered.<br>
+<code>redo</code> fails as there are no <code>undo</code> commands executed previously.</p>
+</li>
+<li>
+<p><code>delete 1</code> and <code>clear</code> have just been entered.<br>
+<code>undo</code> reverses the <code>clear</code> command.<br>
+<code>undo</code> reverses the <code>delete 1</code> command.<br>
+<code>redo</code> reapplies the <code>delete 1</code> command.<br>
+<code>redo</code> reapplies the <code>clear</code> command.<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Randomize"><a class="link" href="#Randomize">2.13. Randomizing groupings : <code>randomize</code></a></h3>
+<div class="paragraph">
+<p>Randomize group allocation of all registered participants.<br>
+Format: <code>randomize</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Command will only work when there is at least 2 registered participants and 2 created groups.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>randomize</code> has just been entered (successful).<br>
+Output: Participants are evenly distributed</p>
+</li>
+<li>
+<p><code>randomize</code> has just been entered (error).<br>
+Output: Unable to distribute participants (min 2 groups and 2 participants)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Export"><a class="link" href="#Export">2.14. Exporting contact list : <code>export</code></a></h3>
+<div class="paragraph">
+<p>Exports all entries from your contact list to Excel Spreadsheet.<br>
+Excel Spreadsheet will be saved in the current User Directory.<br>
+Format: <code>export</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Clear"><a class="link" href="#Clear">2.15. Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from your contact list.<br>
+Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Exit"><a class="link" href="#Exit">2.16. Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.17. Saving the data</a></h3>
+<div class="paragraph">
+<p>Participants' data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">2.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Participants data will be auto-encrypted when the app closes, so that data files cannot be accessed when the app is not running.<br>
+Participant data will be decrypted when the app starts up.</p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 18:37:56 UTC</div></div></div></body></html>
