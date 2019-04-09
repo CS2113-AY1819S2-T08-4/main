@@ -492,6 +492,17 @@ Format: <code>export</code></p>
 <div class="paragraph">
 <p>The Export feature will allow the FOP Manager user to export the data into an excel file and distribute to other relevant people involved in the FOP. This way, data can be distributed and raw data untouched except by the Project Director or other camp organisers who are given the access to the raw data.</p>
 </div>
+<div class="paragraph">
+<p>The following is an Activity Diagram to summarize what happens when the <code>export</code> command is entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportCommandActivityDiagram.png" alt="ExportCommandActivityDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Activity Diagram for exporting command</em></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
@@ -504,6 +515,35 @@ Format: <code>export</code></p>
 <p>The <code>export</code> command will call a function from a class <code>WriteToExcel</code> to start the creation of the HSSF Workbook and the addition of all the participants found on the participant list to the Workbook, with the respective objects to the participant class added to the correct column. The system will get the current directory path and add the path name to the proposed file name that end with ".xls". The file will thus be successfully saved in the current user directory.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The following Sequence diagram below will explain how the <code>export</code> command works in detail.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Sequence Diagram for exporting command</em></p>
+</div>
+<div class="paragraph">
+<p>An example usage of the command is as follows:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user launches the application. The <code>VersionedAddressBook</code> will be initialized with the initial address book state.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> The user enters the <code>export</code> command . The <code>export</code> command updates the filtered list with the predicate to show all persons in the address book.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> The filtered list is obtained in the command. The export command calls the <code>WriteToExcel</code> class&#8217;s <code>WriteExcelSheet()</code>. This will set the directory, create the Excel Workbook and Sheet, the file name, the cells and rows with the titles for the FOP Manager.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> <code>WriteExcelSheet()</code> calls <code>WriteDataIntoExcelSheet()</code> which writes the values from the filtered person list into the Excel Sheet.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> Returning to <code>WriteExcelSheet()</code>, the file is output to user&#8217;s current directory as an .xls file.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2200,4 +2240,4 @@ Expected: Group named <code>G1</code> is added on first command. No group is add
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 05:20:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 12:02:18 UTC</div></div></div></body></html>
