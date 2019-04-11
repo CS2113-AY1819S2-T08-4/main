@@ -282,7 +282,7 @@ Format: <code>add n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG
 <p>Parameters can be accepted in any order.</p>
 </li>
 <li>
-<p>An entered person can have any number of tags (including 0).</p>
+<p>An entered participant can have any number of tags (including 0).</p>
 </li>
 </ul>
 </div>
@@ -534,13 +534,13 @@ Format: <code>export</code></p>
 <p><strong>Step 1:</strong> The user launches the application. The <code>VersionedAddressBook</code> will be initialized with the initial address book state.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2:</strong> The user enters the <code>export</code> command . The <code>export</code> command updates the filtered list with the predicate to show all persons in the address book.</p>
+<p><strong>Step 2:</strong> The user enters the <code>export</code> command . The <code>export</code> command updates the filtered list with the predicate to show all participants in the address book.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 3:</strong> The filtered list is obtained in the command. The export command calls the <code>WriteToExcel</code> class&#8217;s <code>WriteExcelSheet()</code>. This will set the directory, create the Excel Workbook and Sheet, the file name, the cells and rows with the titles for the FOP Manager.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 4:</strong> <code>WriteExcelSheet()</code> calls <code>WriteDataIntoExcelSheet()</code> which writes the values from the filtered person list into the Excel Sheet.</p>
+<p><strong>Step 4:</strong> <code>WriteExcelSheet()</code> calls <code>WriteDataIntoExcelSheet()</code> which writes the values from the filtered participant list into the Excel Sheet.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 5:</strong> Returning to <code>WriteExcelSheet()</code>, the file is output to user&#8217;s current directory as an .xls file.</p>
@@ -1050,7 +1050,7 @@ Do take a look at <a href="#Design-Logic">[Design-Logic]</a> before attempting t
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a shorthand equivalent alias for each of the individual commands. For example, besides typing <code>clear</code>, the user can also type <code>c</code> to remove all persons in the list.</p>
+<p>Add a shorthand equivalent alias for each of the individual commands. For example, besides typing <code>clear</code>, the user can also type <code>c</code> to remove all participants in the list.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1129,7 +1129,7 @@ Do take a look at <a href="#Design-Model">[Design-Model]</a> before attempting t
 <p>Think about how you can use SLAP to design the method. Where should we place the main logic of deleting tags?</p>
 </li>
 <li>
-<p>Find out which of the existing API methods in  <a href="{repoURL}/src/main/java/seedu/major/model/AddressBook.java"><code>AddressBook</code></a> and <a href="{repoURL}/src/main/java/seedu/major/model/person/Person.java"><code>Person</code></a> classes can be used to implement the tag removal logic. <a href="{repoURL}/src/main/java/seedu/major/model/AddressBook.java"><code>AddressBook</code></a> allows you to update a person, and <a href="{repoURL}/src/main/java/seedu/major/model/person/Person.java"><code>Person</code></a> allows you to update the tags.</p>
+<p>Find out which of the existing API methods in  <a href="{repoURL}/src/main/java/seedu/major/model/AddressBook.java"><code>AddressBook</code></a> and <a href="{repoURL}/src/main/java/seedu/major/model/participant/Person.java"><code>Person</code></a> classes can be used to implement the tag removal logic. <a href="{repoURL}/src/main/java/seedu/major/model/AddressBook.java"><code>AddressBook</code></a> allows you to update a participant, and <a href="{repoURL}/src/main/java/seedu/major/model/participant/Person.java"><code>Person</code></a> allows you to update the tags.</p>
 </li>
 </ul>
 </div>
@@ -1139,7 +1139,7 @@ Do take a look at <a href="#Design-Model">[Design-Model]</a> before attempting t
 <div class="ulist">
 <ul>
 <li>
-<p>Implement a <code>removeTag(Tag)</code> method in <a href="{repoURL}/src/main/java/seedu/major/model/AddressBook.java"><code>AddressBook</code></a>. Loop through each person, and remove the <code>tag</code> from each person.</p>
+<p>Implement a <code>removeTag(Tag)</code> method in <a href="{repoURL}/src/main/java/seedu/major/model/AddressBook.java"><code>AddressBook</code></a>. Loop through each participant, and remove the <code>tag</code> from each participant.</p>
 </li>
 <li>
 <p>Add a new API method <code>deleteTag(Tag)</code> in <a href="{repoURL}/src/main/java/seedu/major/model/ModelManager.java"><code>ModelManager</code></a>. Your <a href="{repoURL}/src/main/java/seedu/major/model/ModelManager.java"><code>ModelManager</code></a> should call <code>AddressBook#removeTag(Tag)</code>.</p>
@@ -1162,7 +1162,7 @@ Do take a look at <a href="#Design-Model">[Design-Model]</a> before attempting t
 </div>
 <h4 id="code-ui-code-component" class="discrete"><code>Ui</code> component</h4>
 <div class="paragraph">
-<p><strong>Scenario:</strong> You are in charge of <code>ui</code>. During a beta testing session, your team is observing how the users use your address book application. You realize that one of the users occasionally tries to delete non-existent tags from a contact, because the tags all look the same visually, and the user got confused. Another user made a typing mistake in his command, but did not realize he had done so because the error message wasn&#8217;t prominent enough. A third user keeps scrolling down the list, because he keeps forgetting the index of the last person in the list. Your job is to implement improvements to the UI to solve all these problems.</p>
+<p><strong>Scenario:</strong> You are in charge of <code>ui</code>. During a beta testing session, your team is observing how the users use your address book application. You realize that one of the users occasionally tries to delete non-existent tags from a contact, because the tags all look the same visually, and the user got confused. Another user made a typing mistake in his command, but did not realize he had done so because the error message wasn&#8217;t prominent enough. A third user keeps scrolling down the list, because he keeps forgetting the index of the last participant in the list. Your job is to implement improvements to the UI to solve all these problems.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1179,7 +1179,7 @@ Do take a look at <a href="#Design-Ui">[Design-Ui]</a> before attempting to modi
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Use different colors for different tags inside person cards. For example, <code>friends</code> tags can be all in brown, and <code>colleagues</code> tags can be all in yellow.</p>
+<p>Use different colors for different tags inside participant cards. For example, <code>friends</code> tags can be all in brown, and <code>colleagues</code> tags can be all in yellow.</p>
 <div class="paragraph">
 <p><strong>Before</strong></p>
 </div>
@@ -1357,16 +1357,16 @@ Do take a look at <a href="#Design-Ui">[Design-Ui]</a> before attempting to modi
 <div class="ulist">
 <ul>
 <li>
-<p>Modify the constructor of <a href="{repoURL}/src/main/java/seedu/major/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to take in the number of persons when the application just started.</p>
+<p>Modify the constructor of <a href="{repoURL}/src/main/java/seedu/major/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to take in the number of participants when the application just started.</p>
 </li>
 <li>
-<p>Use <a href="{repoURL}/src/main/java/seedu/major/ui/StatusBarFooter.java"><code>StatusBarFooter#handleAddressBookChangedEvent(AddressBookChangedEvent)</code></a> to update the number of persons whenever there are new changes to the addressbook.</p>
+<p>Use <a href="{repoURL}/src/main/java/seedu/major/ui/StatusBarFooter.java"><code>StatusBarFooter#handleAddressBookChangedEvent(AddressBookChangedEvent)</code></a> to update the number of participants whenever there are new changes to the addressbook.</p>
 </li>
 <li>
 <p>For tests, modify <a href="{repoURL}/src/test/java/guitests/guihandles/StatusBarFooterHandle.java"><code>StatusBarFooterHandle</code></a> by adding a state-saving functionality for the total number of people status, just like what we did for save location and sync status.</p>
 </li>
 <li>
-<p>For system tests, modify <a href="{repoURL}/src/test/java/systemtests/AddressBookSystemTest.java"><code>AddressBookSystemTest</code></a> to also verify the new total number of persons status bar.</p>
+<p>For system tests, modify <a href="{repoURL}/src/test/java/systemtests/AddressBookSystemTest.java"><code>AddressBookSystemTest</code></a> to also verify the new total number of participants status bar.</p>
 </li>
 <li>
 <p>See this <a href="https://github.com/se-edu/addressbook-level4/pull/803">PR</a> for the full solution.</p>
@@ -1447,7 +1447,7 @@ Do take a look at <a href="#Design-Storage">[Design-Storage]</a> before attempti
 <div class="sect3">
 <h4 id="description"><a class="link" href="#description">Description</a></h4>
 <div class="paragraph">
-<p>Edits the remark for a person specified in the <code>INDEX</code>.<br>
+<p>Edits the remark for a participant specified in the <code>INDEX</code>.<br>
 Format: <code>remark INDEX r/[REMARK]</code></p>
 </div>
 <div class="paragraph">
@@ -1457,11 +1457,11 @@ Format: <code>remark INDEX r/[REMARK]</code></p>
 <ul>
 <li>
 <p><code>remark 1 r/Likes to drink coffee.</code><br>
-Edits the remark for the first person to <code>Likes to drink coffee.</code></p>
+Edits the remark for the first participant to <code>Likes to drink coffee.</code></p>
 </li>
 <li>
 <p><code>remark 1 r/</code><br>
-Removes the remark for the first person.</p>
+Removes the remark for the first participant.</p>
 </li>
 </ul>
 </div>
@@ -1542,7 +1542,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-3-ui-add-a-placeholder-for-remark-in-code-personcard-code"><a class="link" href="#step-3-ui-add-a-placeholder-for-remark-in-code-personcard-code">[Step 3] Ui: Add a placeholder for remark in <code>PersonCard</code></a></h5>
 <div class="paragraph">
-<p>Let&#8217;s add a placeholder on all our <a href="{repoURL}/src/main/java/seedu/major/ui/PersonCard.java"><code>PersonCard</code></a> s to display a remark for each person later.</p>
+<p>Let&#8217;s add a placeholder on all our <a href="{repoURL}/src/main/java/seedu/major/ui/PersonCard.java"><code>PersonCard</code></a> s to display a remark for each participant later.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1571,7 +1571,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-4-model-add-code-remark-code-class"><a class="link" href="#step-4-model-add-code-remark-code-class">[Step 4] Model: Add <code>Remark</code> class</a></h5>
 <div class="paragraph">
-<p>We have to properly encapsulate the remark in our <a href="{repoURL}/src/main/java/seedu/major/model/person/Person.java"><code>Person</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
+<p>We have to properly encapsulate the remark in our <a href="{repoURL}/src/main/java/seedu/major/model/participant/Person.java"><code>Person</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1579,7 +1579,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add <code>Remark</code> to model component (you can copy from <a href="{repoURL}/src/main/java/seedu/major/model/person/Address.java"><code>Address</code></a>, remove the regex and change the names accordingly).</p>
+<p>Add <code>Remark</code> to model component (you can copy from <a href="{repoURL}/src/main/java/seedu/major/model/participant/Address.java"><code>Address</code></a>, remove the regex and change the names accordingly).</p>
 </li>
 <li>
 <p>Modify <code>RemarkCommand</code> to now take in a <code>Remark</code> instead of a <code>String</code>.</p>
@@ -1600,7 +1600,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-5-model-modify-code-person-code-to-support-a-code-remark-code-field"><a class="link" href="#step-5-model-modify-code-person-code-to-support-a-code-remark-code-field">[Step 5] Model: Modify <code>Person</code> to support a <code>Remark</code> field</a></h5>
 <div class="paragraph">
-<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="{repoURL}/src/main/java/seedu/major/model/person/Person.java"><code>Person</code></a>.</p>
+<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="{repoURL}/src/main/java/seedu/major/model/participant/Person.java"><code>Person</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1608,10 +1608,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add <code>getRemark()</code> in <a href="{repoURL}/src/main/java/seedu/major/model/person/Person.java"><code>Person</code></a>.</p>
+<p>Add <code>getRemark()</code> in <a href="{repoURL}/src/main/java/seedu/major/model/participant/Person.java"><code>Person</code></a>.</p>
 </li>
 <li>
-<p>You may assume that the user will not be able to use the <code>add</code> and <code>edit</code> commands to modify the remarks field (i.e. the person will be created without a remark).</p>
+<p>You may assume that the user will not be able to use the <code>add</code> and <code>edit</code> commands to modify the remarks field (i.e. the participant will be created without a remark).</p>
 </li>
 <li>
 <p>Modify <a href="{repoURL}/src/main/java/seedu/major/model/util/SampleDataUtil.java/"><code>SampleDataUtil</code></a> to add remarks for the sample data (delete your <code>data/addressbook.json</code> so that the application will load the sample data when you launch it.)</p>
@@ -1648,7 +1648,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-6b-test-add-withremark-for-code-personbuilder-code"><a class="link" href="#step-6b-test-add-withremark-for-code-personbuilder-code">[Step 6b] Test: Add withRemark() for <code>PersonBuilder</code></a></h5>
 <div class="paragraph">
-<p>Since <code>Person</code> can now have a <code>Remark</code>, we should add a helper method to <a href="{repoURL}/src/test/java/seedu/major/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>, so that users are able to create remarks when building a <a href="{repoURL}/src/main/java/seedu/major/model/person/Person.java"><code>Person</code></a>.</p>
+<p>Since <code>Person</code> can now have a <code>Remark</code>, we should add a helper method to <a href="{repoURL}/src/test/java/seedu/major/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>, so that users are able to create remarks when building a <a href="{repoURL}/src/main/java/seedu/major/model/participant/Person.java"><code>Person</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Tests:</strong></p>
@@ -1656,7 +1656,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a new method <code>withRemark()</code> for <a href="{repoURL}/src/test/java/seedu/major/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>. This method will create a new <code>Remark</code> for the person that it is currently building.</p>
+<p>Add a new method <code>withRemark()</code> for <a href="{repoURL}/src/test/java/seedu/major/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>. This method will create a new <code>Remark</code> for the participant that it is currently building.</p>
 </li>
 <li>
 <p>Try and use the method on any sample <code>Person</code> in <a href="{repoURL}/src/test/java/seedu/major/testutil/TypicalPersons.java"><code>TypicalPersons</code></a>.</p>
@@ -1701,7 +1701,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Replace the logic in <code>RemarkCommand#execute()</code> (that currently just throws an <code>Exception</code>), with the actual logic to modify the remarks of a person.</p>
+<p>Replace the logic in <code>RemarkCommand#execute()</code> (that currently just throws an <code>Exception</code>), with the actual logic to modify the remarks of a participant.</p>
 </li>
 </ol>
 </div>
@@ -1812,7 +1812,7 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">find a participant by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of participants without having to go through the entire list</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1926,23 +1926,23 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-delete-participant" class="discrete">Use case: Delete participant</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to list participants</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>AddressBook shows a list of participants</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>User requests to delete a specific participant in the list</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
+<p>AddressBook deletes the participant</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1976,7 +1976,7 @@ for <code>RemarkCommandParser</code>.</p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="use-case-add-person-into-group"><a class="link" href="#use-case-add-person-into-group">Use case: Add person into group</a></h3>
+<h3 id="use-case-add-participant-into-group"><a class="link" href="#use-case-add-participant-into-group">Use case: Add participant into group</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1989,7 +1989,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User requests to add a group to house</p>
 </li>
 <li>
-<p>User requests to add a person and specifies group that exists in house</p>
+<p>User requests to add a participant and specifies group that exists in house</p>
 </li>
 </ol>
 </div>
@@ -1998,7 +1998,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Extensions</strong>
-* 3a. User edits the group attribute of a person with no specified group to the new group</p>
+* 3a. User edits the group attribute of a participant with no specified group to the new group</p>
 </div>
 </div>
 <div class="sect2">
@@ -2028,7 +2028,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>9</code> or higher installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
+<p>Should be able to hold up to 1000 participants without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
@@ -2240,4 +2240,4 @@ Expected: Group named <code>G1</code> is added on first command. No group is add
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-10 15:34:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-11 10:16:03 UTC</div></div></div></body></html>
