@@ -38,10 +38,11 @@
 <li><a href="#randomized-group-allocation">5.5. Randomized Group Allocation</a></li>
 <li><a href="#proposed-statistic-feature">5.6. [Proposed] Statistic feature</a></li>
 <li><a href="#export-feature">5.7. Export Feature</a></li>
-<li><a href="#proposed-auto-completion">5.8. [Proposed] Auto-Completion</a></li>
-<li><a href="#proposed-data-encryption">5.9. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">5.10. Logging</a></li>
-<li><a href="#Implementation-Configuration">5.11. Configuration</a></li>
+<li><a href="#import-feature">5.8. Import Feature</a></li>
+<li><a href="#proposed-auto-completion">5.9. [Proposed] Auto-Completion</a></li>
+<li><a href="#proposed-data-encryption">5.10. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">5.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">5.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">6. Documentation</a>
@@ -714,8 +715,6 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="paragraph">
 <p>This section describes how the 3 types of participants are managed.</p>
 </div>
-<div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>In <strong>FOP Manager</strong>, participants can be added, edited, deleted and listed.</p>
 </div>
@@ -772,11 +771,10 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </ul>
 </div>
 <div class="paragraph">
-<p>All participants are stored in the same contact list as a <code>UniqueParticipantList</code> in an AddressBook object. Participants created as OGLs or Freshmen differ only in the tags added to them.</p>
+<p>All participants are stored in the same contact list as a <code>UniqueParticipantList</code> in an AddressBook object. Participants created as OGLs or Freshmen differ only in the tags added to them. The different listing of the participants is very useful for Project Directors as it helps them to view the Freshmen and the OGL contacts separately, to specifically see who are in the respective lists and how many participants are there in each of the lists.</p>
 </div>
-<div class="paragraph">
-<p><strong>[Explanation on the need to have separate listing commands. TO INSERT]</strong></p>
-</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The following is an Activity Diagram to summarize what happens when either the <code>list_f</code> or <code>list_o</code> commands are entered.</p>
 </div>
@@ -1419,6 +1417,22 @@ variables will be updated after each <code>add</code>, <code>edit</code> or <cod
 <p>The Export feature will allow the FOP Manager user to export the data into an excel file and distribute to other relevant people involved in the FOP. This way, data can be distributed and raw data untouched except by the Project Director or other camp organisers who are given the access to the raw data.</p>
 </div>
 <div class="paragraph">
+<p>Participant contact details can be exported in different manners:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>export</code>: Exports all participants' contacts into an Excel Spreadsheet</p>
+</li>
+<li>
+<p><code>export_f</code>: Exports all freshmen contacts into an Excel Spreadsheet</p>
+</li>
+<li>
+<p><code>export_o</code>: Exports all OGL contacts into an Excel Spreadsheet</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>The following is an Activity Diagram to summarize what happens when the <code>export</code> command is entered.</p>
 </div>
 <div class="imageblock">
@@ -1479,26 +1493,104 @@ variables will be updated after each <code>add</code>, <code>edit</code> or <cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-auto-completion"><a class="link" href="#proposed-auto-completion">5.8. [Proposed] Auto-Completion</a></h3>
+<h3 id="import-feature"><a class="link" href="#import-feature">5.8. Import Feature</a></h3>
+<div class="paragraph">
+<p>Sometimes FOP Project Directors realise they need to add many participants' contacts that they gathered and usually they gather the contacts through sign up links that allow for exportation into Excel spreadsheets. Manually added the large influx of participants is troublesome. Hence, with the Import feature, FOP Project Directors can import the data of Non-duplicate people from an excel file into the FOP Manager. This makes adding of contacts easier.</p>
+</div>
+<div class="paragraph">
+<p>The following is an Activity Diagram to summarize what happens when the <code>import</code> command is entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ImportCommandActivityDiagram.png" alt="ImportCommandActivityDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Activity Diagram for the importing command</em></p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">5.8.1. Current Implementation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>A third-party library 'Apache.poi' was integrated into the project to enable easy creation of excel files through Object-Oriented Programming (OOP). In this case, the library will enable the creation of HSSF Workbook.</p>
+</li>
+<li>
+<p>The <code>import</code> command will call a function from a class <code>WriteToExcel</code> to start the reading from a HSSF Workbook found in the current directory path, with the file name "FOP_MANAGER_LIST.xls".</p>
+</li>
+<li>
+<p>The cell value from the respective heading/columns are read into their respective string and <code>person</code> is created with these strings.</p>
+</li>
+<li>
+<p>The <code>person</code> is added to a <code>List&lt;Person&gt;</code> and each <code>person</code> is added into the <code>Address Book</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following Sequence diagram below will explain how the <code>import</code> command works in detail.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ImportCommandSequenceDiagram.png" alt="ImportCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Sequence Diagram for importing command</em></p>
+</div>
+<div class="paragraph">
+<p>An example usage of the command is as follows:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user launches the application. The <code>VersionedAddressBook</code> will be initialized with the initial address book state.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> The user enters the <code>import</code> command . The <code>import</code> command calls the <code>WriteToExcel</code> class&#8217;s <code>ReadFromExcel()</code>. This will open the file of the default set name from the set directory.</p>
+</div>
+<div class="paragraph">
+<p><strong>Steo 3:</strong> The Excel sheets is checked for the correct headings and then the cell&#8217;s values are read to create each <code>person</code>. Each <code>person</code> is added to a <code>List&lt;Person&gt;</code> which will be returned to the Import command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> The <code>import</code> command adds each non-duplicate person into the FOP Manager.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One interesting usage of both <code>import</code> and <code>export</code> feature will be to retain and retrieve contacts. For instance, after exporting the data, we can clear. We can then import the contacts if needed.</p>
+</li>
+<li>
+<p>Another interesting usage is for manual edit of the details of multiple contacts. We can clear the Address Book and then <code>import</code> command to import the data.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">5.8.2. Design Consideration</a></h4>
+<div class="paragraph">
+<p>Only one way was considered for the implementation of Import feature, which involved importing the third-party library.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-auto-completion"><a class="link" href="#proposed-auto-completion">5.9. [Proposed] Auto-Completion</a></h3>
 <div class="paragraph">
 <p><em>{Coming in: v1.4}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">5.9. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">5.10. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Coming in: v2.0}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">5.10. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">5.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 5.11, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 5.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1529,7 +1621,7 @@ variables will be updated after each <code>add</code>, <code>edit</code> or <cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">5.11. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">5.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3165,4 +3257,4 @@ Expected: Group named <code>G1</code> is added on first command. No group is add
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-11 10:16:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-12 12:12:05 UTC</div></div></div></body></html>
