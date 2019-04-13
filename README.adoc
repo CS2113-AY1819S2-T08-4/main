@@ -18,7 +18,7 @@ endif::[]
 ** Listing of participants by their 3 categories (Freshmen, OGLs and others)
 ** Grouping of participants into groups, stored within houses
 ** Viewing graphs of the statistics of the camp participants
-** Random shuffling of freshman grouping
+** Random shuffling of participant grouping
 ** Exporting participant information (by whole list, by Freshmen list or by OGL list) from the application to a readable format (Excel)
 ** Importing participant information from Excel file to FOP Manager
 
