@@ -10,6 +10,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SEX;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
+import seedu.address.commons.Value;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -40,8 +41,8 @@ public class AddFreshmanCommand extends AddCommand {
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_MAJOR + "Information System "
-            + PREFIX_GROUP + "G1 "
-            + PREFIX_TAG + "friends "
+            + PREFIX_GROUP + "R1 "
+            + PREFIX_TAG + Value.FRESHMAN
             + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_SUCCESS = "New freshman added: %1$s";
