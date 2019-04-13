@@ -3,17 +3,21 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="../index.html">FOP Manager</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">FOP Manager</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2113-ay1819s2-t08-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Shanon Seet - Project Portfolio</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Hello! I am a Year 2 Computer Engineering student. Computer Engineering a combined major under both School of Computing and the Faculty Engineering. As someone rather new to the industry, I am always excited to learn and experience new things. I have done both hardware and software projects in my last 2 years in university, and in this document I will be showing you more of my contributions to my team&#8217;s Software Engineering project this semester.</p>
+<p>Hello! I am a Year 2 Computer Engineering student studying in the National University of Singapore (NUS). As someone rather new to the industry, I am always excited to learn and experience new things. I have done both hardware and software projects in my last 2 years in university, and in this document I will be showing you a portfolio of my contributions to my team&#8217;s Software Engineering project over this semester.</p>
 </div>
 </div>
 </div>
-<h1 id="project-fop-manager" class="sect0"><a class="link" href="#project-fop-manager">PROJECT: FOP Manager</a></h1>
+<div class="sect1">
+<h2 id="project-em-fop-manager-em"><a class="link" href="#project-em-fop-manager-em">PROJECT: <em>FOP Manager</em></a></h2>
+<div class="sectionbody">
 <hr>
+</div>
+</div>
 <div class="sect1">
 <h2 id="about-the-project"><a class="link" href="#about-the-project">About The Project</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My team and I were tasked with developing an existing Command Line Interface addressbook application. We decided to enhance it to an application that manages camp participants' information for NUS Freshmen Orientation Camp Project Directors, and hence the birth of <strong>FOP Manager</strong>. This enhanced application allows Project Directors to view and modify participants' contact details with ease, and also supports: the separation of Freshmen participants from Orientation Group Leader (OGL) participants, the arrangement of participants into groups and houses, and a Graphic User Interface that displays contact details and command results in an appealing format.</p>
+<p>My team and I decided to enhance an existing Command Line Interface address book application to manage camp participants' information, to be used by NUS Freshmen Orientation Camp Project Directors (PDs). This enhanced application allows PDs to view and modify participants' contact details with ease.</p>
 </div>
 <div class="paragraph">
 <p>In this project, I was in charge of creating the commands that support the addition and modification of groups and houses.</p>
@@ -24,16 +28,18 @@
 <h2 id="about-this-document"><a class="link" href="#about-this-document">About This Document</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document showcases the features I did, samples of my code, as well as the relevant sections I added to the User and Developer Guides.</p>
+<p>This document showcases the features I did, samples of my code, as well as relevant sections I added to the User and Developer Guides.</p>
 </div>
 <div class="paragraph">
 <p>In this document, the following styles and formatting have been used:</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title=":note:"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 This symbol indicates important information.
@@ -41,51 +47,100 @@ This symbol indicates important information.
 </tr>
 </table>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 15.7894%;">
-<col style="width: 84.2106%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><mark><code>add_g</code></mark></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Grey highlight indicates that this is a command that can be inputted into the command line and executed by the application.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="green">Group</span></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Green words in grey highlight indicate the name of a class or object used in the application.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p><code>add_g</code>: Grey highlight indicates that this is a command that can be inputted into the command line and executed by the application.</p>
+</div>
+<div class="paragraph">
+<p><code><em>Group</em></code>: Italicised words in grey highlight indicate the name of a class or object used in the application.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of Contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section shows a summary of my coding, documentation, and other helpful contributions to the team project.</p>
+<p>This section shows a summary of my coding, documentation, and other helpful contributions. In this project, I was in charge of creating the logic to support our app&#8217;s feature of <code><em>Group</em></code> and <code><em>House</em></code> management.</p>
 </div>
 <div class="paragraph">
-<p><strong>Enhancement Added</strong>: I added the ability to create and modify <code><span class="green">House</span></code> and <code><span class="green">Group</span></code> objects</p>
+<p><strong>Major enhancements</strong>:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Justification</th>
+<th class="tableblock halign-left valign-top">Highlights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adding, editing and deleting groups and houses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to add, edit and delete <code><em>House</em></code> and <code><em>Group</em></code> objects, so that participants can be grouped according to their camp grouping.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Being tailored to manage participant details in Freshmen Orientation camps, having groups and houses are essential to organising participants as camp organisers normally do when planning camps.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">These commands are a core component of the project that other features such as <code>randomize</code> build upon. It was challenging to implement as it required changes to basic commands like <code>add</code> and <code>edit</code>, as well as to the app&#8217;s model.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listing participants by houses and groups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to list the participants in a specified house or group.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listing the participants in the same group and same house is necessary for the user to filter through data quickly, especially when managing a large camp. It also allows the user to see the current size of a specific group or house.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The implementation of these commands required knowledge of using predicates to find participants that match a certain search criteria.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Viewing houses and groups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to view the houses and groups they have added so far.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The exact house or group name must be specified to edit its name, delete it, or add to it. These commands help the user to know which houses and groups have been created so far, and can therefore be added to, modified or deleted.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Minor enhancement</strong>:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Size command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This command allows the user to view the sizing details of the camp.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Code contributed</strong>:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><em>What it does</em>: This feature allows users to add, edit and delete <code><span class="green">House</span></code> and <code><span class="green">Group</span></code> objects, enabling them to group participants, as is done in camps.</p>
+<p><em>Functional code</em>: [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/main/java/seedu/address/logic/commands/AddGroupCommand.java">Add Group Command</a>], [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/main/java/seedu/address/logic/commands/EditGroupCommand.java">Edit Group Command</a>], [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/main/java/seedu/address/logic/commands/ListGroupCommand.java">List Group Command</a>]</p>
 </li>
 <li>
-<p><em>Justification</em>: Being tailored to manage participant details in Freshmen Orientation camps, having groups and houses are essential to organising participants as camp organisers normally do when planning camps.</p>
+<p><em>Test code</em>: [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/test/java/seedu/address/logic/commands/EditGroupCommandTest.java">Edit Group Commmand Test</a>], [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/test/java/seedu/address/logic/commands/EditHouseCommandTest.java">Edit House Command Test</a>]</p>
 </li>
 <li>
-<p><em>Highlights</em>: This feature is one of the core components that other enhancements build upon. In depth analyses of design alternatives had to be carried out when storing and implementing commands for <code><span class="green">House</span></code> and <code><span class="green">Group</span></code> objects (more details can be found below in <a href="#DesignConsiderations">Design Considerations</a>) as I had to consider how effectively it was in meeting users' needs, as well as how efficiently data could be extracted and used. Implementing commands was also challenging as it required changes to the other basic commands such as <code><span class="green">Add</span></code>, to <code><span class="green">Model Manager</span></code>, and the <code><span class="green">Participant</span></code> class (previously known as <code><span class="green">Person</span></code>).</p>
+<p>Check out more of my code on Project Code Dashboard <a href="https://nuscs2113-ay1819s2.github.io/dashboard-beta/#=undefined&amp;search=shanseet">here</a>.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><strong>Minor enhancement</strong>: I added a size command that allows the user to view the sizing details of the camp.</p>
-</div>
-<div class="paragraph">
-<p><strong>Code contributed</strong>: Click these links to see a sample of my code: <a href="https://github.com/shanseet/T08-Fork/blob/master/src/main/java/seedu/address/logic/commands/EditGroupCommand.java">Edit Group Command</a>, <a href="https://github.com/shanseet/T08-Fork/blob/master/src/main/java/seedu/address/logic/commands/AddGroupCommand.java">Add Group Command</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Other contributions</strong>:</p>
@@ -93,11 +148,11 @@ This symbol indicates important information.
 <div class="ulist">
 <ul>
 <li>
-<p>Project Management:</p>
+<p><em>Project Management</em>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Created labels and issues and assigned them to team members to keep track of team progress</p>
+<p>In charge of the issue tracker</p>
 </li>
 <li>
 <p>Managed milestones v1.2 to v1.4</p>
@@ -106,24 +161,24 @@ This symbol indicates important information.
 </div>
 </li>
 <li>
-<p>Documentation:</p>
+<p><em>Documentation</em>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Made major changes to reformat and update User Guide and Developer Guide to include new features, as well as make it more reader-friendly: <a href="https://github.com/cs2113-ay1819s2-t08-4/main/pull/74">#74</a>, <a href="https://github.com/cs2113-ay1819s2-t08-4/main/pull/102">#102</a></p>
+<p>Made major changes to reformat and update User Guide and Developer Guide to include new features, as well as make it more reader-friendly: [<a href="https://github.com/cs2113-ay1819s2-t08-4/main/pull/74">#74</a>], [<a href="https://github.com/cs2113-ay1819s2-t08-4/main/pull/102">#102</a>]</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Community:</p>
+<p><em>Community</em>:</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Gave consistent feedback to team members to improve their implemented features</p>
 </li>
 <li>
-<p>Gave suggestions for other teams in the class of their User Guide and Developer Guide</p>
+<p>Gave suggestions for other teams in the same tutorial group to improve their User Guide and Developer Guide</p>
 </li>
 </ul>
 </div>
@@ -136,10 +191,111 @@ This symbol indicates important information.
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Our team updated the original addressbook User Guide with instructions for the enhancements that we had added. The following is an excerpt from our FOP Manager User Guide to show additions I made for managing <code><em>House</em></code> and <code><em>Group</em></code> objects:</p>
+<p>Our team updated the original AB4 User Guide with instructions for the enhancements that we had added. In this document there are additional icons used, as shown below:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+This is a tip. Following these suggestions will make using FOP Manager much simpler.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This is a warning and they need to be heeded for FOP Manager to work smoothly.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The following is an excerpt from the User Guide showing the additions I made for editing <code><em>House</em></code> and <code><em>Group</em></code> objects:</p>
 </div>
 <div class="sect2">
-<h3 id="editing-a-group-code-edit_g-code"><a class="link" href="#editing-a-group-code-edit_g-code">Editing a group: <code>edit_g</code></a></h3>
+<h3 id="editing-houses-and-groups"><a class="link" href="#editing-houses-and-groups">Editing Houses and Groups</a></h3>
+<div class="sect3">
+<h4 id="editing-a-house-code-edit_h-code"><a class="link" href="#editing-a-house-code-edit_h-code">Editing a house : <code>edit_h</code></a></h4>
+<div class="paragraph">
+<p>Edits a house name.<br>
+Format: <code>edit_h OLDHOUSENAME NEWHOUSENAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the house named <code>OLDHOUSENAME</code> to <code>NEWHOUSENAME</code></p>
+</li>
+<li>
+<p>All groups under the old house name remain in the new house.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>OLDHOUSENAME</code> must exist in the current list of houses
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>NEWHOUSENAME</code> must not exist in the current list of houses
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+House names are not case-sensitive
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit_h Red green</code><br>
+Edits the house named <code>Red</code> to <code>Green</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="EditGroup"><a class="link" href="#EditGroup">Editing a group : <code>edit_g</code></a></h4>
 <div class="paragraph">
 <p>Edits a group name.<br>
 Format: <code>edit_g OLDGROUPNAME NEWGROUPNAME</code></p>
@@ -154,17 +310,37 @@ Format: <code>edit_g OLDGROUPNAME NEWGROUPNAME</code></p>
 <li>
 <p>The <code>GROUP</code> of all participants within the old group is automatically updated.</p>
 </li>
-<li>
-<p><code>OLDGROUPNAME</code> must exist in the current list of groups
-*<code>NEWGROUPNAME</code> must not exist in the current list of groups</p>
-</li>
 </ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>OLDGROUPNAME</code> must exist in the current list of groups
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>NEWGROUPNAME</code> must not exist in the current list of groups
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title=":note:"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 Group names are not case-sensitive
@@ -174,53 +350,145 @@ Group names are not case-sensitive
 </div>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-house-code-add_h-code"><a class="link" href="#adding-a-house-code-add_h-code">Adding a house : <code>add_h</code></a></h3>
-<div class="paragraph">
-<p>Adds a house that can contain different groups<br>
-Format: <code>add_h HOUSENAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title=":note:"></i>
-</td>
-<td class="content">
-House names are always saved with first letter in Uppercase, the rest in lowercase
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title=":note:"></i>
-</td>
-<td class="content">
-House names cannot contain spaces
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add_h blue</code> saves a house named <code>Blue</code> to the house list.</p>
+<p><code>edit_g red1 red2</code><br>
+Edits the group named <code>RED1</code> to <code>RED2</code>. All participants in RED1 are now in RED2.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="deleting-groups-and-houses"><a class="link" href="#deleting-groups-and-houses">Deleting Groups and Houses</a></h3>
+<div class="sect3">
+<h4 id="DeleteGroup"><a class="link" href="#DeleteGroup">Deleting a group : <code>delete_g</code></a></h4>
 <div class="paragraph">
-<p>Check out the User Guide <a href="https://github.com/shanseet/T08-Fork/blob/master/docs/UserGuide.adoc">here</a>!</p>
+<p>Deletes the specified group from the list of groups.<br>
+Format: <code>delete_g GROUPNAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the group matching the specified <code>GROUPNAME</code>.</p>
+</li>
+<li>
+<p><code>GROUPNAME</code> must exist in the list of groups.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The group <strong>must contain no participants</strong> before it can be deleted
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Group names are not case-sensitive
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Group <code>G1</code> has just been added under house <code>Green</code>.<br>
+<code>delete_g G1</code> removes the group <code>G1</code> from the list of groups.</p>
+</li>
+<li>
+<p><code>list_g y1</code> shows only one participant in Group <code>Y1</code>.<br>
+<code>edit 1 g/</code> removes the participant from the group.<br>
+<code>delete_g Y1</code> removes the group <code>Y1</code> from the list of groups.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="DeleteHouse"><a class="link" href="#DeleteHouse">Deleting a house : <code>delete_h</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified house from the list of houses.<br>
+Format: <code>delete_h HOUSENAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the house matching the specified <code>HOUSENAME</code>.</p>
+</li>
+<li>
+<p><code>HOUSENAME</code> must exist in the list of hosues.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The house <strong>must contain no groups</strong> before it can be deleted.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+House names are not case-sensitive
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A house named <code>Blue</code> has just been added.<br>
+<code>delete_h blue</code> deletes the house <code>Blue</code>.</p>
+</li>
+<li>
+<p><code>view_g</code> shows only 1 group <code>R1</code> in the house <code>Red</code>.<br>
+ Group <code>R1</code> is deleted by first removing its participants from the group, then entering <code>delete_g R1</code>.<br>
+<code>delete_h RED</code> deletes the house <code>Red</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Check out the full User Guide [<a href="https://github.com/shanseet/T08-Fork/blob/master/docs/UserGuide.adoc">here</a>].</p>
+</div>
 </div>
 </div>
 </div>
@@ -236,8 +504,10 @@ House names cannot contain spaces
 <div class="paragraph">
 <p><strong>FOP Manager</strong> supports group and house commands, to reflect the structure of an actual Freshmen Orientation camp. Group and house management refer to how groups and houses are created and modified, as well as viewed, and how they support the addition of participants.</p>
 </div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>In the current implementation of <strong>FOP Manager</strong>, groups and houses can be added, edited and deleted.</p>
+<p>In <strong>FOP Manager</strong>, groups and houses can be added, edited and deleted.</p>
 </div>
 <div class="paragraph">
 <p>Add</p>
@@ -278,14 +548,41 @@ House names cannot contain spaces
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="DesignConsiderations"><a class="link" href="#DesignConsiderations">Design Considerations</a></h3>
 <div class="paragraph">
-<p>When designing <code><em>House</em></code> and <code><em>Group</em></code> classes, I had to make decisions on how best to store the lists and what requirements commands should have. The following is a brief summary of my analysis and decisions.</p>
+<p>Groups and houses can be viewed in different manners:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Viewing houses and groups</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view_h</code> and <code>view_g</code> simply displays the houses and groups stored in <code>UniqueHouseList</code> and <code>UniqueGroupList</code> respectively.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Listing participants in a group</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list_g</code> uses similar logic to <code>list_o</code> and <code>list_f</code>, implemented by using an entered group name as a predicate that searches through all the <code>Group</code> fields of participants, and updates the <code>filteredPersons</code> list with participants with the matching group name.</p>
+</li>
+<li>
+<p>Entering <code>list_g empty</code> lists all participants without a group yet by searching for participants with an empty group name.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="aspect-1-storage-of-group-and-house-lists"><a class="link" href="#aspect-1-storage-of-group-and-house-lists">Aspect 1: Storage of group and house lists</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-storage-of-group-and-house-lists"><a class="link" href="#aspect-storage-of-group-and-house-lists">Aspect: Storage of group and house lists</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -311,17 +608,14 @@ House names cannot contain spaces
 <li>
 <p>Cons: More computationally expensive to identify the groups within a house.</p>
 </li>
-<li>
-<p>Justification: Maintains SoC principle.</p>
-</li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="aspect-2-deleting-a-group-object-requirements"><a class="link" href="#aspect-2-deleting-a-group-object-requirements">Aspect 2: Deleting a group object requirements</a></h4>
+<div class="sect4">
+<h5 id="aspect-deleting-a-group-object-requirements"><a class="link" href="#aspect-deleting-a-group-object-requirements">Aspect: Deleting a group object requirements</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -347,17 +641,26 @@ House names cannot contain spaces
 <li>
 <p>Cons: Participants must be manually removed from the group before being deleted</p>
 </li>
-<li>
-<p>Justification: Camp organizers rarely intend to remove a filled group. Requiring a group to be empty before being deleted acts as a fail-safe to ensure that filled groups are not accidentally removed, resulting in participants having to be manually added back to the group.</p>
-</li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Camp organizers rarely intend to remove a filled group. Requiring a group to be empty before being deleted acts as a fail-safe to ensure that filled groups are not accidentally removed, resulting in participants having to be manually added back to the group.
+</td>
+</tr>
+</table>
 </div>
-<div class="sect3">
-<h4 id="aspect-3-duplicate-group-names-under-different-houses"><a class="link" href="#aspect-3-duplicate-group-names-under-different-houses">Aspect 3: Duplicate group names under different houses</a></h4>
+</div>
+<div class="sect4">
+<h5 id="aspect-duplicate-group-names-under-different-houses"><a class="link" href="#aspect-duplicate-group-names-under-different-houses">Aspect: Duplicate group names under different houses</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -369,9 +672,6 @@ House names cannot contain spaces
 </li>
 <li>
 <p>Cons: Simple names such as 1 and 2 cannot be used for different houses at initial planning stage</p>
-</li>
-<li>
-<p>Justification: Greatly decreases code complexity, and does not greatly affect user&#8217;s experience as camp group names are normally unique.</p>
 </li>
 </ul>
 </div>
@@ -392,9 +692,10 @@ House names cannot contain spaces
 </ul>
 </div>
 <div class="paragraph">
-<p>Check out the Developer Guide <a href="https://github.com/shanseet/T08-Fork/blob/master/docs/DeveloperGuide.adoc">here</a>!</p>
+<p>Check out the full Developer Guide [<a href="https://github.com/shanseet/T08-Fork/blob/master/docs/DeveloperGuide.adoc">here</a>].</p>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 19:00:40 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 19:08:34 UTC</div></div></div></body></html>
