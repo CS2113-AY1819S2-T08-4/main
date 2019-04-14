@@ -334,49 +334,6 @@ If not blank, the <code>GROUP</code> must exist before an OGL can be added to it
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="strong-adding-other-participants-strong-code-add-code"><a class="link" href="#strong-adding-other-participants-strong-code-add-code"><strong>Adding other participants</strong> : <code>add</code></a></h4>
-<div class="paragraph">
-<p>Adds other participants involved in the camp that are neither Freshmen nor OGLs to the contact list<br>
-Format: <code>add n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Parameters can be accepted in any order.</p>
-</li>
-<li>
-<p>An entered participant can have any number of tags (including 0).</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title=":bulb:"></i>
-</td>
-<td class="content">
-Leave <code>GROUP</code> blank i.e. <code>g/</code> since there is no group allocation for this participant!
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/James Boe s/M b/27071999 p/13579753 e/jamesd@example.com m/CEG g/ t/Camp Commandant</code></p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="strong-list-commands-strong"><a class="link" href="#strong-list-commands-strong"><strong>List Commands</strong></a></h3>
@@ -392,13 +349,6 @@ Format: <code>list_f</code></p>
 <div class="paragraph">
 <p>Shows a list of all the OGLs in the OGL list.<br>
 Format: <code>list_o</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="strong-listing-all-the-participants-strong-code-list-code"><a class="link" href="#strong-listing-all-the-participants-strong-code-list-code"><strong>Listing all the participants</strong> : <code>list</code></a></h4>
-<div class="paragraph">
-<p>Shows a list of all the participants involved in the camp in your contact list.<br>
-Format: <code>list</code></p>
 </div>
 </div>
 </div>
@@ -425,7 +375,7 @@ Format: <code>export</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ExportImage.png" alt="ExportImage" width="800">
+<img src="../images/ExportImage.png" alt="ExportImage" width="600">
 </div>
 </div>
 <div class="paragraph">
@@ -433,7 +383,7 @@ Format: <code>export</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ExportResult.png" alt="ExportResult" width="800">
+<img src="../images/ExportResult.png" alt="ExportResult" width="600">
 </div>
 </div>
 <div class="paragraph">
@@ -533,7 +483,7 @@ The values entered under each respective columns, have to follow the format of t
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The following section shows the additions I made to the FOP Manager Developer Guide.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>I added the sections on Participant Management, the Export Feature and the Import Feature to the FOP Manager Developer Guide. The following section is an example contribution of the Participant Management section I wrote on in the Developer Guide and sample of the Export Feature and Import Feature sections. You can view the details on the Export Feature and the Import Feature in greater detail from the Developer Guide.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -686,17 +636,6 @@ The values entered under each respective columns, have to follow the format of t
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>The following is an Activity Diagram to summarize what happens when the <code>export</code> command is entered.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ExportCommandActivityDiagram.png" alt="ExportCommandActivityDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Activity Diagram for exporting command</em></p>
-</div>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="ulist">
@@ -708,6 +647,12 @@ The values entered under each respective columns, have to follow the format of t
 <p>The <code>export</code> command will call a function from a class <code>WriteToExcel</code> to start the creation of the HSSF Workbook and the addition of all the participants found on the participant list to the Workbook, with the respective objects to the participant class added to the correct column. The system will get the current directory path and add the path name to the proposed file name that end with ".xls". The file will thus be successfully saved in the current user directory.</p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
+<div class="paragraph">
+<p>Only one way was considered for the implementation of Export feature, which involved importing the third-party library.</p>
 </div>
 <div class="paragraph">
 <p>The following Sequence diagram below will explain how the <code>export</code> command works in detail.</p>
@@ -721,28 +666,8 @@ The values entered under each respective columns, have to follow the format of t
 <p><em>Sequence Diagram for exporting command</em></p>
 </div>
 <div class="paragraph">
-<p>An example usage of the command is as follows:</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1:</strong> The user launches the application. The <code>VersionedAddressBook</code> will be initialized with the initial address book state.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 2:</strong> The user enters the <code>export</code> command . The <code>export</code> command updates the filtered list with the predicate to show all participants in the address book.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 3:</strong> The filtered list is obtained in the command. The export command calls the <code>WriteToExcel</code> class&#8217;s <code>WriteExcelSheet()</code>. This will set the directory, create the Excel Workbook and Sheet, the file name, the cells and rows with the titles for the FOP Manager.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 4:</strong> <code>WriteExcelSheet()</code> calls <code>WriteDataIntoExcelSheet()</code> which writes the values from the filtered person list into the Excel Sheet.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 5:</strong> Returning to <code>WriteExcelSheet()</code>, the file is output to user&#8217;s current directory as an .xls file.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
-<div class="paragraph">
-<p>Only one way was considered for the implementation of Export feature, which involved importing the third-party library.</p>
+<p>The example usage of the command can be found in the Developer Guide&#8217;s Export Feature section under -Implementation_.
+Link to view the Developer Guide: [<a href="https://github.com/CS2113-AY1819S2-T08-4/main/blob/master/docs/DeveloperGuide.adoc">Developer Guide</a>]</p>
 </div>
 </div>
 </div>
@@ -750,17 +675,6 @@ The values entered under each respective columns, have to follow the format of t
 <h3 id="import-feature"><a class="link" href="#import-feature">Import Feature</a></h3>
 <div class="paragraph">
 <p>Sometimes FOP Project Directors realise they need to add many participants' contacts that they gathered and usually they gather the contacts through sign up links that allow for exportation into Excel spreadsheets. Manually added the large influx of participants is troublesome. Hence, with the Import feature, FOP Project Directors can import the data of Non-duplicate people from an excel file into the FOP Manager. This makes adding of contacts easier.</p>
-</div>
-<div class="paragraph">
-<p>The following is an Activity Diagram to summarize what happens when the <code>import</code> command is entered.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ImportCommandActivityDiagram.png" alt="ImportCommandActivityDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Activity Diagram for the importing command</em></p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
@@ -780,6 +694,12 @@ The values entered under each respective columns, have to follow the format of t
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">Design Consideration</a></h4>
+<div class="paragraph">
+<p>Only one way was considered for the implementation of Import feature, which involved importing the third-party library.</p>
+</div>
 <div class="paragraph">
 <p>The following Sequence diagram below will explain how the <code>import</code> command works in detail.</p>
 </div>
@@ -792,40 +712,10 @@ The values entered under each respective columns, have to follow the format of t
 <p><em>Sequence Diagram for importing command</em></p>
 </div>
 <div class="paragraph">
-<p>An example usage of the command is as follows:</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1:</strong> The user launches the application. The <code>VersionedAddressBook</code> will be initialized with the initial address book state.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 2:</strong> The user enters the <code>import</code> command . The <code>import</code> command calls the <code>WriteToExcel</code> class&#8217;s <code>ReadFromExcel()</code>. This will open the file of the default set name from the set directory.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 3:</strong> The Excel sheets is checked for the correct headings and then the cell&#8217;s values are read to create each <code>person</code>. Each <code>person</code> is added to a <code>List&lt;Person&gt;</code> which will be returned to the Import command.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 4:</strong> The <code>import</code> command adds each non-duplicate person into the FOP Manager.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>One interesting usage of both <code>import</code> and <code>export</code> feature will be to retain and retrieve contacts. For instance, after exporting the data, we can clear. We can then import the contacts if needed.</p>
-</li>
-<li>
-<p>Another interesting usage is for manual edit of the details of multiple contacts. We can clear the Address Book and then <code>import</code> command to import the data.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">Design Consideration</a></h4>
-<div class="paragraph">
-<p>Only one way was considered for the implementation of Import feature, which involved importing the third-party library.</p>
-</div>
-<div class="paragraph">
-<p>Link to view the Developer Guide in detail: [<a href="https://github.com/CS2113-AY1819S2-T08-4/main/blob/master/docs/DeveloperGuide.adoc">Developer Guide</a>]</p>
+<p>The example usage of the command can be found in the Developer Guide&#8217;s Import Feature section under -Implementation_.
+Link to view the Developer Guide: [<a href="https://github.com/CS2113-AY1819S2-T08-4/main/blob/master/docs/DeveloperGuide.adoc">Developer Guide</a>]</p>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 15:12:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 15:20:57 UTC</div></div></div></body></html>
