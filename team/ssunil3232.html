@@ -177,24 +177,12 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>We updated the given User Guide with instructions on how to use the features that we added to the morphed Address book. The following section will show the additions made to the FOP Manager User Guide for the features implemented by me.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>We updated the given User Guide with instructions on how to use the features that we added to the morphed Address book. The following section will show the additions made to the FOP Manager User Guide for the features implemented by me. I made additions to the Add Commands, List Commands, Export Commands and the Import Command sections. This section will elaborate only on the Import Command and the Export Commands section. The rest of the commands can be found in the User Guide.</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
 <p><em>Throughout this section, the following icons are used, as shown below:</em></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title=":bulb:"></i>
-</td>
-<td class="content">
-This is a tip. Following these suggestions will make using FOP Manager much simpler.
-</td>
-</tr>
-</table>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -207,142 +195,6 @@ This is a warning and they need to be heeded for FOP Manager to work smoothly.
 </td>
 </tr>
 </table>
-</div>
-<div class="sect2">
-<h3 id="strong-add-commands-strong"><a class="link" href="#strong-add-commands-strong"><strong>Add Commands</strong></a></h3>
-<div class="sect3">
-<h4 id="strong-adding-a-freshman-strong-code-add_f-code"><a class="link" href="#strong-adding-a-freshman-strong-code-add_f-code"><strong>Adding a freshman</strong> : <code>add_f</code></a></h4>
-<div class="paragraph">
-<p>Adds a freshman to the Freshman list<br>
-Format: <code>add_f n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Parameters can be accepted in any order.</p>
-</li>
-<li>
-<p>A freshman can have any number of tags (including 0).</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title=":bulb:"></i>
-</td>
-<td class="content">
-<code>GROUP</code> can be left blank i.e. <code>g/</code>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title=":warning:"></i>
-</td>
-<td class="content">
-If not blank, the <code>GROUP</code> must exist before a freshman can be added to it
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add_f n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information Systems g/</code></p>
-</li>
-<li>
-<p><code>add_f n/Jane Doe s/F e/betsycrowe@example.com m/CS g/ p/1234567 t/vegetarian</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="strong-adding-an-ogl-strong-code-add_o-code"><a class="link" href="#strong-adding-an-ogl-strong-code-add_o-code"><strong>Adding an OGL</strong> : <code>add_o</code></a></h4>
-<div class="paragraph">
-<p>Adds an OGL to the OGL list<br>
-Format: <code>add_o n/NAME s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/GROUP [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Parameters can be accepted in any order.</p>
-</li>
-<li>
-<p>An OGL can have any number of tags (including 0).</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title=":bulb:"></i>
-</td>
-<td class="content">
-<code>GROUP</code> can be left blank i.e. <code>g/</code>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title=":warning:"></i>
-</td>
-<td class="content">
-If not blank, the <code>GROUP</code> must exist before an OGL can be added to it
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add_o n/James Boe s/M b/27071999 p/13579753 e/jamesd@example.com m/CEG g/</code></p>
-</li>
-<li>
-<p><code>add_o n/Jane Doe s/F e/betsycrowe@example.com m/CS g/ p/1234567 t/vegetarian</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="strong-list-commands-strong"><a class="link" href="#strong-list-commands-strong"><strong>List Commands</strong></a></h3>
-<div class="sect3">
-<h4 id="strong-listing-all-freshmen-strong-code-list_f-code"><a class="link" href="#strong-listing-all-freshmen-strong-code-list_f-code"><strong>Listing all freshmen</strong> : <code>list_f</code></a></h4>
-<div class="paragraph">
-<p>Shows a list of all the freshmen in the freshmen list.<br>
-Format: <code>list_f</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="strong-listing-all-ogls-strong-code-list_o-code"><a class="link" href="#strong-listing-all-ogls-strong-code-list_o-code"><strong>Listing all OGLs</strong> : <code>list_o</code></a></h4>
-<div class="paragraph">
-<p>Shows a list of all the OGLs in the OGL list.<br>
-Format: <code>list_o</code></p>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="strong-export-command-strong"><a class="link" href="#strong-export-command-strong"><strong>Export Command</strong></a></h3>
@@ -590,29 +442,11 @@ The values entered under each respective columns, have to follow the format of t
 <div class="paragraph">
 <p>We decided to go ahead with <strong>Alternative 1</strong> as it was easier to implement. It would not require creation of switch cases for the UI to display the respective lists and would not require unnecessarily long codes to filter out freshmen and OGLs from the participant list. The pros of doing <strong>Alternative 1</strong> outweighs the pros of doing <strong>Alternative 2</strong> hence the decision to implement the latter.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="export-feature"><a class="link" href="#export-feature">Export feature</a></h3>
-<div class="paragraph">
-<p>The Export feature will allow the FOP Manager user to export the data into an excel file and distribute to other relevant people involved in the FOP. This way, data can be distributed and raw data untouched except by the Project Director or other camp organisers who are given the access to the raw data.</p>
-</div>
-<div class="paragraph">
-<p>The example usage, Sequence Diagram, Current Implementation and Design Considerations of the command can be found in the <strong>Developer Guide&#8217;s Export Feature</strong> section under <em>Implementation</em>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="import-feature"><a class="link" href="#import-feature">Import Feature</a></h3>
-<div class="paragraph">
-<p>Sometimes FOP Project Directors realise they need to add many participants' contacts that they gathered and usually they gather the contacts through sign up links that allow for exportation into Excel spreadsheets. Manually added the large influx of participants is troublesome. Hence, with the Import feature, FOP Project Directors can import the data of Non-duplicate people from an excel file into the FOP Manager. This makes adding of contacts easier.</p>
-</div>
-<div class="paragraph">
-<p>The example usage, Sequence Diagram, Current Implementation and Design Considerations of the command can be found in the <strong>Developer Guide&#8217;s Import Feature</strong> section under <em>Implementation</em>.</p>
-</div>
 <div class="paragraph">
 <p>Link to view the Developer Guide: [<a href="https://github.com/CS2113-AY1819S2-T08-4/main/blob/master/docs/DeveloperGuide.adoc">Developer Guide</a>]</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 15:59:24 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 16:20:13 UTC</div></div></div></body></html>
