@@ -10,7 +10,7 @@
 <div class="sect1">
 <h2 id="project-em-fop-manager-em"><a class="link" href="#project-em-fop-manager-em">PROJECT: <em>FOP Manager</em></a></h2>
 <div class="sectionbody">
-<hr>
+
 </div>
 </div>
 <div class="sect1">
@@ -64,7 +64,7 @@ This symbol indicates important information.
 <p>This section shows a summary of my coding, documentation, and other helpful contributions. In this project, I was in charge of creating the logic to support our app&#8217;s feature of <code><em>Group</em></code> and <code><em>House</em></code> management.</p>
 </div>
 <div class="paragraph">
-<p><strong>Major enhancements</strong>:</p>
+<p><strong>Major enhancement</strong>:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -88,22 +88,10 @@ This symbol indicates important information.
 <td class="tableblock halign-left valign-top"><p class="tableblock">Being tailored to manage participant details in Freshmen Orientation camps, having groups and houses are essential to organising participants as camp organisers normally do when planning camps.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">These commands are a core component of the project that other features such as <code>randomize</code> build upon. It was challenging to implement as it required changes to basic commands like <code>add</code> and <code>edit</code>, as well as to the app&#8217;s model.</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Listing participants by houses and groups</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to list the participants in a specified house or group.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Listing the participants in the same group and same house is necessary for the user to filter through data quickly, especially when managing a large camp. It also allows the user to see the current size of a specific group or house.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The implementation of these commands required knowledge of using predicates to find participants that match a certain search criteria.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Viewing houses and groups</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to view the houses and groups they have added so far.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The exact house or group name must be specified to edit its name, delete it, or add to it. These commands help the user to know which houses and groups have been created so far, and can therefore be added to, modified or deleted.</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Minor enhancement</strong>:</p>
+<p><strong>Minor enhancements</strong>:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -120,9 +108,19 @@ This symbol indicates important information.
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listing participants by houses and groups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to list the participants in a specified house or group.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listing the participants in the same group and same house is necessary for the user to filter through data quickly, especially when managing a large camp. It also allows the user to see the current size of a specific group or house.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Viewing houses and groups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to view the houses and groups they have added so far.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The exact house or group name must be specified to edit its name, delete it, or add to it. These commands help the user to know which houses and groups have been created so far, and can therefore be added to, modified or deleted.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Size command</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This command allows the user to view the sizing details of the camp.</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This command allows the user to easily see the number of participants, OGLs, freshmen, groups and houses at one shot, providing a quick way to size the camp.</p></td>
 </tr>
 </tbody>
 </table>
@@ -132,10 +130,10 @@ This symbol indicates important information.
 <div class="ulist">
 <ul>
 <li>
-<p><em>Functional code</em>: [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/main/java/seedu/address/logic/commands/AddGroupCommand.java">Add Group Command</a>], [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/main/java/seedu/address/logic/commands/EditGroupCommand.java">Edit Group Command</a>], [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/main/java/seedu/address/logic/commands/ListGroupCommand.java">List Group Command</a>]</p>
+<p><em>Functional code sample</em>: [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/main/java/seedu/address/logic/commands/AddGroupCommand.java">Add Group Command</a>], [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/main/java/seedu/address/logic/commands/ListGroupCommand.java">List Group Command</a>]</p>
 </li>
 <li>
-<p><em>Test code</em>: [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/test/java/seedu/address/logic/commands/EditGroupCommandTest.java">Edit Group Commmand Test</a>], [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/test/java/seedu/address/logic/commands/EditHouseCommandTest.java">Edit House Command Test</a>]</p>
+<p><em>Test code sample</em>: [<a href="https://github.com/shanseet/T08-Fork/blob/master/src/test/java/seedu/address/logic/commands/EditGroupCommandTest.java">Edit Group Commmand Test</a>]</p>
 </li>
 <li>
 <p>Check out more of my code on Project Code Dashboard <a href="https://nuscs2113-ay1819s2.github.io/dashboard-beta/#=undefined&amp;search=shanseet">here</a>.</p>
@@ -361,131 +359,6 @@ Edits the group named <code>RED1</code> to <code>RED2</code>. All participants i
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-groups-and-houses"><a class="link" href="#deleting-groups-and-houses">Deleting Groups and Houses</a></h3>
-<div class="sect3">
-<h4 id="DeleteGroup"><a class="link" href="#DeleteGroup">Deleting a group : <code>delete_g</code></a></h4>
-<div class="paragraph">
-<p>Deletes the specified group from the list of groups.<br>
-Format: <code>delete_g GROUPNAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the group matching the specified <code>GROUPNAME</code>.</p>
-</li>
-<li>
-<p><code>GROUPNAME</code> must exist in the list of groups.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-The group <strong>must contain no participants</strong> before it can be deleted
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Group names are not case-sensitive
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Group <code>G1</code> has just been added under house <code>Green</code>.<br>
-<code>delete_g G1</code> removes the group <code>G1</code> from the list of groups.</p>
-</li>
-<li>
-<p><code>list_g y1</code> shows only one participant in Group <code>Y1</code>.<br>
-<code>edit 1 g/</code> removes the participant from the group.<br>
-<code>delete_g Y1</code> removes the group <code>Y1</code> from the list of groups.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="DeleteHouse"><a class="link" href="#DeleteHouse">Deleting a house : <code>delete_h</code></a></h4>
-<div class="paragraph">
-<p>Deletes the specified house from the list of houses.<br>
-Format: <code>delete_h HOUSENAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the house matching the specified <code>HOUSENAME</code>.</p>
-</li>
-<li>
-<p><code>HOUSENAME</code> must exist in the list of hosues.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-The house <strong>must contain no groups</strong> before it can be deleted.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-House names are not case-sensitive
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A house named <code>Blue</code> has just been added.<br>
-<code>delete_h blue</code> deletes the house <code>Blue</code>.</p>
-</li>
-<li>
-<p><code>view_g</code> shows only 1 group <code>R1</code> in the house <code>Red</code>.<br>
- Group <code>R1</code> is deleted by first removing its participants from the group, then entering <code>delete_g R1</code>.<br>
-<code>delete_h RED</code> deletes the house <code>Red</code>.</p>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p>Check out the full User Guide [<a href="https://github.com/shanseet/T08-Fork/blob/master/docs/UserGuide.adoc">here</a>].</p>
 </div>
@@ -576,6 +449,25 @@ House names are not case-sensitive
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>Logic</code> and <code>Model</code> components interact when the user enters the command <code>edit_g r1 r2</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditGroupSequenceDiagram.png" alt="EditGroupSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 2. Interactions within Logic and Model for the command <code>edit_g r1 r2</code></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The edit group command updates the group of all participants within the old group by looping through <code>UniqueParticipantList</code> from <code>VersionedAddressBook</code> to check if their group matches the old group name.</p>
+</li>
+<li>
+<p>This command also changes the name of the group within <code>UniqueGroupList</code> stored within <code>VersionedAddressBook</code>.</p>
 </li>
 </ul>
 </div>
@@ -750,4 +642,4 @@ House names are not case-sensitive
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 14:59:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 15:12:54 UTC</div></div></div></body></html>
