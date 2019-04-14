@@ -228,72 +228,63 @@ Output: Unable to distribute participants (min 2 groups and 2 participants)</p>
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-updating-group-attribute-of-participants"><a class="link" href="#aspect-updating-group-attribute-of-participants">Aspect: Updating group attribute of participants</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Use the same way as how the <code>edit</code> command works</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: No internal coupling</p>
-</li>
-<li>
-<p>Cons: Unnecessary recoding</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Programmatically simulate the <code>edit</code> command</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Lesser code and better maintainance of the editing feature</p>
-</li>
-<li>
-<p>Cons: Internal coupling within the component</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use the same way as how the <code>edit</code> command works.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No internal coupling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unnecessary recoding</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Programmatically simulate the <code>edit</code> command (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lesser code and better maintenance of the editing feature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internal coupling within the component</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect4">
 <h5 id="aspect-shuffling-of-participants"><a class="link" href="#aspect-shuffling-of-participants">Aspect: Shuffling of participants</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Shuffling the actual</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Unidentifiable</p>
-</li>
-<li>
-<p>Cons: Uses even more computational resource and more complex coding as the current list of participant is
-unmodifiable.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Creating a list of integer based index to simulate participants</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Less computational intensive as dealing with native data type</p>
-</li>
-<li>
-<p>Cons: Uses slightly more memory at that point of time</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shuffling the actual.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unidentifiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses even more computational resource and more complex coding as the current list of participant is unmodifiable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creating a list of integer based index to simulate participants (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less computational intensive as dealing with native data type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses slightly more memory at that point of time</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 10:57:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 12:32:00 UTC</div></div></div></body></html>

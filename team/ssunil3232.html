@@ -1114,9 +1114,7 @@ Groups can only be added to houses that already exist
 <div class="content">
 <img src="../images/ExportCommandActivityDiagram.png" alt="ExportCommandActivityDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Activity Diagram for exporting command</em></p>
+<div class="title">Figure 1. Activity Diagram for exporting command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1138,9 +1136,7 @@ Groups can only be added to houses that already exist
 <div class="content">
 <img src="../images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Sequence Diagram for exporting command</em></p>
+<div class="title">Figure 2. Sequence Diagram for exporting command</div>
 </div>
 <div class="paragraph">
 <p>An example usage of the command is as follows:</p>
@@ -1180,9 +1176,7 @@ Groups can only be added to houses that already exist
 <div class="content">
 <img src="../images/ImportCommandActivityDiagram.png" alt="ImportCommandActivityDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Activity Diagram for the importing command</em></p>
+<div class="title">Figure 3. Activity Diagram for the importing command</div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">Current Implementation</a></h4>
@@ -1209,9 +1203,7 @@ Groups can only be added to houses that already exist
 <div class="content">
 <img src="../images/ImportCommandSequenceDiagram.png" alt="ImportCommandSequenceDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Sequence Diagram for importing command</em></p>
+<div class="title">Figure 4. Sequence Diagram for importing command</div>
 </div>
 <div class="paragraph">
 <p>An example usage of the command is as follows:</p>
@@ -1363,7 +1355,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="../images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 1. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 5. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2558,7 +2550,7 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see the size of my contact list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see the size of my participant list</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">see the number of participants in the camp</p></td>
 </tr>
 <tr>
@@ -2844,6 +2836,65 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="adding-an-ogl"><a class="link" href="#adding-an-ogl">Adding an OGL</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an OGL to the participant list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all participants using the <code>list</code> command, no groups added yet.</p>
+</li>
+<li>
+<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/ [t/TAG]…</code><br>
+Expected: Participant is added to the participant list with tag <code>OGL</code>. Details of added contact shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL g/</code> (or missing any field)<br>
+Expected: No participant is added. Error details shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/1</code><br>
+Expected: No participant is added. Error details shown in the result box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-freshman"><a class="link" href="#adding-a-freshman">Adding a freshman</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a freshman to the participant list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The participant&#8217;s name must not match any existing participant.<br>
+: Only group <code>R1</code> has been added.</p>
+</li>
+<li>
+<p>Test case: <code>add_f n/Janet Tan s/F b/19041998 e/janet@example.com m/CS g/</code><br>
+Expected: Freshman named Janet Tan is added to the bottom of the participant list.</p>
+</li>
+<li>
+<p>Test case: <code>add_f n/James Tan s/M b/20041998 e/james@example.com m/IS g/r1</code><br>
+Expected: Freshman named James Tan is added to the bottom of the participant list.</p>
+</li>
+<li>
+<p>Test case: <code>add_f n/Joel Tan s/M b/01121998 e/joel@example.com m/IS g/b1</code><br>
+Expected: No participant is added due to the nonexistent group <code>B1</code>. Error details shown in the result box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
 <h3 id="deleting-a-participant"><a class="link" href="#deleting-a-participant">Deleting a participant</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2873,27 +2924,22 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-ogl"><a class="link" href="#adding-an-ogl">Adding an OGL</a></h3>
+<h3 id="adding-a-house"><a class="link" href="#adding-a-house">Adding a house</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Adding an OGL to contact list</p>
+<p>Adding a house to the address book</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all participants using the <code>list</code> command, no groups added yet.</p>
+<p>Test case: <code>add_h Green</code><br>
+Expected: House named <code>Green</code> is added.</p>
 </li>
 <li>
-<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/ [t/TAG]…</code><br>
-Expected: Participant is added to the contact list with tag <code>OGL</code>. Details of added contact shown in the status message.</p>
-</li>
-<li>
-<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL g/</code> (or missing any field)<br>
-Expected: No participant is added. Error details shown in the status message.</p>
-</li>
-<li>
-<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/1</code><br>
-Expected: No participant is added. Error details shown in the status message.</p>
+<p>Test case:<br>
+<code>add_h Red</code><br>
+<code>add_h Red</code><br>
+Expected: House named <code>Red</code> is added on first command. No house is added on the second. An error message showing that the house <code>Red</code> already exists is shown in the result box.</p>
 </li>
 </ol>
 </div>
@@ -2902,11 +2948,11 @@ Expected: No participant is added. Error details shown in the status message.</p
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-group"><a class="link" href="#adding-a-group">Adding a Group</a></h3>
+<h3 id="adding-a-group"><a class="link" href="#adding-a-group">Adding a group</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Adding a Group to the address book</p>
+<p>Adding a group to the address book</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2914,17 +2960,17 @@ Expected: No participant is added. Error details shown in the status message.</p
 </li>
 <li>
 <p>Test case: <code>add_g g1 green</code><br>
-Expected: Group named <code>G1</code> is added to the House named Green.</p>
+Expected: Group named <code>G1</code> is added to the house named Green.</p>
 </li>
 <li>
 <p>Test case: <code>add_g g2 gReEn</code><br>
-Expected: Group named <code>G2</code> is added to the House named Green.</p>
+Expected: Group named <code>G2</code> is added to the house named Green.</p>
 </li>
 <li>
 <p>Test case:<br>
 <code>add_g g1 Green</code><br>
 <code>add_g g1 Green</code><br>
-Expected: Group named <code>G1</code> is added on first command. No group is added on the second. Error details shown in the status message.</p>
+Expected: Group named <code>G1</code> is added on first command. No group is added on the second. An error message showing that group <code>G1</code> already exists is shown in the result box.</p>
 </li>
 </ol>
 </div>
@@ -2951,7 +2997,7 @@ Expected: Three pie charts are shown on the GUI with labels for each one.</p>
 <p>Test case:<br>
 <code>clear</code><br>
 <code>stat</code><br>
-Expected: Error details shown in the status message</p>
+Expected: Error details shown in the result box.</p>
 </li>
 </ol>
 </div>
@@ -2980,7 +3026,7 @@ Expected: Open chart folder to see three PNG files name "File Name_age", "File N
 <p>Test case:<br>
 <code>clear</code><br>
 <code>stat</code><br>
-Expected: Error details shown in the status message</p>
+Expected: Error details shown in the result box.</p>
 </li>
 </ol>
 </div>
@@ -2989,4 +3035,4 @@ Expected: Error details shown in the status message</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 10:57:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 12:32:00 UTC</div></div></div></body></html>

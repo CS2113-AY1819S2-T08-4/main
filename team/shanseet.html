@@ -507,7 +507,7 @@ House names are not case-sensitive
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>In <strong>FOP Manager</strong>, groups and houses can be added, edited and deleted.</p>
+<p>In <strong>FOP Manager</strong>, groups can be added, edit and deleted.</p>
 </div>
 <div class="paragraph">
 <p>Add</p>
@@ -515,10 +515,40 @@ House names are not case-sensitive
 <div class="ulist">
 <ul>
 <li>
-<p><code>add_h</code> creates a new house and adds it to the <code>UniqueHouseList</code> in the <code>AddressBook</code> object.</p>
+<p><code>add_h HOUSENAME</code>: Adds a new house with <code>HOUSENAME</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Creates a new house by adding it to <code>UniqueHouseList</code> in the <code>VersionedAddressBook</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><code>add_g</code> adds a new group with its corresponding house name to the <code>UniqueGroupList</code> in the <code>AddressBook</code> object.</p>
+<p><code>add_g GROUPNAME HOUSENAME</code>: Adds a new group named <code>GROUPNAME</code> into the house</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a new group to a house by adding it to <code>UniqueGroupList</code> in the <code>VersionedAddressBook</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>Logic</code> and <code>Model</code> components interact when the user enters the command <code>add_g r1 red</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddGroupSequenceDiagram.png" alt="AddGroupSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 1. Interactions within Logic and Model for the command <code>add_g r1 red</code></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The new group (R1, Red) is added to <code>UniqueGroupList</code> stored within <code>VersionedAddressBook</code> when the <code>addGroup(a)</code> function is called from <code>Model</code></p>
 </li>
 </ul>
 </div>
@@ -528,10 +558,24 @@ House names are not case-sensitive
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit_h</code> edits the name of a house in <code>UniqueHouseList</code>, as well as changes the house name of all groups within the house in <code>UniqueGroupList</code>.</p>
+<p><code>edit_h OLDHOUSENAME NEWHOUSENAME</code>: Edits the name of an existing house</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the name of a house in <code>UniqueHouseList</code>, as well as changes the house name of all groups within the house in <code>UniqueGroupList</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
+<p><code>edit_g OLDGROUPNAME NEWGROUPNAME</code>: Edits the name of an existing group</p>
+<div class="ulist">
+<ul>
+<li>
 <p><code>edit_g</code> edits the name of a group in <code>UniqueGroupList</code>, as well as changes the group name of all participants with that group name in <code>UniqueParticipantList</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -541,15 +585,29 @@ House names are not case-sensitive
 <div class="ulist">
 <ul>
 <li>
+<p><code>delete_h HOUSENAME</code>: Deletes the group named <code>HOUSENAME</code></p>
+<div class="ulist">
+<ul>
+<li>
 <p>Deleting of house objects require there to be no groups within that house.</p>
 </li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>delete_g GROUPNAME</code>: Deletes the group named <code>GROUPNAME</code></p>
+<div class="ulist">
+<ul>
 <li>
 <p>Deleting of group objects require there to be no participants within that group.</p>
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>Groups and houses can be viewed in different manners:</p>
+<p>Groups and houses can also be viewed in different manners:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -564,82 +622,11 @@ House names are not case-sensitive
 </div>
 </li>
 <li>
-<p>Listing participants in a group</p>
+<p>Listing participants in a particular group or house</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list_g</code> uses similar logic to <code>list_o</code> and <code>list_f</code>, implemented by using an entered group name as a predicate that searches through all the <code>Group</code> fields of participants, and updates the <code>filteredPersons</code> list with participants with the matching group name.</p>
-</li>
-<li>
-<p>Entering <code>list_g empty</code> lists all participants without a group yet by searching for participants with an empty group name.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-storage-of-group-and-house-lists"><a class="link" href="#aspect-storage-of-group-and-house-lists">Aspect: Storage of group and house lists</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Storing groups and houses within a single list of houses that contain differing number of groups</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy management of data</p>
-</li>
-<li>
-<p>Cons: Violates separation of concerns principle by requiring access and modification made to houses, whenever only group level data is required</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Storing groups and houses in 2 separate lists</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: House objects are not affected by the operations done to the groups stored within it</p>
-</li>
-<li>
-<p>Cons: More computationally expensive to identify the groups within a house.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-deleting-a-group-object-requirements"><a class="link" href="#aspect-deleting-a-group-object-requirements">Aspect: Deleting a group object requirements</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> No requirements when groups are deleted.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: User can delete a group much more easily</p>
-</li>
-<li>
-<p>Cons: Participants in the deleted group will belong to no group</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Requires a group to contain no participants before it can be deleted.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: User can be sure to not delete a group with participants in it accidentally</p>
-</li>
-<li>
-<p>Cons: Participants must be manually removed from the group before being deleted</p>
+<p><code>list_g</code> and <code>list_h</code> use similar logic to <code>list_o</code> and <code>list_f</code>, implemented by using an entered group name as a predicate that searches through all the <code>Group</code> fields of participants, and updates the <code>filteredParticipant</code> list with participants with the matching group name or house name respectively.</p>
 </li>
 </ul>
 </div>
@@ -653,43 +640,108 @@ House names are not case-sensitive
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Camp organizers rarely intend to remove a filled group. Requiring a group to be empty before being deleted acts as a fail-safe to ensure that filled groups are not accidentally removed, resulting in participants having to be manually added back to the group.
+<code>list_g empty</code> lists all participants without a group by searching for participants with an empty group name.
 </td>
 </tr>
 </table>
 </div>
 </div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-storage-of-group-and-house-lists"><a class="link" href="#aspect-storage-of-group-and-house-lists">Aspect: Storage of group and house lists</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storing groups and houses within a single list of houses that contain differing number of groups.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy management of data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires looping through all houses to find a single group and to ensure group names are unique</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storing groups and houses in 2 separate lists (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">House objects are not affected by the operations done to the groups stored within it</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More computationally expensive to identify the groups within a single house</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to follow the second alternative as it allows us to identify a specific group faster, a function that will be more commonly used in <strong>FOP Manager</strong>, since it is called when adding and editing a person and/or a group name.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-deleting-a-group-object-requirements"><a class="link" href="#aspect-deleting-a-group-object-requirements">Aspect: Deleting a group object requirements</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No requirements when groups are deleted.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User can delete a group much more easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participants in the deleted group will belong to no group</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires a group to contain no participants before it can be deleted (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User can be sure to not delete a group with participants in it accidentally</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participants must be manually removed from the group before being deleted</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Camp organizers rarely intend to remove a filled group. Requiring a group to be empty before being deleted acts as a fail-safe to ensure that filled groups are not accidentally removed, resulting in participants having to be manually added back to the group.</p>
+</div>
+</div>
 <div class="sect4">
 <h5 id="aspect-duplicate-group-names-under-different-houses"><a class="link" href="#aspect-duplicate-group-names-under-different-houses">Aspect: Duplicate group names under different houses</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Duplicate group names are not allowed.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Groups can be searched for by name without specifying its house</p>
-</li>
-<li>
-<p>Cons: Simple names such as 1 and 2 cannot be used for different houses at initial planning stage</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Duplicate group names under different houses are allowed.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: User can easily name groups without too much thought</p>
-</li>
-<li>
-<p>Cons: User must always specify house name when searching for a specific group</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duplicate group names are not allowed (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Groups can be searched for by name without specifying its house</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple names such as 1 and 2 cannot be used for different houses at initial planning stage</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duplicate group names under different houses are allowed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User can easily name groups without too much thought</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User must always specify house name when searching for a specific group</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We chose to not allow duplicate groups, as it makes the app more user-friendly. Moreover, this will model real life situations as camp groups normally have unique group names.</p>
 </div>
 <div class="paragraph">
 <p>Check out the full Developer Guide [<a href="https://github.com/shanseet/T08-Fork/blob/master/docs/DeveloperGuide.adoc">here</a>].</p>
@@ -698,4 +750,4 @@ Camp organizers rarely intend to remove a filled group. Requiring a group to be 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 10:57:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 12:32:00 UTC</div></div></div></body></html>

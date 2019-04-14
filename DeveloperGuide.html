@@ -92,11 +92,13 @@
 <li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-participant">H.2. Deleting a participant</a></li>
-<li><a href="#adding-an-ogl">H.3. Adding an OGL</a></li>
-<li><a href="#adding-a-group">H.4. Adding a Group</a></li>
-<li><a href="#show-participant-statistic">H.5. Show participant statistic</a></li>
-<li><a href="#save-pie-charts-to-image-files">H.6. Save pie charts to image files</a></li>
+<li><a href="#adding-an-ogl">H.2. Adding an OGL</a></li>
+<li><a href="#adding-a-freshman">H.3. Adding a freshman</a></li>
+<li><a href="#deleting-a-participant">H.4. Deleting a participant</a></li>
+<li><a href="#adding-a-house">H.5. Adding a house</a></li>
+<li><a href="#adding-a-group">H.6. Adding a group</a></li>
+<li><a href="#show-participant-statistic">H.7. Show participant statistic</a></li>
+<li><a href="#save-pie-charts-to-image-files">H.8. Save pie charts to image files</a></li>
 </ul>
 </li>
 </ul>
@@ -587,7 +589,7 @@ The following class plays an important role at the architecture level:</p>
 <p>stores the Address Book data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Participant&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -601,7 +603,7 @@ The following class plays an important role at the architecture level:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Participant</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Participant</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
 </td>
@@ -665,46 +667,35 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">5.1.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-handling-unneccesary-parameters"><a class="link" href="#aspect-handling-unneccesary-parameters">Aspect: Handling unneccesary parameters</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Ignore all unnecessary parameters and pass as arguments to the command object the number of parameters required for the command.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Less computationaly expensive, and allows the user to make mistakes</p>
-</li>
-<li>
-<p>Cons: User&#8217;s intentions may be misinterpreted and wrong commands may be executed</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Only accept the number of parameters the command requires, nothing more and nothing less.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Command carried out will always be the user&#8217;s exact intention</p>
-</li>
-<li>
-<p>Cons: More computationally expensive, and leaves no room for user mistakes or typos</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 3 (current choice):</strong> Combination of Alternative 1 and Alternative 2.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Commands that do not require parameters and do not modify data (such as list and view) ignore unnecessary parameters. Commands that require specific instructions to identify particular participants, groups or houses only accept the required number of parameters.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<h5 id="aspect-handling-unnecessary-parameters"><a class="link" href="#aspect-handling-unnecessary-parameters">Aspect: Handling unnecessary parameters</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ignore all unnecessary parameters and pass as arguments to the command object the number of parameters required for the command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less computationally expensive, and allows the user to make mistakes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s intentions may be misinterpreted and wrong commands may be executed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only accept the number of parameters the command requires, nothing more and nothing less.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command carried out will always be the user&#8217;s exact intention</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More computationally expensive, and leaves no room for user mistakes or typos</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We chose to implement a combination of both alternatives: commands that do not require parameters and do not modify data (such as list and view) ignore unnecessary parameters. At the same time, commands that require specific instructions to identify particular participants, groups or houses only accept the required number of parameters.</p>
 </div>
 </div>
 </div>
@@ -717,6 +708,8 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="paragraph">
 <p>This section describes how the 3 types of participants are managed.</p>
 </div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>In <strong>FOP Manager</strong>, participants can be added, edited, deleted and listed.</p>
 </div>
@@ -773,10 +766,8 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </ul>
 </div>
 <div class="paragraph">
-<p>All participants are stored in the same contact list as a <code>UniqueParticipantList</code> in an AddressBook object. Participants created as OGLs or Freshmen differ only in the tags added to them. The different listing of the participants is very useful for Project Directors as it helps them to view the Freshmen and the OGL contacts separately, to specifically see who are in the respective lists and how many participants are there in each of the lists.</p>
+<p>All participants are stored in the same participant list as a <code>UniqueParticipantList</code> in an AddressBook object. Participants created as OGLs or Freshmen differ only in the tags added to them. The different listing of the participants is very useful for Project Directors as it helps them to view the Freshmen and the OGL participants separately, to specifically see who are in the respective lists and how many participants are there in each of the lists.</p>
 </div>
-<div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The following is an Activity Diagram to summarize what happens when either the <code>list_f</code> or <code>list_o</code> commands are entered.</p>
 </div>
@@ -784,12 +775,10 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/ListFreshmenCommandActivityDiagram.png" alt="ListFreshmenCommandActivityDiagram" width="800">
 </div>
+<div class="title">Figure 9. Activity Diagram for listing Freshmen command</div>
 </div>
 <div class="paragraph">
-<p><em>Activity Diagram for listing Freshmen command</em></p>
-</div>
-<div class="paragraph">
-<p>The list commands, <code>list_o</code> and <code>list_f</code>, use the keywords/predicates "OGL" and "Freshman", respectively, to search through the tags of all participants in the contact list. All participants with matching tags of "Freshman" or "OGL" will be added into the filtered participant list, enabling the user to view all freshmen or OGLs in the contact list.</p>
+<p>The list commands, <code>list_o</code> and <code>list_f</code>, use the keywords/predicates "OGL" and "Freshman", respectively, to search through the tags of all participants in the participant list. All participants with matching tags of "Freshman" or "OGL" will be added into the filtered participant list, enabling the user to view all freshmen or OGLs in the participant list.</p>
 </div>
 <div class="paragraph">
 <p>The following Sequence diagram below will explain how the <code>list_f</code> command works in detail.</p>
@@ -798,9 +787,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/ListParticipantCommandSequenceDiagram.png" alt="ListParticipantCommandSequenceDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Sequence Diagram for listing Freshmen command</em></p>
+<div class="title">Figure 10. Sequence Diagram for listing Freshmen command</div>
 </div>
 <div class="paragraph">
 <p>An example usage of the <code>list_f</code> command is as follows:</p>
@@ -812,7 +799,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p><strong>Step 2:</strong> The user enters the <code>list_f</code> command . The <code>list_f</code> command calls the <code>FindingParticipantPredicate</code> class and searches all tags of each participant for "Freshman".</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 3:</strong> The <code>updateFilteredPersonList()</code> takes in this predicate and the <code>getFilteredPersonList()</code> is called to give the list of Freshmen in the contact list</p>
+<p><strong>Step 3:</strong> The <code>updateFilteredParticipantList()</code> takes in this predicate and the <code>getFilteredParticipantList()</code> is called to give the list of Freshmen in the participant list</p>
 </div>
 <div class="paragraph">
 <p>The implementation is similar for the <code>list_o</code> command with the use of <code>FindingOglPredicate</code> instead where the searched tag is "OGL".</p>
@@ -822,56 +809,64 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">5.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-separate-management-of-freshmen-and-ogls"><a class="link" href="#aspect-separate-management-of-freshmen-and-ogls">Aspect: Separate management of freshmen and OGLs</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Create 2 separate lists containing freshmen and OGLs separately, in addition to a full list containing all participants.</p>
-</li>
-<li>
-<p>Pros: Less computationally expensive to obtain separate lists of freshmen and OGLs</p>
-</li>
-<li>
-<p>Cons: Involves greater code complexity to update any contact details, with greater room for error, and requires more memory and storage</p>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Store all participants in the same list.</p>
-</li>
-<li>
-<p>Pros: Smaller code base needed, and allows for participants who are neither OGLs nor Freshmen (such as camp directors or camp commandants) to be added</p>
-</li>
-<li>
-<p>Cons: More computationally expensive to access lists of freshmen and lists of OGLs</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create 2 separate lists containing freshmen and OGLs separately, in addition to a full list containing all participants.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less computationally expensive to obtain separate lists of freshmen and OGLs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Involves greater code complexity to update any contact details, with greater room for error, and requires more memory and storage</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Store all participants in the same list (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Smaller code base needed, and allows for participants who are neither OGLs nor Freshmen (such as camp directors or camp commandants) to be added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More computationally expensive to access lists of freshmen and lists of OGLs</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>We decided to go ahead with <strong>Alternative 2</strong> as it was easier to implement. It would not require creation of switch cases for the UI to display the respective lists and would not require unnecessarily long codes to filter out freshmen and OGLs from the participant list. The pros of doing <strong>Alternative 2</strong> outweighs the pros of doing <strong>Alternative 1</strong> hence the decision to implement the latter.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="aspect-editing-or-deleting-participants"><a class="link" href="#aspect-editing-or-deleting-participants">Aspect: Editing or deleting participants</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Editing and deleting by name.</p>
-</li>
-<li>
-<p>Pros: More intuitive for the user to edit and delete a participant by name</p>
-</li>
-<li>
-<p>Cons: Greater complexity required to handle multiple participants who have the same partial name, or user must specify participant&#8217;s full name</p>
-</li>
-<li>
-<p><strong>Alternative 2(current choice):</strong> Editing and deleting by index.</p>
-</li>
-<li>
-<p>Pros: Specifies the exact participant to be edited or deleted</p>
-</li>
-<li>
-<p>Cons: Must be used with other commands such as <code>find</code> to obtain the index of the desired participant</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Editing and deleting by name.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More intuitive for the user to edit and delete a participant by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater complexity required to handle multiple participants who have the same partial name, or user must specify participant&#8217;s full name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Editing and deleting by index (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the exact participant to be edited or deleted</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be used with other commands such as <code>find</code> to obtain the index of the desired participant</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>We decided to go with <strong>Alternative 2</strong> as it meant there was no need to check for the full name of the participant and so fewer complications as in indexing, each participant has a unique index.</p>
 </div>
@@ -886,7 +881,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">5.3.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>In <strong>FOP Manager</strong>, groups and houses can be added, edited and deleted.</p>
+<p>In <strong>FOP Manager</strong>, groups can be added, edit and deleted.</p>
 </div>
 <div class="paragraph">
 <p>Add</p>
@@ -894,10 +889,40 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="ulist">
 <ul>
 <li>
-<p><code>add_h</code> creates a new house and adds it to the <code>UniqueHouseList</code> in the <code>AddressBook</code> object.</p>
+<p><code>add_h HOUSENAME</code>: Adds a new house with <code>HOUSENAME</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Creates a new house by adding it to <code>UniqueHouseList</code> in the <code>VersionedAddressBook</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><code>add_g</code> adds a new group with its corresponding house name to the <code>UniqueGroupList</code> in the <code>AddressBook</code> object.</p>
+<p><code>add_g GROUPNAME HOUSENAME</code>: Adds a new group named <code>GROUPNAME</code> into the house</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a new group to a house by adding it to <code>UniqueGroupList</code> in the <code>VersionedAddressBook</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>Logic</code> and <code>Model</code> components interact when the user enters the command <code>add_g r1 red</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddGroupSequenceDiagram.png" alt="AddGroupSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 11. Interactions within Logic and Model for the command <code>add_g r1 red</code></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The new group (R1, Red) is added to <code>UniqueGroupList</code> stored within <code>VersionedAddressBook</code> when the <code>addGroup(a)</code> function is called from <code>Model</code></p>
 </li>
 </ul>
 </div>
@@ -907,10 +932,24 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit_h</code> edits the name of a house in <code>UniqueHouseList</code>, as well as changes the house name of all groups within the house in <code>UniqueGroupList</code>.</p>
+<p><code>edit_h OLDHOUSENAME NEWHOUSENAME</code>: Edits the name of an existing house</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the name of a house in <code>UniqueHouseList</code>, as well as changes the house name of all groups within the house in <code>UniqueGroupList</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
+<p><code>edit_g OLDGROUPNAME NEWGROUPNAME</code>: Edits the name of an existing group</p>
+<div class="ulist">
+<ul>
+<li>
 <p><code>edit_g</code> edits the name of a group in <code>UniqueGroupList</code>, as well as changes the group name of all participants with that group name in <code>UniqueParticipantList</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -920,15 +959,29 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="ulist">
 <ul>
 <li>
+<p><code>delete_h HOUSENAME</code>: Deletes the group named <code>HOUSENAME</code></p>
+<div class="ulist">
+<ul>
+<li>
 <p>Deleting of house objects require there to be no groups within that house.</p>
 </li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>delete_g GROUPNAME</code>: Deletes the group named <code>GROUPNAME</code></p>
+<div class="ulist">
+<ul>
 <li>
 <p>Deleting of group objects require there to be no participants within that group.</p>
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>Groups and houses can be viewed in different manners:</p>
+<p>Groups and houses can also be viewed in different manners:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -943,82 +996,11 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </li>
 <li>
-<p>Listing participants in a group</p>
+<p>Listing participants in a particular group or house</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list_g</code> uses similar logic to <code>list_o</code> and <code>list_f</code>, implemented by using an entered group name as a predicate that searches through all the <code>Group</code> fields of participants, and updates the <code>filteredPersons</code> list with participants with the matching group name.</p>
-</li>
-<li>
-<p>Entering <code>list_g empty</code> lists all participants without a group yet by searching for participants with an empty group name.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">5.3.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-storage-of-group-and-house-lists"><a class="link" href="#aspect-storage-of-group-and-house-lists">Aspect: Storage of group and house lists</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Storing groups and houses within a single list of houses that contain differing number of groups</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy management of data</p>
-</li>
-<li>
-<p>Cons: Violates separation of concerns principle by requiring access and modification made to houses, whenever only group level data is required</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Storing groups and houses in 2 separate lists</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: House objects are not affected by the operations done to the groups stored within it</p>
-</li>
-<li>
-<p>Cons: More computationally expensive to identify the groups within a house.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-deleting-a-group-object-requirements"><a class="link" href="#aspect-deleting-a-group-object-requirements">Aspect: Deleting a group object requirements</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> No requirements when groups are deleted.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: User can delete a group much more easily</p>
-</li>
-<li>
-<p>Cons: Participants in the deleted group will belong to no group</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Requires a group to contain no participants before it can be deleted.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: User can be sure to not delete a group with participants in it accidentally</p>
-</li>
-<li>
-<p>Cons: Participants must be manually removed from the group before being deleted</p>
+<p><code>list_g</code> and <code>list_h</code> use similar logic to <code>list_o</code> and <code>list_f</code>, implemented by using an entered group name as a predicate that searches through all the <code>Group</code> fields of participants, and updates the <code>filteredParticipant</code> list with participants with the matching group name or house name respectively.</p>
 </li>
 </ul>
 </div>
@@ -1032,43 +1014,108 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Camp organizers rarely intend to remove a filled group. Requiring a group to be empty before being deleted acts as a fail-safe to ensure that filled groups are not accidentally removed, resulting in participants having to be manually added back to the group.
+<code>list_g empty</code> lists all participants without a group by searching for participants with an empty group name.
 </td>
 </tr>
 </table>
 </div>
 </div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">5.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-storage-of-group-and-house-lists"><a class="link" href="#aspect-storage-of-group-and-house-lists">Aspect: Storage of group and house lists</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storing groups and houses within a single list of houses that contain differing number of groups.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy management of data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires looping through all houses to find a single group and to ensure group names are unique</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storing groups and houses in 2 separate lists (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">House objects are not affected by the operations done to the groups stored within it</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More computationally expensive to identify the groups within a single house</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to follow the second alternative as it allows us to identify a specific group faster, a function that will be more commonly used in <strong>FOP Manager</strong>, since it is called when adding and editing a person and/or a group name.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-deleting-a-group-object-requirements"><a class="link" href="#aspect-deleting-a-group-object-requirements">Aspect: Deleting a group object requirements</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No requirements when groups are deleted.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User can delete a group much more easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participants in the deleted group will belong to no group</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires a group to contain no participants before it can be deleted (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User can be sure to not delete a group with participants in it accidentally</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participants must be manually removed from the group before being deleted</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Camp organizers rarely intend to remove a filled group. Requiring a group to be empty before being deleted acts as a fail-safe to ensure that filled groups are not accidentally removed, resulting in participants having to be manually added back to the group.</p>
+</div>
+</div>
 <div class="sect4">
 <h5 id="aspect-duplicate-group-names-under-different-houses"><a class="link" href="#aspect-duplicate-group-names-under-different-houses">Aspect: Duplicate group names under different houses</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Duplicate group names are not allowed.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Groups can be searched for by name without specifying its house</p>
-</li>
-<li>
-<p>Cons: Simple names such as 1 and 2 cannot be used for different houses at initial planning stage</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Duplicate group names under different houses are allowed.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: User can easily name groups without too much thought</p>
-</li>
-<li>
-<p>Cons: User must always specify house name when searching for a specific group</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duplicate group names are not allowed (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Groups can be searched for by name without specifying its house</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple names such as 1 and 2 cannot be used for different houses at initial planning stage</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duplicate group names under different houses are allowed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User can easily name groups without too much thought</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User must always specify house name when searching for a specific group</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We chose to not allow duplicate groups, as it makes the app more user-friendly. Moreover, this will model real life situations as camp groups normally have unique group names.</p>
 </div>
 </div>
 </div>
@@ -1164,6 +1211,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial a
 <div class="content">
 <img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 12. Interactions within Logic and Model when <code>undo</code> is entered</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
@@ -1203,75 +1251,68 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="800">
 </div>
+<div class="title">Figure 13. Activity flow when new command is executed</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">5.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the participant being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Saves the entire address book (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">May have performance issues in terms of memory usage.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Individual command knows how to undo/redo by itself.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Will use less memory (e.g. for <code>delete</code>, just save the participant being deleted).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We must ensure that the implementation of each individual command are correct.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use a list to store the history of address book states (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use <code>HistoryManager</code> for undo/redo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We do not need to maintain a separate list, and just reuse what is already in the codebase.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1293,79 +1334,71 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">5.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-updating-group-attribute-of-participants"><a class="link" href="#aspect-updating-group-attribute-of-participants">Aspect: Updating group attribute of participants</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Use the same way as how the <code>edit</code> command works</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: No internal coupling</p>
-</li>
-<li>
-<p>Cons: Unnecessary recoding</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Programmatically simulate the <code>edit</code> command</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Lesser code and better maintainance of the editing feature</p>
-</li>
-<li>
-<p>Cons: Internal coupling within the component</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use the same way as how the <code>edit</code> command works.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No internal coupling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unnecessary recoding</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Programmatically simulate the <code>edit</code> command (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lesser code and better maintenance of the editing feature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internal coupling within the component</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect4">
 <h5 id="aspect-shuffling-of-participants"><a class="link" href="#aspect-shuffling-of-participants">Aspect: Shuffling of participants</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Shuffling the actual</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Unidentifiable</p>
-</li>
-<li>
-<p>Cons: Uses even more computational resource and more complex coding as the current list of participant is
-unmodifiable.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Creating a list of integer based index to simulate participants</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Less computational intensive as dealing with native data type</p>
-</li>
-<li>
-<p>Cons: Uses slightly more memory at that point of time</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shuffling the actual.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unidentifiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses even more computational resource and more complex coding as the current list of participant is unmodifiable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creating a list of integer based index to simulate participants (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less computational intensive as dealing with native data type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses slightly more memory at that point of time</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="statistic-feature"><a class="link" href="#statistic-feature">5.6. Statistic feature</a></h3>
 <div class="paragraph">
-<p>The 'stat' command allows FOP Manager users to view the statistic of camp participants regarding their age, major and sex in a graphical manner.
-==== Current Implementation</p>
+<p>The 'stat' command allows FOP Manager users to view the statistic of camp participants regarding their age, major and sex in a graphical manner.</p>
 </div>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">5.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The Statistic feature is facilitated by <code>AddressBook</code>. It has three HashMaps, containing the number of each categories in the participants' age, major and sex. These Map are generated after every call of the
 <code>stat</code> command. After command call, these data is loaded into three different pie charts and shown on the UI.</p>
@@ -1377,41 +1410,41 @@ unmodifiable.</p>
 <div class="content">
 <img src="images/StatisticUpdateSequenceDiagram.png" alt="StatisticUpdateSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 14. Interaction between UI, Logic and Model when <code>stat</code> is executed</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">5.6.1. Design Consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">5.6.2. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-update-the-data-of-the-addressbook"><a class="link" href="#aspect-how-to-update-the-data-of-the-addressbook">Aspect: How to update the data of the AddressBook</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice)</strong>: Use a loop to loop through the <code>UniquePersonList</code> to get the data of everyone</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement, guaranteed to get the correct data every time.</p>
-</li>
-<li>
-<p>Cons: Takes longer time and more computational power to get the result. However, since this function is unlikely to be
-used many times and the number of participants in a camp is not too large, the drawbacks is acceptable</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 :</strong> Update charts data after each commands that modify it.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Quick runtime, does not require much changes to the codebase.</p>
-</li>
-<li>
-<p>Cons: We must ensure that the data is updated after each command.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternatives</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use a loop to loop through the <code>UniqueParticipantList</code> to get the data of everyone (current choice).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement, guaranteed to get the correct data every time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Takes longer time and more computational power to get the result.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update charts data after each commands that modify it.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick runtime, does not require much changes to the codebase</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We must ensure that the data is updated after each command.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Since this function is unlikely to be used many times and the number of participants in a camp is not too large, the drawbacks to the first alternative are acceptable.</p>
 </div>
 </div>
 </div>
@@ -1444,12 +1477,10 @@ used many times and the number of participants in a camp is not too large, the d
 <div class="content">
 <img src="images/ExportCommandActivityDiagram.png" alt="ExportCommandActivityDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Activity Diagram for exporting command</em></p>
+<div class="title">Figure 15. Activity Diagram for exporting command</div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">5.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">5.7.1. Current Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1467,9 +1498,7 @@ used many times and the number of participants in a camp is not too large, the d
 <div class="content">
 <img src="images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Sequence Diagram for exporting command</em></p>
+<div class="title">Figure 16. Sequence Diagram for exporting command</div>
 </div>
 <div class="paragraph">
 <p>An example usage of the command is as follows:</p>
@@ -1509,12 +1538,10 @@ used many times and the number of participants in a camp is not too large, the d
 <div class="content">
 <img src="images/ImportCommandActivityDiagram.png" alt="ImportCommandActivityDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Activity Diagram for the importing command</em></p>
+<div class="title">Figure 17. Activity Diagram for the importing command</div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">5.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">5.8.1. Current Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1538,9 +1565,7 @@ used many times and the number of participants in a camp is not too large, the d
 <div class="content">
 <img src="images/ImportCommandSequenceDiagram.png" alt="ImportCommandSequenceDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Sequence Diagram for importing command</em></p>
+<div class="title">Figure 18. Sequence Diagram for importing command</div>
 </div>
 <div class="paragraph">
 <p>An example usage of the command is as follows:</p>
@@ -1692,7 +1717,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 9. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 19. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2887,7 +2912,7 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see the size of my contact list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see the size of my participant list</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">see the number of participants in the camp</p></td>
 </tr>
 <tr>
@@ -3173,7 +3198,66 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-participant"><a class="link" href="#deleting-a-participant">H.2. Deleting a participant</a></h3>
+<h3 id="adding-an-ogl"><a class="link" href="#adding-an-ogl">H.2. Adding an OGL</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an OGL to the participant list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all participants using the <code>list</code> command, no groups added yet.</p>
+</li>
+<li>
+<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/ [t/TAG]…</code><br>
+Expected: Participant is added to the participant list with tag <code>OGL</code>. Details of added contact shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL g/</code> (or missing any field)<br>
+Expected: No participant is added. Error details shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/1</code><br>
+Expected: No participant is added. Error details shown in the result box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-freshman"><a class="link" href="#adding-a-freshman">H.3. Adding a freshman</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a freshman to the participant list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The participant&#8217;s name must not match any existing participant.<br>
+: Only group <code>R1</code> has been added.</p>
+</li>
+<li>
+<p>Test case: <code>add_f n/Janet Tan s/F b/19041998 e/janet@example.com m/CS g/</code><br>
+Expected: Freshman named Janet Tan is added to the bottom of the participant list.</p>
+</li>
+<li>
+<p>Test case: <code>add_f n/James Tan s/M b/20041998 e/james@example.com m/IS g/r1</code><br>
+Expected: Freshman named James Tan is added to the bottom of the participant list.</p>
+</li>
+<li>
+<p>Test case: <code>add_f n/Joel Tan s/M b/01121998 e/joel@example.com m/IS g/b1</code><br>
+Expected: No participant is added due to the nonexistent group <code>B1</code>. Error details shown in the result box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-participant"><a class="link" href="#deleting-a-participant">H.4. Deleting a participant</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3202,27 +3286,22 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-ogl"><a class="link" href="#adding-an-ogl">H.3. Adding an OGL</a></h3>
+<h3 id="adding-a-house"><a class="link" href="#adding-a-house">H.5. Adding a house</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Adding an OGL to contact list</p>
+<p>Adding a house to the address book</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all participants using the <code>list</code> command, no groups added yet.</p>
+<p>Test case: <code>add_h Green</code><br>
+Expected: House named <code>Green</code> is added.</p>
 </li>
 <li>
-<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/ [t/TAG]…</code><br>
-Expected: Participant is added to the contact list with tag <code>OGL</code>. Details of added contact shown in the status message.</p>
-</li>
-<li>
-<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL g/</code> (or missing any field)<br>
-Expected: No participant is added. Error details shown in the status message.</p>
-</li>
-<li>
-<p>Test case: <code>add_o n/[NAME] s/SEX b/BIRTHDAY p/PHONE e/EMAIL m/MAJOR g/1</code><br>
-Expected: No participant is added. Error details shown in the status message.</p>
+<p>Test case:<br>
+<code>add_h Red</code><br>
+<code>add_h Red</code><br>
+Expected: House named <code>Red</code> is added on first command. No house is added on the second. An error message showing that the house <code>Red</code> already exists is shown in the result box.</p>
 </li>
 </ol>
 </div>
@@ -3231,11 +3310,11 @@ Expected: No participant is added. Error details shown in the status message.</p
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-group"><a class="link" href="#adding-a-group">H.4. Adding a Group</a></h3>
+<h3 id="adding-a-group"><a class="link" href="#adding-a-group">H.6. Adding a group</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Adding a Group to the address book</p>
+<p>Adding a group to the address book</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3243,17 +3322,17 @@ Expected: No participant is added. Error details shown in the status message.</p
 </li>
 <li>
 <p>Test case: <code>add_g g1 green</code><br>
-Expected: Group named <code>G1</code> is added to the House named Green.</p>
+Expected: Group named <code>G1</code> is added to the house named Green.</p>
 </li>
 <li>
 <p>Test case: <code>add_g g2 gReEn</code><br>
-Expected: Group named <code>G2</code> is added to the House named Green.</p>
+Expected: Group named <code>G2</code> is added to the house named Green.</p>
 </li>
 <li>
 <p>Test case:<br>
 <code>add_g g1 Green</code><br>
 <code>add_g g1 Green</code><br>
-Expected: Group named <code>G1</code> is added on first command. No group is added on the second. Error details shown in the status message.</p>
+Expected: Group named <code>G1</code> is added on first command. No group is added on the second. An error message showing that group <code>G1</code> already exists is shown in the result box.</p>
 </li>
 </ol>
 </div>
@@ -3262,7 +3341,7 @@ Expected: Group named <code>G1</code> is added on first command. No group is add
 </div>
 </div>
 <div class="sect2">
-<h3 id="show-participant-statistic"><a class="link" href="#show-participant-statistic">H.5. Show participant statistic</a></h3>
+<h3 id="show-participant-statistic"><a class="link" href="#show-participant-statistic">H.7. Show participant statistic</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3280,7 +3359,7 @@ Expected: Three pie charts are shown on the GUI with labels for each one.</p>
 <p>Test case:<br>
 <code>clear</code><br>
 <code>stat</code><br>
-Expected: Error details shown in the status message</p>
+Expected: Error details shown in the result box.</p>
 </li>
 </ol>
 </div>
@@ -3289,7 +3368,7 @@ Expected: Error details shown in the status message</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="save-pie-charts-to-image-files"><a class="link" href="#save-pie-charts-to-image-files">H.6. Save pie charts to image files</a></h3>
+<h3 id="save-pie-charts-to-image-files"><a class="link" href="#save-pie-charts-to-image-files">H.8. Save pie charts to image files</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3309,7 +3388,7 @@ Expected: Open chart folder to see three PNG files name "File Name_age", "File N
 <p>Test case:<br>
 <code>clear</code><br>
 <code>stat</code><br>
-Expected: Error details shown in the status message</p>
+Expected: Error details shown in the result box.</p>
 </li>
 </ol>
 </div>
@@ -3318,4 +3397,4 @@ Expected: Error details shown in the status message</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 10:57:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 12:32:00 UTC</div></div></div></body></html>
