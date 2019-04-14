@@ -36,7 +36,7 @@
 <li><a href="#group-and-house-management">5.3. Group and House Management</a></li>
 <li><a href="#undo-redo-feature">5.4. Undo/Redo feature</a></li>
 <li><a href="#randomized-group-allocation">5.5. Randomized Group Allocation</a></li>
-<li><a href="#proposed-statistic-feature">5.6. [Proposed] Statistic feature</a></li>
+<li><a href="#statistic-feature">5.6. Statistic feature</a></li>
 <li><a href="#export-feature">5.7. Export Feature</a></li>
 <li><a href="#import-feature">5.8. Import Feature</a></li>
 <li><a href="#proposed-auto-completion">5.9. [Proposed] Auto-Completion</a></li>
@@ -95,6 +95,8 @@
 <li><a href="#deleting-a-participant">H.2. Deleting a participant</a></li>
 <li><a href="#adding-an-ogl">H.3. Adding an OGL</a></li>
 <li><a href="#adding-a-group">H.4. Adding a Group</a></li>
+<li><a href="#show-participant-statistic">H.5. Show participant statistic</a></li>
+<li><a href="#save-pie-charts-to-image-files">H.6. Save pie charts to image files</a></li>
 </ul>
 </li>
 </ul>
@@ -502,7 +504,7 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/major/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>TextResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>ChartPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/major/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -1334,7 +1336,8 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Pros: Unidentifiable</p>
 </li>
 <li>
-<p>Cons: Uses even more computational resource and more complex coding as the current list of participant is unmodifiable.</p>
+<p>Cons: Uses even more computational resource and more complex coding as the current list of participant is
+unmodifiable.</p>
 </li>
 </ul>
 </div>
@@ -1358,30 +1361,45 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-statistic-feature"><a class="link" href="#proposed-statistic-feature">5.6. [Proposed] Statistic feature</a></h3>
-<div class="sect3">
-<h4 id="planned-implementation"><a class="link" href="#planned-implementation">5.6.1. Planned Implementation</a></h4>
+<h3 id="statistic-feature"><a class="link" href="#statistic-feature">5.6. Statistic feature</a></h3>
 <div class="paragraph">
-<p>The statistic feature is facilitated by <code>VersionedAddressBook</code>. It extends <code>AddressBook</code> with two Hashtables, one containing the number of male and female participants, and the other one contains the number of participants in each major. These
-variables will be updated after each <code>add</code>, <code>edit</code> or <code>delete</code> command.</p>
+<p>The 'stat' command allows FOP Manager users to view the statistic of camp participants regarding their age, major and sex in a graphical manner.
+==== Current Implementation</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram show hows the Hashtable is updated after an <code>add</code> command:</p>
+<p>The Statistic feature is facilitated by <code>AddressBook</code>. It has three HashMaps, containing the number of each categories in the participants' age, major and sex. These Map are generated after every call of the
+<code>stat</code> command. After command call, these data is loaded into three different pie charts and shown on the UI.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram show hows the 'stat' command works in details :</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StatisticUpdateSequenceDiagram.png" alt="StatisticUpdateSequenceDiagram" width="800">
 </div>
 </div>
-</div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">5.6.2. Design Consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">5.6.1. Design Consideration</a></h4>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-get-the-data-from-the-addressbook"><a class="link" href="#aspect-data-structure-to-get-the-data-from-the-addressbook">Aspect: Data structure to get the data from the AddressBook</a></h5>
+<h5 id="aspect-how-to-update-the-data-of-the-addressbook"><a class="link" href="#aspect-how-to-update-the-data-of-the-addressbook">Aspect: How to update the data of the AddressBook</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Add new variables inside the <code>VersionedAddressBook</code> to store the data and update them after each commands.</p>
+<p><strong>Alternative 1 (current choice)</strong>: Use a loop to loop through the <code>UniquePersonList</code> to get the data of everyone</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, guaranteed to get the correct data every time.</p>
+</li>
+<li>
+<p>Cons: Takes longer time and more computational power to get the result. However, since this function is unlikely to be
+used many times and the number of participants in a camp is not too large, the drawbacks is acceptable</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 :</strong> Update charts data after each commands that modify it.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1389,19 +1407,6 @@ variables will be updated after each <code>add</code>, <code>edit</code> or <cod
 </li>
 <li>
 <p>Cons: We must ensure that the data is updated after each command.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2</strong>: Use a loop to loop through the <code>UniquePersonList</code> to get the data of everyone</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement, guaranteed to get the correct data every time.</p>
-</li>
-<li>
-<p>Cons: Takes longer time to get the result, especially if there are many participant in the <code>UniquePersonList</code>.</p>
 </li>
 </ul>
 </div>
@@ -1573,7 +1578,7 @@ variables will be updated after each <code>add</code>, <code>edit</code> or <cod
 <div class="sect2">
 <h3 id="proposed-auto-completion"><a class="link" href="#proposed-auto-completion">5.9. [Proposed] Auto-Completion</a></h3>
 <div class="paragraph">
-<p><em>{Coming in: v1.4}</em></p>
+<p><em>{Coming in: v2.0}</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -3256,5 +3261,61 @@ Expected: Group named <code>G1</code> is added on first command. No group is add
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="show-participant-statistic"><a class="link" href="#show-participant-statistic">H.5. Show participant statistic</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Show pie charts of participants' age, major and sex</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all participants using the <code>list</code> command. Multiple participants in the list.</p>
+</li>
+<li>
+<p>Test case: <code>stat</code><br>
+Expected: Three pie charts are shown on the GUI with labels for each one.</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>clear</code><br>
+<code>stat</code><br>
+Expected: Error details shown in the status message</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 19:08:34 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="save-pie-charts-to-image-files"><a class="link" href="#save-pie-charts-to-image-files">H.6. Save pie charts to image files</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Show pie charts of participants' age, major and sex</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all participants using the <code>list</code> command. Multiple participants in the list.</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>stat</code><br>
+<code>save_c File Name</code><br>
+Expected: Open chart folder to see three PNG files name "File Name_age", "File Name_major" ,and "File Name_sex"</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>clear</code><br>
+<code>stat</code><br>
+Expected: Error details shown in the status message</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 08:03:13 UTC</div></div></div></body></html>

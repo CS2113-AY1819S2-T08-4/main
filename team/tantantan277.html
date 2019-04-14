@@ -1,6 +1,14 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Phan Duy Nhat Tan - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="../index.html">FOP Manager</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">FOP Manager</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2113-ay1819s2-t08-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Phan Duy Nhat Tan - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="../index.html">FOP Manager</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">FOP Manager</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2113-ay1819s2-t08-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Phan Duy Nhat Tan - Project Portfolio</h1></div><div id="content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Greetings. I am a second-year Computer Engineering student from National University of Singapore (NUS). This document showcases the features I did for my
+Software Engineering Project, as well as the relevant sections I added to the User and Developer Guides.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="project-fop-manager"><a class="link" href="#project-fop-manager">PROJECT: FOP Manager</a></h2>
 <div class="sectionbody">
 <hr>
@@ -9,14 +17,23 @@
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="about-the-project"><a class="link" href="#about-the-project">About the Project</a></h3>
 <div class="paragraph">
 <p>FOP Manager is a desktop Address Book application made for Project Directors organizing the NUS School of Computing Freshman Orientation Program (FOP). The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="my-roles"><a class="link" href="#my-roles">My roles</a></h3>
 <div class="paragraph">
-<p>I was in charge of the UI aspect of the application, and designed and implemented the <code>stat</code> feature. The following section will describe these enhancements in more details, as well as showcasing all the relevant sections I have added to the user guide and developer guides in relation to these enhancements.</p>
+<p>I was in charge of the UI aspect of the application, and designed and implemented the Statistic and Save feature. The following section will describe these enhancements in more details, as well as showcasing all the relevant sections I have added to the user guide and developer guides in relation to these enhancements.</p>
 </div>
 <div class="paragraph">
 <p>Please take notes of the following icons and their meanings used in the document:</p>
+</div>
+<div class="paragraph">
+<p><mark><code>command</code></mark> | Grey highlight indicates that this is a command that can be inputted into the command line and executed by the application.</p>
+</div>
 </div>
 </div>
 </div>
@@ -26,18 +43,21 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: implemented <strong>the <code>stat</code> and 'save' feature</strong></p>
+<p><strong>Major enhancement</strong>: implemented <strong>the <code>stat</code> and <code>save_c</code> command</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: The <code>stat</code> command will generate three pie charts of all of the camp&#8217;s participants' age, major and sex and display them on the GUI as in Figure 1. The <code>save</code> command will save those charts into separate image files.</p>
+<p>What it does: The <code>stat</code> command will generate three pie charts of all of the camp&#8217;s participants' age, major and sex and display them on the GUI as in Figure 1. The <code>save_c</code> command will save those charts into separate image files.</p>
 </li>
 <li>
-<p>Justification: At the end of every FOP, the Project Directors usually have to make various reports for their university, their faculty or different sponsors that requires these information. The <code>stat</code> and <code>save</code> features together
+<p>Justification: At the end of every FOP, the Project Directors usually have to make various reports for their university, their faculty or different sponsors that requires these information. These two features together
 will let the user generate those data quickly and efficiently.</p>
 </li>
 <li>
 <p>Highlights: This enhancement touched on the logic, model ,and UI components. A new <code>CustomPieChart</code> class was created to improve code readability.</p>
+</li>
+<li>
+<p>Code contributed: Pull Request <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/75">#75</a></p>
 </li>
 <li>
 <p>Credits: Some parts of the <code>stat</code> command was inspired by Part 6 of the excellent <a href="https://code.makery.ch/library/javafx-tutorial/part6/">Java FX Tutorial</a> by Marco Jakob.</p>
@@ -49,62 +69,67 @@ will let the user generate those data quickly and efficiently.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StatResult.png" alt="StatResult" width="600">
+<img src="../images/StatResult.png" alt="StatResult" width="800">
 </div>
 <div class="title">Figure 1. Stat command result on the GUI</div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Minor enhancement</strong>: Show a list of commands that can be undo or redo on the GUI.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoList.png" alt="UndoRedoList" width=""600'">
-</div>
-<div class="title">Figure 2. Undo and redo list on the GUI</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>]</p>
-</li>
-<li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:
-<strong>*</strong></p>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Make a mock release for mid v1.3 to prepare for the real one</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Review and merge various pull requests from team members</p>
+</li>
+<li>
+<p>Help other teams with their UI component</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Enhancements to existing features:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Refactor the Person class&#8217;s attributes (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Refactor the Person class&#8217;s attributes (Pull request <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/35">#35</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Show a list of commands that can be undo or redo on the GUI. (Pull request <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/21">#21</a>)</p>
 </li>
 </ul>
 </div>
 </li>
-<li>
-<p>Documentation:
-<strong>*</strong></p>
-</li>
-<li>
-<p>Community:
-<strong>*</strong></p>
-</li>
-<li>
-<p>Tools:</p>
+</ul>
+</div>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoList.png" alt="UndoRedoList" width="800">
+</div>
+<div class="title">Figure 2. Undo and redo list on the GUI</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Code written</strong>: <a href="https://nuscs2113-ay1819s2.github.io/dashboard-beta/#search=tantantan277&amp;sort=displayName&amp;since=2019-02-10&amp;until=2019-04-11&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">Click here to see what I&#8217;m capable of</a></p>
 </li>
 </ul>
 </div>
@@ -123,6 +148,116 @@ will let the user generate those data quickly and efficiently.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="Stat"><a class="link" href="#Stat">Show camp participants' statistic: <code>stat</code></a></h3>
+<div class="paragraph">
+<p>Show the camp participants' statistic base on age, major and sex in the form of pie charts</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stat</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This command will not work if there are no participant inside the application.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_o n/John Doe s/M b/27071999 p/98765432 e/johnd@example.com m/Information System g/</code><br></p>
+</li>
+<li>
+<p><code>add_o n/Joh Doe s/F b/27071998 p/98765432 e/johnd@example.com m/ceg g/</code><br></p>
+</li>
+<li>
+<p><code>add_o n/John s/M b/27071995 p/98765432 e/johnd@example.com m/Information System g/</code><br></p>
+</li>
+<li>
+<p><code>add_o n/Doe s/M b/27071999 p/98765432 e/johnd@example.com m/cs g/G1</code><br>
+Add some sample data to the application</p>
+</li>
+<li>
+<p><code>stat</code><br>
+The output is shown below:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatCommandExample.png" alt="StatCommandExample" width="800">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Save"><a class="link" href="#Save">Save statistic pie charts to images: <code>save_c</code></a></h3>
+<div class="paragraph">
+<p>Save the pie charts generated by the <code>stat</code> command to image files</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>save_c [FILE NAME]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This command will not work if there are no participant inside the application.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+This command only save the most recently generated charts. Use the <code>stat</code> command before this command to
+avoid outdated or empty charts.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stat</code></p>
+</li>
+<li>
+<p><code>save_c For NUS</code><br>
+Save the charts to image files with the name "For NUS"</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -138,5 +273,117 @@ will let the user generate those data quickly and efficiently.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="statistic-feature"><a class="link" href="#statistic-feature">Statistic feature</a></h3>
+<div class="paragraph">
+<p>The 'stat' command allows FOP Manager users to view the statistic of camp participants regarding their age, major and sex in a graphical manner.
+==== Current Implementation</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 19:08:34 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>The Statistic feature is facilitated by <code>AddressBook</code>. It has three HashMaps, containing the number of each categories in the participants' age, major and sex. These Map are generated after every call of the
+<code>stat</code> command. After command call, these data is loaded into three different pie charts and shown on the UI.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram show hows the 'stat' command works in details :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatisticUpdateSequenceDiagram.png" alt="StatisticUpdateSequenceDiagram" width="800">
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-update-the-data-of-the-addressbook"><a class="link" href="#aspect-how-to-update-the-data-of-the-addressbook">Aspect: How to update the data of the AddressBook</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Use a loop to loop through the <code>UniquePersonList</code> to get the data of everyone</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, guaranteed to get the correct data every time.</p>
+</li>
+<li>
+<p>Cons: Takes longer time and more computational power to get the result. However, since this function is unlikely to be
+used many times and the number of participants in a camp is not too large, the drawbacks is acceptable</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 :</strong> Update charts data after each commands that modify it.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Quick runtime, does not require much changes to the codebase.</p>
+</li>
+<li>
+<p>Cons: We must ensure that the data is updated after each command.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="show-participant-statistic"><a class="link" href="#show-participant-statistic">Show participant statistic</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Show pie charts of participants' age, major and sex</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all participants using the <code>list</code> command. Multiple participants in the list.</p>
+</li>
+<li>
+<p>Test case: <code>stat</code><br>
+Expected: Three pie charts are shown on the GUI with labels for each one.</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>clear</code><br>
+<code>stat</code><br>
+Expected: Error details shown in the status message</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="save-pie-charts-to-image-files"><a class="link" href="#save-pie-charts-to-image-files">Save pie charts to image files</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Show pie charts of participants' age, major and sex</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all participants using the <code>list</code> command. Multiple participants in the list.</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>stat</code><br>
+<code>save_c File Name</code><br>
+Expected: Open chart folder to see three PNG files name "File Name_age", "File Name_major" ,and "File Name_sex"</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>clear</code><br>
+<code>stat</code><br>
+Expected: Error details shown in the status message</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 08:03:13 UTC</div></div></div></body></html>

@@ -904,7 +904,7 @@ The values entered under each respective columns, have to follow the format of t
 <div class="sect2">
 <h3 id="proposed-auto-completion"><a class="link" href="#proposed-auto-completion">[Proposed] Auto-Completion</a></h3>
 <div class="paragraph">
-<p><em>{Coming in: v1.4}</em></p>
+<p><em>{Coming in: v2.0}</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -2588,6 +2588,62 @@ Expected: Group named <code>G1</code> is added on first command. No group is add
 </div>
 </div>
 <div class="sect2">
+<h3 id="show-participant-statistic"><a class="link" href="#show-participant-statistic">Show participant statistic</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Show pie charts of participants' age, major and sex</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all participants using the <code>list</code> command. Multiple participants in the list.</p>
+</li>
+<li>
+<p>Test case: <code>stat</code><br>
+Expected: Three pie charts are shown on the GUI with labels for each one.</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>clear</code><br>
+<code>stat</code><br>
+Expected: Error details shown in the status message</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="save-pie-charts-to-image-files"><a class="link" href="#save-pie-charts-to-image-files">Save pie charts to image files</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Show pie charts of participants' age, major and sex</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all participants using the <code>list</code> command. Multiple participants in the list.</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>stat</code><br>
+<code>save_c File Name</code><br>
+Expected: Open chart folder to see three PNG files name "File Name_age", "File Name_major" ,and "File Name_sex"</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>clear</code><br>
+<code>stat</code><br>
+Expected: Error details shown in the status message</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
 <h3 id="import-feature-2"><a class="link" href="#import-feature-2">Import Feature</a></h3>
 <div class="paragraph">
 <p>Sometimes FOP Project Directors realise they need to add many participants' contacts that they gathered and usually they gather the contacts through sign up links that allow for exportation into Excel spreadsheets. Manually added the large influx of participants is troublesome. Hence, with the Import feature, FOP Project Directors can import the data of Non-duplicate people from an excel file into the FOP Manager. This makes adding of contacts easier.</p>
@@ -2747,7 +2803,7 @@ Expected: Group named <code>G1</code> is added on first command. No group is add
 <div class="sect2">
 <h3 id="proposed-auto-completion-2"><a class="link" href="#proposed-auto-completion-2">[Proposed] Auto-Completion</a></h3>
 <div class="paragraph">
-<p><em>{Coming in: v1.4}</em></p>
+<p><em>{Coming in: v2.0}</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -4430,5 +4486,61 @@ Expected: Group named <code>G1</code> is added on first command. No group is add
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="show-participant-statistic-2"><a class="link" href="#show-participant-statistic-2">Show participant statistic</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Show pie charts of participants' age, major and sex</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all participants using the <code>list</code> command. Multiple participants in the list.</p>
+</li>
+<li>
+<p>Test case: <code>stat</code><br>
+Expected: Three pie charts are shown on the GUI with labels for each one.</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>clear</code><br>
+<code>stat</code><br>
+Expected: Error details shown in the status message</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 19:08:34 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="save-pie-charts-to-image-files-2"><a class="link" href="#save-pie-charts-to-image-files-2">Save pie charts to image files</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Show pie charts of participants' age, major and sex</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all participants using the <code>list</code> command. Multiple participants in the list.</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>stat</code><br>
+<code>save_c File Name</code><br>
+Expected: Open chart folder to see three PNG files name "File Name_age", "File Name_major" ,and "File Name_sex"</p>
+</li>
+<li>
+<p>Test case:<br>
+<code>clear</code><br>
+<code>stat</code><br>
+Expected: Error details shown in the status message</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 08:03:13 UTC</div></div></div></body></html>
