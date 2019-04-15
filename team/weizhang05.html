@@ -5,11 +5,19 @@
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
-<p>Hello! My name is Wei Zhang but you may call me Clyde for short. I&#8217;m currently a second year student in NUS School of Computing, pursuing a Bachelor of Computing in Information Security at the time he is working on this project for a module <strong>Software Engineering &amp; Object-Oriented Programming (CS2113T)</strong>.<br>
+<p>Hello! My name is Wei Zhang but you may call me Clyde for short. I&#8217;m currently a second year student in NUS School
+ of Computing, pursuing a Bachelor of Computing in Information Security.<br>
 <br>
-I held various roles in the development of this project which includes <strong>desiging the application architecture</strong>, <strong>developing core features</strong>, <strong>code integration</strong> and <strong>testing</strong>.<br>
+At the time when this document was created (over a period of Jan 2019 to April 2019),
+ I took <strong>CS2113T (Software Engineering &amp; Object-Oriented Programming)</strong> and <strong>CCS2101 Effective Communication
+  for Computing Professionals</strong>, which requires me to develop a desktop application and write documentations for it
+   as part of the curriculum.<br>
 <br>
-Aside from this project, I&#8217;m also a <strong>Software Engineer</strong> where my main interests are <strong>System Design</strong> and <strong>Software Development</strong>.</p>
+I held various roles in the development of this project which includes <strong>designing the application architecture</strong>,
+ <strong>developing core features</strong>, <strong>code integration</strong> and <strong>testing</strong>.<br>
+<br>
+Aside from this project, I&#8217;m also a self-taught <strong>Cyber Security Practitioner</strong> where my main interests are
+ <strong>Penetration Testing</strong> and <strong>Digital Forensics</strong>.</p>
 </div>
 </div>
 </div>
@@ -18,20 +26,25 @@ Aside from this project, I&#8217;m also a <strong>Software Engineer</strong> whe
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
-<p>The purpose of this document is to showcase the contribution of my work towards this project as part of the context of learning in this module.<br>
+<p>The purpose of this document is to showcase the contribution of my work towards this
+ project as part of the learning in this module.<br>
 <br>
-The outline of this document will be listed as follows, mainly describing the work I have done in both technical and non-technical aspect:</p>
+The outline of this document will be listed as follows, mainly describing the work I have done in both technical
+ and non-technical aspect:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Summary of Contributions</strong>: Describes mainly the technical aspect of work I have contributing in the development of the project. It also includes any other possible contributions I have done that may not be technical.<br></p>
+<p><strong>Summary of Contributions</strong>: Describes mainly the technical aspect of work I have contributing in the development
+of the project. It also includes any other possible contributions I have done that may not be technical.<br></p>
 </li>
 <li>
-<p><strong>Contributions to User Guide</strong>: Showcases my ability in writing a guide for user of the application that was developed for.<br></p>
+<p><strong>Contributions to User Guide</strong>: Showcases my ability in writing a guide for user of
+the application that was developed for.<br></p>
 </li>
 <li>
-<p><strong>Contributions to Developer Guide</strong>: Showcases my ability in writing a guide for developers who may continue to work on the development and maintainance of the application in the future.</p>
+<p><strong>Contributions to Developer Guide</strong>: Showcases my ability in writing a guide for developers who may continue
+to work on the development and maintenance of the application in the future.</p>
 </li>
 </ul>
 </div>
@@ -40,14 +53,18 @@ The outline of this document will be listed as follows, mainly describing the wo
 <div class="sect1">
 <h2 id="project-fop-manager"><a class="link" href="#project-fop-manager">PROJECT: FOP Manager</a></h2>
 <div class="sectionbody">
-
+<hr>
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>FOP Manager is a desktop application for NUS undergraduate students who are Project Directors of Freshmen Orientation Programs to manage both participants and committee members of the program. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC. The development of this application is to teach Principles of Software Engineering.</p>
+<p>FOP Manager is a desktop application developed for NUS undergraduate students who are Project Directors
+ of <strong>Freshmen Orientation Programs</strong> to manage both participants and committee members of the program.
+  The user interacts with it using a CLI, and it has a GUI created with JavaFX.
+   It is written in Java, and has about 10 kLoC. The development of this application is to teach
+    Principles of Software Engineering, which is part of the context of CS2113T.</p>
 </div>
 </div>
 </div>
@@ -55,7 +72,8 @@ The outline of this document will be listed as follows, mainly describing the wo
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This segment showcase my contribution to both the development of the application and the documentation.<br>
+<p>This segment showcase my contribution to both the development of the application and
+ the documentation of the project.<br>
 <br></p>
 </div>
 <div class="ulist">
@@ -81,14 +99,14 @@ The outline of this document will be listed as follows, mainly describing the wo
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Randomize Command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the Project Director to automatically assign all participants to created groups.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The command prevents the Project Director from assigning the participants to the group manually.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The challenge here is to come out with a suitable algorithm which ensure even distribution with sufficient OGLs for all groups.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A command that allows the Project Director to automatically assign all participants to created groups.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This allows the Project Director to automatically assigns all participants to created group at a random distribution without doing it manually.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The challenge here is to come out with a suitable algorithm which ensure even distribution and no possible loop holes (e.g. all OGLs in 1 group).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Redesign current Model and Storage</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Changing the current format of Model and Storage.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Supports the storing of house and groups on top of the current participants.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redesign Model and Storage component</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redesigning the way the application stores and manages data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This enables the storing and managing of house and groups on top of the current participants.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The challenge here is figuring out how is the whole application designed as this modification requires knowing the code base very well.</p></td>
 </tr>
 </tbody>
@@ -116,9 +134,9 @@ The outline of this document will be listed as follows, mainly describing the wo
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Input box is clear after every command execution</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Simulate a Terminal/CMD interface which refreshes the command after every entering of commands.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Improves the user friendliness of using the command line.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The challenge here is to figure out the code for the UI portion and ensuring which part of it is to be placed. This include ensuring the fix works as well.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simulate a Terminal/CMD (i.e. Command line Interface in Windows/Linux) interface which clears the input segment after every entering of commands (i.e. text is cleared when the user hits the 'enter' button).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This improves the user friendliness of using the command line as the target users prefers using CLI (Command line Interface) over GUI (Graphical User Interface).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The challenge here is to figure out the code for the UI component and ensuring which part of it is to be placed. This include ensuring the fix works as well.</p></td>
 </tr>
 </tbody>
 </table>
@@ -159,7 +177,16 @@ The outline of this document will be listed as follows, mainly describing the wo
 <div class="ulist">
 <ul>
 <li>
-<p>Reviewing of codes before officially merging and integrating</p>
+<p>Reviewing most of the codes before officially merging and integrating</p>
+</li>
+<li>
+<p>Setting up of the main project repository (GitHub)</p>
+</li>
+<li>
+<p>Setting up continuous integration technology (TravisCI)</p>
+</li>
+<li>
+<p>Setting up of code contribution analysis tool (RepoSense)</p>
 </li>
 <li>
 <p>Managed release for v1.3 and v1.4 on GitHub</p>
@@ -172,7 +199,7 @@ The outline of this document will be listed as follows, mainly describing the wo
 <div class="ulist">
 <ul>
 <li>
-<p>Updating of both UG and DG (Pull requests <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/3">#3</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/41">#41</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/104">#104</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/105">#105</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/110">#110</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/159/files">#159</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/167/files">#167</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/169/files">#169</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/171">#171</a>)</p>
+<p>Updating of both UG and DG (Pull requests <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/3">#3</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/41">#41</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/104">#104</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/105">#105</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/110">#110</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/159/files">#159</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/167/files">#167</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/169/files">#169</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/171">#171</a>, <a href="https://github.com/CS2113-AY1819S2-T08-4/main/pull/176">#176</a>)</p>
 </li>
 </ul>
 </div>
@@ -216,9 +243,9 @@ Format: <code>randomize</code></p>
 </td>
 <td class="content">
 Command will only work under the following conditions:<br>
-* At least 2 groups created<br>
-* Number of OGLs must be more than number of groups<br>
-* At least 2 participants registered<br>
+- At least 2 groups created<br>
+- Number of OGLs must be more than number of groups<br>
+- At least 2 participants registered<br>
 </td>
 </tr>
 </table>
@@ -286,10 +313,20 @@ Error Output:</p>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>randomize</code> is achieved by coding a sequence of steps to achieve the allocation of groups to participants:
-* Creating list holding specific type of participants (i.e. all OGLs will be stored in a list while freshmen will be stored in another)
-* Shuffles all of the previously created list
-* Assigns all of the participants to a group in order of freshmen, OGLs</p>
+<p>The <code>randomize</code> is achieved by coding a sequence of steps to achieve the allocation of groups to participants:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating list holding specific type of participants (i.e. all OGLs will be stored in a list while freshmen will be stored in another)</p>
+</li>
+<li>
+<p>Shuffles all of the previously created list</p>
+</li>
+<li>
+<p>Assigns all of the participants to a group in order of freshmen, OGLs</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Following is the sequence diagram of the flow of the program when the command is executed:</p>
@@ -297,6 +334,122 @@ Error Output:</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/RandomizeSequenceDiagram.png" alt="RandomizeSequenceDiagram" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The above Sequence Diagram only shows the updating of group details for freshmen (for clarity purposes, refer to the <a href="https://github.com/CS2113-AY1819S2-T08-4/main/blob/master/src/main/java/seedu/address/logic/commands/RandomizeCommand.java">codes</a> for more details).<br>
+<br>
+ The algorithm is applied also to OGLs within the RandomizeCommand class.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="algorithm"><a class="link" href="#algorithm">Algorithm</a></h5>
+<div class="paragraph">
+<p>This segment will show relevant diagrams explaining the algorithm for the shuffling of assignment
+ and cases where the randomization will not happen. The following diagram shows the annotations and symbols
+  that will be used:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RandomizeAlgo1.png" alt="RandomizeAlgo1" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows an example where the Project Director has added sufficient OGLs and freshmen to the system,
+ and created sufficient groups:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RandomizeAlgo2.png" alt="RandomizeAlgo2" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Upon executing the <code>randomize</code> command, the system will first assign the freshmen to the groups first:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RandomizeAlgo3_1.png" alt="RandomizeAlgo3 1" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Followed by assigning the OGLs to the group:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RandomizeAlgo3_2.png" alt="RandomizeAlgo3 2" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The rationale for such assignment is to ensure that the every group has an OGL.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Following diagrams shows the cases where the randomization will not happen and will throws an error message backs to the user.<br></p>
+</div>
+<div class="paragraph">
+<p>Insufficient participants:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RandomizeAlgo4.png" alt="RandomizeAlgo4" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Insufficient OGLs to cover all the groups:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RandomizeAlgo5.png" alt="RandomizeAlgo5" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Insufficient groups:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RandomizeAlgo6.png" alt="RandomizeAlgo6" width="800">
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Engineers are free to modify the algorithm for the random distribution but are advised to consider the corner
+ cases similarly to the ones mentioned above.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -319,20 +472,23 @@ Error Output:</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Programmatically call the <code>edit</code> command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Changing of interface with the model only requires changing the EditCommand and Parser</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tightly coupled with EditCommand and Parser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Programmatically simulate the calling of the <code>edit</code> command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Changing of interface with the Model component only requires changing the EditCommand and Parser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tightly coupled with EditCommand and EditCommandParser</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Interact with ModelManager (current choice)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Modification is obvious and follow guidelines of the architecture of the system and cleaner code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Calls the function that edit the details of the participants by interacting with the Model component (current choice)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation is obvious, follow guidelines of the system architecture and cleaner code base</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Coupled with ModelManager</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Rationale: Choice is made based on design practice. It may seems very intuitive to programmatically call the <code>edit</code> command,
- but it might causes unknown complexity within the system if there is a change in the EditCommand or the parser.</p>
+<p>Rationale: It is to follow the design architecture of the system, allowing it to be consistent with
+ the rest of the codes and cleaner code base. It may seems intuitive for some engineers
+ to programmatically simulate the <code>edit</code> command,
+ but it might causes unknown complexity within the system if there is a change in the dependent classes.<br>
+ <br></p>
 </div>
 </div>
 <div class="sect4">
@@ -352,18 +508,38 @@ Error Output:</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creating lists for OGLs and freshmen and assigning them list by list (current choice)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creating a list fo freshmen and OGLs, then shuffles the list separately (current choice)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ensures all groups will have at least an OGL and balanced distribution amongst the group</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Requires more memory space</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shuffling the list of participant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Saves memory space</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Risk having uneven distribution (e.g. all OGLs in a group)</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Rationale: There is only 1 consideration for this feature due to it&#8217;s complexity, no other alternative has yet been identified.
-Future developers are free to modify the algorithm but must ensure all groups has at least an OGL and freshmen are evenly distributed (with 1 or 2 difference in numbers for freshmen).</p>
+<p>Rationale: The idea of separating freshmen and OGLs is to ensure that every group will have at least 1 type of participant.
+ By shuffling the list of participant containing both freshmen and OGLs, we risk running into a situation where there
+  are groups with no OGLs, which is something that a Project Director does not want. The current choice ensures that
+   all of the OGLs will be distributed evenly into groups similarly to how the freshmen are distributed.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Before the randomization happens, the application ensures that there are sufficient OGLs to cover all of the created
+ groups (i.e. at least 1 OGL per group). Refer to the <a href="https://github.com/CS2113-AY1819S2-T08-4/main/blob/master/src/main/java/seedu/address/logic/commands/RandomizeCommand.java">codes</a> for more details.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 13:14:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:53:27 UTC</div></div></div></body></html>

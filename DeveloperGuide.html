@@ -1351,10 +1351,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">5.5.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>randomize</code> is achieved by coding a sequence of steps to achieve the allocation of groups to participants:
-* Creating list holding specific type of participants (i.e. all OGLs will be stored in a list while freshmen will be stored in another)
-* Shuffles all of the previously created list
-* Assigns all of the participants to a group in order of freshmen, OGLs</p>
+<p>The <code>randomize</code> is achieved by coding a sequence of steps to achieve the allocation of groups to participants:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating list holding specific type of participants (i.e. all OGLs will be stored in a list while freshmen will be stored in another)</p>
+</li>
+<li>
+<p>Shuffles all of the previously created list</p>
+</li>
+<li>
+<p>Assigns all of the participants to a group in order of freshmen, OGLs</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Following is the sequence diagram of the flow of the program when the command is executed:</p>
@@ -1362,6 +1372,122 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="imageblock">
 <div class="content">
 <img src="images/RandomizeSequenceDiagram.png" alt="RandomizeSequenceDiagram" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The above Sequence Diagram only shows the updating of group details for freshmen (for clarity purposes, refer to the <a href="https://github.com/CS2113-AY1819S2-T08-4/main/blob/master/src/main/java/seedu/address/logic/commands/RandomizeCommand.java">codes</a> for more details).<br>
+<br>
+ The algorithm is applied also to OGLs within the RandomizeCommand class.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="algorithm"><a class="link" href="#algorithm">Algorithm</a></h5>
+<div class="paragraph">
+<p>This segment will show relevant diagrams explaining the algorithm for the shuffling of assignment
+ and cases where the randomization will not happen. The following diagram shows the annotations and symbols
+  that will be used:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RandomizeAlgo1.png" alt="RandomizeAlgo1" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows an example where the Project Director has added sufficient OGLs and freshmen to the system,
+ and created sufficient groups:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RandomizeAlgo2.png" alt="RandomizeAlgo2" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Upon executing the <code>randomize</code> command, the system will first assign the freshmen to the groups first:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RandomizeAlgo3_1.png" alt="RandomizeAlgo3 1" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Followed by assigning the OGLs to the group:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RandomizeAlgo3_2.png" alt="RandomizeAlgo3 2" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The rationale for such assignment is to ensure that the every group has an OGL.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Following diagrams shows the cases where the randomization will not happen and will throws an error message backs to the user.<br></p>
+</div>
+<div class="paragraph">
+<p>Insufficient participants:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RandomizeAlgo4.png" alt="RandomizeAlgo4" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Insufficient OGLs to cover all the groups:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RandomizeAlgo5.png" alt="RandomizeAlgo5" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Insufficient groups:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RandomizeAlgo6.png" alt="RandomizeAlgo6" width="800">
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Engineers are free to modify the algorithm for the random distribution but are advised to consider the corner
+ cases similarly to the ones mentioned above.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1384,20 +1510,23 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Programmatically call the <code>edit</code> command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Changing of interface with the model only requires changing the EditCommand and Parser</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tightly coupled with EditCommand and Parser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Programmatically simulate the calling of the <code>edit</code> command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Changing of interface with the Model component only requires changing the EditCommand and Parser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tightly coupled with EditCommand and EditCommandParser</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Interact with ModelManager (current choice)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Modification is obvious and follow guidelines of the architecture of the system and cleaner code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Calls the function that edit the details of the participants by interacting with the Model component (current choice)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation is obvious, follow guidelines of the system architecture and cleaner code base</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Coupled with ModelManager</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Rationale: Choice is made based on design practice. It may seems very intuitive to programmatically call the <code>edit</code> command,
- but it might causes unknown complexity within the system if there is a change in the EditCommand or the parser.</p>
+<p>Rationale: It is to follow the design architecture of the system, allowing it to be consistent with
+ the rest of the codes and cleaner code base. It may seems intuitive for some engineers
+ to programmatically simulate the <code>edit</code> command,
+ but it might causes unknown complexity within the system if there is a change in the dependent classes.<br>
+ <br></p>
 </div>
 </div>
 <div class="sect4">
@@ -1417,15 +1546,35 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creating lists for OGLs and freshmen and assigning them list by list (current choice)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creating a list fo freshmen and OGLs, then shuffles the list separately (current choice)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ensures all groups will have at least an OGL and balanced distribution amongst the group</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Requires more memory space</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shuffling the list of participant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Saves memory space</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Risk having uneven distribution (e.g. all OGLs in a group)</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Rationale: There is only 1 consideration for this feature due to it&#8217;s complexity, no other alternative has yet been identified.
-Future developers are free to modify the algorithm but must ensure all groups has at least an OGL and freshmen are evenly distributed (with 1 or 2 difference in numbers for freshmen).</p>
+<p>Rationale: The idea of separating freshmen and OGLs is to ensure that every group will have at least 1 type of participant.
+ By shuffling the list of participant containing both freshmen and OGLs, we risk running into a situation where there
+  are groups with no OGLs, which is something that a Project Director does not want. The current choice ensures that
+   all of the OGLs will be distributed evenly into groups similarly to how the freshmen are distributed.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Before the randomization happens, the application ensures that there are sufficient OGLs to cover all of the created
+ groups (i.e. at least 1 OGL per group). Refer to the <a href="https://github.com/CS2113-AY1819S2-T08-4/main/blob/master/src/main/java/seedu/address/logic/commands/RandomizeCommand.java">codes</a> for more details.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -3435,4 +3584,4 @@ Expected: Error details shown in the result box.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 13:14:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:53:27 UTC</div></div></div></body></html>
